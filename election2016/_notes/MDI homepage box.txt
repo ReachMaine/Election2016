@@ -1,0 +1,13 @@
+<div class="prl-grid" style="margin-top: 15px; margin-left: 0px; padding: 5px; border: 2px solid red; border-radius: 3px;">
+<div class="prl-span-4" style="padding-left: 0px;"><a href="http://www.reachdowneast.com/elections2016/" target="_blank&quot;"><img class="aligncenter wp-image-146795 size-full" src="https://www.ellsworthamerican.com/wp-content/uploads/sites/4/2016/05/ballot-box16-2.png" alt="" width="280" height="80" /></a></div>
+<div class="prl-span-4">
+<h3 style="text-align: center;">Find your town</h3>
+[advMenu nav_menu=2264 dropdown=true stext="Select Town"]
+
+</div>
+<div class="prl-span-4">
+<h3 style="text-align: center;">Races</h3>
+[advMenu nav_menu=2265 dropdown=true stext="Select Race"]
+
+</div>
+</div>

@@ -1,0 +1,6 @@
+bringing elections results live...
+1.  bring code over to ea site	
+    - electionsIn.php
+	- inc/eai_election_results.php
+	- scss/partials/_electionresults.scss
+	

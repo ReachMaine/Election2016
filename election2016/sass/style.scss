@@ -1,0 +1,55 @@
+/*
+Theme Name: Elections 2014
+Theme URI: http://flatsome.uxthemes.com/
+Description: This is a child theme for Flatsome - 2014 Elections
+Author: Tim Suellentrop
+Author URI: http: //www.reachmaine.com/
+Template: flatsome
+Version: 1.8
+*/
+ 
+@import url("../flatsome/css/foundation.css");
+@import "partials/settings";
+@import "partials/functions"; 
+@import "partials/electionresults";
+ 
+/* =Theme customization starts here */
+.from_the_blog_comments { // hide comments on blog shortcode 
+	display: none;
+	visibility: hidden;
+}
+aside.widget.widget_recent_entries { // give recent entries some breathing room
+	li {
+		padding-bottom: 15px;
+	}
+}
+
+#logo a img {
+  max-height: 200px; }
+
+#logo a {
+
+  padding-top: 4px; }
+
+#top-banner-ad {
+	padding: 10px 0 0 0;
+
+}
+.ad-container { // from broadstreet 
+	span  { display: inline-block; width: 100%; height: auto; }
+	a { 
+		display: inline-block; 
+		width: 100% !important;
+		height: auto !important; 
+	}
+	img { 
+		width: 100%; 
+		height: auto !important; 
+	}
+}
+.eai-right-rail {
+	-webkit-box-shadow: 7px 15px 33px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 7px 15px 33px 0px rgba(0,0,0,0.75);	
+	box-shadow: 7px 15px 33px 0px rgba(0,0,0,0.75);
+	margin-bottom: 35px;
+}

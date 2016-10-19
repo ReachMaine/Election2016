@@ -1,0 +1,27 @@
+Things to consider/work on.
+1.  if nothing counted, show image or show image + blank totals??? (watch div by zero)
+
+2.  Names of races in DB
+           i.e. use 'Legislative District 135' ....and NOT: Representative To The Legislature District 135 (D)
+		   
+3.  escape html characters in names like:  Moira O'Neil a/o Swan's Island
+
+4.  separating out the town info from the spreadsheet - registeredvoters, r_d, r_r, r_g, r_u.  
+
+5.  WISHLIST: widget with DDL to pick race to show summary results (for sidebar)?
+
+6.  multiple races on a page (need Unique ID for javascript, i suspect)
+
+7.  REPORTED Condition check:  if not reported condition  (reported != 1) or if reported (reported == 1)
+
+8.  SQL Escape stuff.
+
+9.  Options on shortcodes:  show title of race?, show image if no results yet?
+
+10. Some races we WONT have all the results.  Cant assume winner (ex.  District 6, most of which is in Washington county.)
+
+11. need a page that has all the towns & if they have reported at all.
+
+12.  For Primary, if contested need different colors for pie charts.
+
+13.  Check ALL conditions for reported!!!!

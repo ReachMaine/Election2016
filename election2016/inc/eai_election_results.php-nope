@@ -1,0 +1,842 @@
+<?php 
+/* election results short codes */
+add_shortcode('electionresultstown', 'electionResults_Town');
+add_shortcode('electionresultsrace', 'electionResults_Race');
+add_shortcode('electionresultsracesum', 'electionResults_RaceSummary');
+add_shortcode('electionresultsimple', 'electionResults_RaceSimple');
+
+/********** RESULTS BY TOWN ************************/
+function electionResults_Town ($atts) {
+/* shortcode to return all the results for a particular town */
+    global $wpdb;
+    $table = "elections2016"; 
+	$a = shortcode_atts( array(
+        'town' => 'something',
+        'primary' => false,
+    ), $atts );
+    $town = $a['town'];
+    $primary = $a['primary'];
+    /* initializations */
+    $htmlreturn = '<div class="eai-results-wrapper"><div class="eai-town"><h4>Elections results for '.$town.".</h4>";
+    $found_votes = false; 
+    // GET THE RACES for the given town
+    $racesquery = 'SELECT  distinct `race`, party, r_d, r_g, r_r, r_u  FROM `'.$table.'` WHERE town="'. $town.'" ORDER BY raceorder';
+    //*echo '<p>RacesQuery: '.$racesquery.'</p>'; // testing
+    $racesresults = $wpdb->get_results($racesquery); 
+    //echo "<pre>";     var_dump($racesresults);      echo "</pre>"; // testing
+    if ($racesresults) {
+        foreach ($racesresults as $race) {
+            if ($primary) {
+                $total_voters = 1; // prevent divid by zero
+                switch ($race->party) {
+                    case "R":
+                         $total_voters = $race->r_r;                    
+                        break;
+                    case "D":
+                        $total_voters = $race->r_d;  
+                        break;
+ 
+                    case "G":
+                        $total_voters = $race->r_g;  
+                        break;
+                    case "U":
+                        $total_voters = $race->r_u;  
+                        break;
+                }   
+                //echo "<p>Primary for _".$indrace->party."_</p>";
+            } else {
+                 $total_voters = $race->r_d + $race->r_g + $race->r_r + $race->r_u;
+                //echo "<p>Election</p>";
+            }
+           
+            //echo '<p> Race:'.$race->race.' Reg. voters:'.$total_voters.'</p>'; // testing
+            $indracequery = 'SELECT DISTINCT candidate, party, votes, town, reported FROM '.$table.' WHERE town = "'.$town.'" AND race="'.$race->race.'"';
+            //echo '<p>'.$indracequery.'</p>'; // testing
+            $indraceresults = $wpdb->get_results($indracequery); 
+
+            if ($indraceresults) {
+                //$htmlreturn .= '<h4>'.$race->race.'</h4>';
+                $htmlreturn .= '<table class="eai-results eai-results-town"><tr class="eai-results-headerrow"><th class="eai-results-header">'.$race->race.'</th><th class="eai-result-votes">Votes</th></tr>';
+                $count_voted = 0;
+                $num_candidates = 0;
+                foreach ($indraceresults as $indrace) {
+                    if ($indrace->reported) {
+                        $found_votes = true;                       
+                        $count_voted += $indrace->votes;
+                    }
+                    $num_candidates++;
+                    // count number of candidates;
+                }
+                foreach ($indraceresults as $indrace) {
+                    if ($indrace->party) {
+                        $party_string = ' (<span class="party-'.$indrace->party.'">'.$indrace->party.'</span>) ';
+                    } else {
+                        $party_string = '';
+                    }
+                    if ($indrace->reported) {
+                        //$found_votes = true;
+                        if (($count_voted > 0) && ($num_candidates > 1)) {
+                            $htmlreturn .= '<tr><td>'.$indrace->candidate.$party_string.'</td><td class="eai-result-votes">'.number_format_i18n($indrace->votes).' ( '.round(($indrace->votes/$count_voted)*100).'% )</td></tr>';                            
+                        } else {
+                            $htmlreturn .= '<tr><td>'.$indrace->candidate.$party_string.'</td><td class="eai-result-votes">'.number_format_i18n($indrace->votes).'</td></tr>';                            
+                        }
+                        
+                        //$count_voted += $indrace->votes;
+                    } else {
+                        $htmlreturn .= '<tr><td>'.$indrace->candidate.$party_string.'</td><td>not yet available</td></tr>';
+                    }
+                }
+                $htmlreturn .= '</table>';
+                //$htmlreturn .= "totalvoters:  $total_voters";
+                if ($count_voted && $total_voters) {
+                    $htmlreturn .= '<p> Voter participation: '.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters).' : '.round(($count_voted/$total_voters)*100).'%</p>';
+                    $htmlreturn .= '<h6 class="eai-results-unofficial">All results are unofficial.</h6>';
+                }
+               
+            }
+        }
+    } else {
+        $htmlreturn .="<p>No results</p>";
+    }
+    $htmlreturn .="</div></div>"; // end of shortcode 
+    return $htmlreturn;
+} /* end of electionresultstown */
+/********** END OF RESULTS BY TOWN *****************/
+
+/********** RESULTS BY RACE ************************/
+function electionResults_Race ($atts) {
+    /* short code function to display election results by Race.  Ex:  Governor's race */
+    global $wpdb;
+    $table = "elections2016"; 
+	$a = shortcode_atts( array(
+        'race' => '',
+        'unvoted' => true, // by default show the unvoted 
+        'primary' => true,
+    ), $atts );
+
+    // initializations
+    $primary = $a['primary'];
+    $race = $a['race'];
+    if ($a['unvoted'] ) {
+        $show_unvoted = true;
+    } else {
+        $show_unvoted = false;
+    }
+    $count_precinct_reporting = 0;
+    $count_precincts = 0;
+    $count_voted = 0;
+    $total_voters = 0;
+    $found_votes = false;
+    $all_reported = false;
+    $jsreturn = "";
+    $count_unreported = 0;
+    $count_unreported_d = 0;
+    $count_unreported_r = 0;
+    $count_unreported_g = 0;
+    $count_unreported_u = 0;
+    $arry_names = array();
+    $arry_votes = array();
+    $arry_gdata = array();
+    /* get the candidates in the race */ 
+    $candquery = 'SELECT  distinct `candidate`, party FROM `'. $table.'` WHERE race="'. $race.'"';
+    $candresult = $wpdb->get_results($candquery); 
+    //var_dump($candresult);
+
+    if ($candresult) {
+        $racequery = 'SELECT distinct town, reported, party, r_d, r_g, r_r, r_u ';
+        $c=0;
+        $sums = array();
+        foreach ($candresult as $cand) {
+            $c++;
+            $ctabname = (string)$c;
+            $ctabname = 'c'.$ctabname;
+            $candidate_name = $cand->candidate;
+            $sums[$candidate_name] = 0; 
+            //echo "ctabname = ". $ctabname;
+            //echo "<p>".$candidate_name."</p>";
+            $racequery .= ', (select votes FROM `'.$table.'` '. $ctabname.' WHERE '.$ctabname.'.race="'.$race.'" AND '.$ctabname.'.candidate = "'.$candidate_name .'" and '.$ctabname.'.town = $cand->town) `'.$candidate_name.'` ';
+        }
+        $num_candidates = $c;
+        $racequery .= ' FROM `'.$table.'` base ';
+        $racequery .= ' WHERE base.race="'.$race.'"';
+        $racequery .= ' ORDER BY reported DESC, base.precinct';
+        //echo "<p>-- Race Query -- <br>";// for testing
+//echo $racequery;  echo "</br></hr>";// for testing
+        //echo "</p>";// for testing
+        $raceresults = $wpdb->get_results($racequery);
+//var_dump($raceresults); // for testing
+
+        /* loop thought calc the sums & totals */
+        foreach ($raceresults as $raceresult) {
+            //$htmlreturn .= "<tr>";
+            //$htmlreturn .= "<td>".$raceresult->precinct."</td>";
+            if ($raceresult->reported) {
+                $found_votes = true;
+                $count_precinct_reporting++;
+                for ($i=0; $i< $num_candidates; $i++) {
+                    $candidate_name = $candresult[$i]->candidate;
+                    $race_amount = $raceresult->$candidate_name;
+                    $sums[$candidate_name ] = $sums[$candidate_name] + $race_amount;
+                    $count_voted += $race_amount;
+                }
+            } else {
+                //$count_unreported += $raceresult->registeredvoters;
+                $count_unreported_d += $raceresult->r_d;
+                $count_unreported_r += $raceresult->r_r;
+                $count_unreported_g += $raceresult->r_g;
+                $count_unreported_u += $raceresult->r_u;
+            }
+            $registeredvoters = $raceresult->r_d + $raceresult->r_r + $raceresult->r_g + $raceresult->r_u;
+            $total_voters += $registeredvoters;        
+            $count_precincts++;
+        }
+        // more calcs once all counted.
+    //$found_votes = true;
+        if ($found_votes) {
+            if ($count_unreported > 0) {
+                $pct_unreported_r = round(($count_unreported_r / $count_unreported)*100,1);
+                $pct_unreported_d = round(($count_unreported_d / $count_unreported)*100, 1);
+                $pct_unreported_g = round(($count_unreported_g / $count_unreported)*100, 1);
+                $pct_unreported_u = round(($count_unreported_u / $count_unreported)*100, 1);
+            } else {
+                $all_reported = true;                
+            }
+            // build the data for the pie chart(s)
+            $str_voterdata = "[['Unreported', 'Voters']";
+            $str_voterdata .= ",['Republican',".$count_unreported_r."]";
+            $str_voterdata .= ",['Democrat',".$count_unreported_d."]";
+            $str_voterdata .= ",['Green',".$count_unreported_g."]";
+            $str_voterdata .= ",['Independent',".$count_unreported_u."]";
+            $str_voterdata .= "]";
+            $str_votercolors = "colors:['#D33', '#1E73BE', '#4B874F', 'grey']";
+            $str_piedata = "[['Candidate', 'Votes']";
+            $str_colors = "";
+            for ($i=0; $i< $num_candidates; $i++) {
+               // if ($i > 0 ) { $str_piedata .= ","; } 
+                $candidate_name = $candresult[$i]->candidate;
+
+                $str_piedata .= ",['". $candresult[$i]->candidate."', ".$sums[$candidate_name]."]";
+                switch ($candidate_name) {
+                 case 'Yes':
+                        $str_colors .= ",'#4B874F'"; // a nice green
+                        break;
+                    case 'No':
+                        $str_colors .= ",'grey'";
+                        break;
+                }
+                switch ($candresult[$i]->party) {
+                    case 'R':
+                        $str_colors .= ",'#D33'";
+                        break; 
+                    case 'D':
+                        $str_colors .= ",'#1E73BE'"; // a nice blue
+                        break;
+                    case 'G':
+                        $str_colors .= ",'green'";
+                        break;
+                    case 'U':
+                        $str_colors .= ",'purple'";
+                        break;
+                    case 'I':
+                        $str_colors .= ",'grey'";
+                        break;
+                   
+                }
+             
+            }
+            if ($str_colors <> "") {
+                $str_colors = ',colors :['.substr($str_colors,1).']';
+            }
+            $str_piedata .= "]";
+        } else { echo "No votes found?";}
+
+        /* ********** build the display **************/
+
+        $htmlreturn = '<div class="eai-resultsrace-wrapper">';
+        //$htmlreturn .= '<h4 class="eia-race-title" >'.$race.'</h4>';
+        $htmlreturn .= "<!--open wrapper-->";
+//$found_votes = false;
+        if ($raceresults) {
+            $htmlreturn .= '<div class="eai-racesum">';
+            $htmlreturn .= "<!--open racesum-->";
+            // in racesum: 1st the piechart
+            if ($found_votes) {
+                $htmlreturn .= '<div class="eai-race-vote-pie"><h5>Votes</h5>';
+                $htmlreturn .= '<div id="racedisplay" class ="eai-race-grx"></div>';
+                $htmlreturn .= '</div>';
+            } 
+            // in racesum: was 2nd- display some of the totals & counts 
+           /*  $htmlreturn .= '<div class="vote-count">';
+            $htmlreturn .= "<h3>Vote Count</h3>";
+            $htmlreturn .= '<ul class="eai-results-sum">';
+            for ($i=0; $i< $num_candidates; $i++) {
+                $candidate_name = $candresult[$i]->candidate;
+                $arry_names[] = $candidate_name;
+                
+                if ($candresult[$i]->party) {
+                        //$party_string = ' ('.$candresult[$i]->party.') ';
+                        $party_string = ' (<span class="party-'.$candresult[$i]->party.'">'.$candresult[$i]->party.'</span>) ';
+                    } else {
+                        $party_string = '';
+                }
+                $htmlreturn .= "<li>". $candidate_name.$party_string;
+                if ($found_votes) {
+                    $htmlreturn .= ' : '.number_format_i18n($sums[$candidate_name]).' - '.round(($sums[$candidate_name]/$count_voted)*100) .'%'; 
+                    $arry_votes[] = $sums[$candidate_name];
+                }
+                $htmlreturn .= "</li>";
+            }
+            $htmlreturn .= '</ul>';
+            $htmlreturn .= '</div>';
+            */ 
+            // in racesum: 2nd  - display precincts reporting 
+            if ($found_votes) {
+                $htmlreturn .= '<div class="eai-precincts-reporting" >';
+                $htmlreturn .= '<h3 class="eai-precincts-precent">'.round(($count_precinct_reporting/$count_precincts)*100).'%</h3><h3 class="eai-precincts-title">Precincts</br>reporting</h3>';
+                //$htmlreturn .= "<p>".$count_precinct_reporting.' of '.$count_precincts.' Precincts reporting:</p>';
+                //$htmlreturn .= '<p>'.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters).' voters. Participation: '.round(($count_voted/$total_voters)*100).'%</p>';
+                $htmlreturn .="</div>";
+            }
+             // in racesum: 3nd  - display voter participation
+            if ($found_votes && $all_reported) {
+                $htmlreturn .= '<div class="eai-voter-partcip" >';
+                $htmlreturn .= '<h3 class="eai-voter-precent">'.round(($count_voted/$total_voters)*100).'%</h3><h3 class="eai-voter-title">Voter</br>Participation</h3>';
+                //$htmlreturn .= "<p>".$count_precinct_reporting.' of '.$count_precincts.' Precincts reporting:</p>';
+                //$htmlreturn .= '<p>'.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters).' voters. Participation: '.round(($count_voted/$total_voters)*100).'%</p>';
+                /* $count_voted = 0;
+                $total_voters = 0; */
+                $htmlreturn .="</div>";
+            }
+
+
+            // in racesum: 4th - piechart of remaining voters affiliates 
+            /* if ($found_votes && $show_unvoted) { // 
+                $htmlreturn .= '<div class="eai-unvoted"><h5>Profile of unreported precincts</h3>';
+                $htmlreturn .= '<div id="eai-unvoted-affl" class="eai-voter-grx"></div>';
+                $htmlreturn .= '</div>';
+            } */
+            $htmlreturn .= '</div>'; // end of race-ssum
+            $htmlreturn .=" <!-- end  of race sum -->";
+            if ($found_votes)    {
+
+                // now the table of all the results 
+                $htmlreturn .= '<table class="eai-results-race-details">';
+                // put totals at top of table as well as bottom
+                $htmlreturn .= '<tr class="eai-results-totalrow"><td>Totals</td>';
+                for ($i=0; $i< $num_candidates; $i++) {
+                    $candidate_name = $candresult[$i]->candidate;
+                    $htmlreturn .= '<td class="eia-result-totals">'.number_format_i18n($sums[$candidate_name])."</td>"; // $sumresult->
+                }
+                $htmlreturn .= "</tr>";
+
+                $htmlreturn .= '<tr class="eai-results-headerrow"><th>Town</th>';
+                foreach ($candresult as $cand) {
+                   if ($cand->party) {
+                            //$party_string = ' ('.$cand->party.') ';
+                            $party_string = ' (<span class="party-'.$cand->party.'">'.$cand->party.'</span>) ';
+                        } else {
+                            $party_string = '';
+                    } 
+                   $htmlreturn .= '<th class="eai-result-votes">'.$cand->candidate.$party_string.'</th>';
+                }
+                $htmlreturn .= "</tr>";
+                
+                //
+                foreach ($raceresults as $raceresult) {
+                    $htmlreturn .= "<tr>";
+                    $htmlreturn .= "<td>".$raceresult->precinct.'</td>';
+
+                    for ($i=0; $i< $num_candidates; $i++) {
+                        $candidate_name = $candresult[$i]->candidate;
+                        if ($raceresult->reported) {
+                            $race_amount = $raceresult->$candidate_name; // name of column is candidates name.
+                            $race_amount_str = number_format_i18n($race_amount);
+                        } else {
+                            $race_amount_str = 'Not yet reported.';
+                        }
+                        //$sums[$candidate_name ] = $sums[$candidate_name] + $race_amount;
+                        $htmlreturn .= '<td class="eai-result-votes">'.$race_amount_str."</td>";
+                    }
+                    $htmlreturn .= "</tr>";
+                }
+
+                // put the sums at the bottom of the table 
+           
+                $htmlreturn .= '<tr class="eai-results-totalrow"><td>Totals</td>';
+                for ($i=0; $i< $num_candidates; $i++) {
+                    $candidate_name = $candresult[$i]->candidate;
+                    $htmlreturn .= '<td class="eia-result-totals">'.number_format_i18n($sums[$candidate_name])."</td>"; // $sumresult->
+                }
+                $htmlreturn .= "</tr>";
+                $htmlreturn .= "<tr><th>Town</th>";
+                foreach ($candresult as $cand) {
+                    if ($cand->party) {
+                            $party_string = ' (<span class="party-'.$cand->party.'">'.$cand->party.'</span>) ';
+                        } else {
+                            $party_string = '';
+                    } 
+                   $htmlreturn .= '<th class="eai-result-votes">'.$cand->candidate.$party_string.'</th>';
+                }
+                $htmlreturn .= "</tr>";
+                $htmlreturn .="</table>";
+                /* $htmlreturn .= '<p>Total unreported:'.number_format_i18n($count_unreported);
+                $htmlreturn .= ' d:'.number_format_i18n($count_unreported_d).', ';
+                $htmlreturn .= ' r:'.number_format_i18n($count_unreported_r).', ';
+                $htmlreturn .= ' u:'.number_format_i18n($count_unreported_u).', ';
+                $htmlreturn .= ' g:'.number_format_i18n($count_unreported_g);
+                $htmlreturn .= '</p>'; */
+                $htmlreturn .= '<h6 class="eai-results-unofficial">All results are unofficial.</h6>';
+
+                /* now for the javascript to build the graphics */
+                $raceorder = "";
+                $chart_areaoption =  ",chartArea:{'width': '90%','height': '90%'}";
+                $chart_options = "{title:'".$race."'".$str_colors.$chart_areaoption."}"; // ,chartArea:{'width':'50%', height:'50%'}
+                $voter_options = "{title:'Profile of unreturned precincts',".$str_votercolors.$chart_areaoption."}";          
+                $jsreturn = "<script>";
+                $jsreturn .= "google.setOnLoadCallback(drawChart);";
+                $jsreturn .= "function drawChart(){";
+                $jsreturn .= 'var data = google.visualization.arrayToDataTable('.$str_piedata.');';
+                $jsreturn .= "var chart = new google.visualization.PieChart(document.getElementById('racedisplay'));"; 
+                $jsreturn .= "var options = ".$chart_options.";";
+                $jsreturn .= "chart.draw(data,options);";
+                if (!$all_reported && $show_unvoted) {
+                    $jsreturn .= "var vdata = google.visualization.arrayToDataTable(".$str_voterdata.");";
+                    $jsreturn .= "var vchart = new google.visualization.PieChart(document.getElementById('eai-unvoted-affl'));"; 
+                    $jsreturn .= "var voptions = ".$voter_options.";";
+                    $jsreturn .= "vchart.draw(vdata,voptions);";
+                }
+                
+                $jsreturn .="} </script>";
+            } else {
+                // no votes yet.
+                // $htmlreturn .= '<p class="eai-checkback">Polls close at 8 p.m. Check back then for results as they come in.</p>';
+                $htmlreturn .= '<img src="http://www.reachdowneast.com/elections-2014/wp-content/themes/ea-local1/images/election_announcement_bar_tuesday.jpg">';
+            }             
+        } else {
+            $htmlreturn .= "<p>No results.</p>";
+            //var_dump($raceresults);
+            //echo $racequery;
+        }
+
+    } else {
+        $htmlreturn .= "<p>No Candidates for ".$race."</p>";
+    }
+    $htmlreturn .="</div>"; // end of wrapper & ident div
+    $htmlreturn .= "<!-- end of wrapper -->";
+    return $htmlreturn.$jsreturn;
+}
+/********** END OF RESULTS BY RACE *****************/
+
+/********** RACE SUMMARY **********************/
+function electionResults_RaceSummary ($atts) {
+    /* short code function to display Summary of election results by Race.  Ex:  Governor's race */
+    global $wpdb;
+    $table = "elections2016"; 
+    $a = shortcode_atts( array(
+        'race' => '',
+        'link' => '',
+    ), $atts );
+
+    // initializations
+    $race = $a['race'];
+    $link = $a['link'];
+
+    $count_precinct_reporting = 0;
+    $count_precincts = 0;
+    $count_voted = 0;
+    $total_voters = 0;
+    $found_votes = false;
+    $count_unreported = 0;
+    $count_unreported_d = 0;
+    $count_unreported_r = 0;
+    $count_unreported_g = 0;
+    $count_unreported_u = 0;
+    $pct_unreported_d = 0;
+    $pct_unreported_r = 0;
+    $pct_unreported_g = 0;
+    $pct_unreported_u = 0;
+    $jsreturn = "";
+
+    /* get the candidates in the race */ 
+    $candquery = 'SELECT  distinct `candidate`, party, raceorder FROM `'. $table.'` WHERE race="'. $race.'"';
+    $candresult = $wpdb->get_results($candquery); 
+ 
+    //var_dump($candresult);
+
+    if ($candresult) {
+        $racequery = 'SELECT distinct base.precinct, reported, r_d, r_g, r_r, r_u ';
+        $c=0;
+        $sums = array();
+        foreach ($candresult as $cand) {
+            $raceorder = $cand->raceorder;
+            $c++;
+            $ctabname = (string)$c;
+            $ctabname = 'c'.$ctabname;
+            $candidate_name = $cand->candidate;
+            $sums[$candidate_name] = 0; 
+            //echo "ctabname = ". $ctabname;
+            //echo "<p>".$candidate_name."</p>";
+            $racequery .= ', (select votes FROM `'.$table.'` '. $ctabname.' WHERE '.$ctabname.'.race="'.$race.'" AND '.$ctabname.'.candidate = "'.$candidate_name .'" and '.$ctabname.'.precinct = base.precinct) `'.$candidate_name.'` ';
+        }
+        $num_candidates = $c;
+        $racequery .= ' FROM `'.$table.'` base ';
+        $racequery .= ' WHERE base.race="'.$race.'"';
+        $racequery .= ' ORDER BY base.precinct';
+        //echo "<p>".$racequery."</p>";  // for testing
+        //echo "<p>----</p>";// for testing
+        $raceresults = $wpdb->get_results($racequery);
+        //var_dump($raceresults);
+
+        /* loop thought calc the sums & totals */
+        foreach ($raceresults as $raceresult) {
+            //$htmlreturn .= "<tr>";
+            //$htmlreturn .= "<td>".$raceresult->precinct."</td>";
+            if ($raceresult->reported) {
+                $count_precinct_reporting++;
+                $found_votes = true;
+                for ($i=0; $i< $num_candidates; $i++) {
+                    $candidate_name = $candresult[$i]->candidate;
+                    $race_amount = $raceresult->$candidate_name;
+                    $sums[$candidate_name ] = $sums[$candidate_name] + $race_amount;
+                    $count_voted += $race_amount;
+                }
+            } else { 
+                $count_unreported += $raceresult->r_d + $raceresult->r_r + $raceresult->r_g + $raceresult->r_u;
+                $count_unreported_d += $raceresult->r_d;
+                $count_unreported_r += $raceresult->r_r;
+                $count_unreported_g += $raceresult->r_g;
+                $count_unreported_u += $raceresult->r_u;
+            }
+            $total_voters += $raceresult->r_d + $raceresult->r_r + $raceresult->r_g + $raceresult->r_u;         
+            $count_precincts++;
+            
+        }
+        // more calcs once all counted.
+        if ($found_votes) {
+            if ($count_unreported > 0) {
+                $pct_unreported_r = round(($count_unreported_r / $count_unreported)*100,1);
+                $pct_unreported_d = round(($count_unreported_d / $count_unreported)*100, 1);
+                $pct_unreported_g = round(($count_unreported_g / $count_unreported)*100, 1);
+                $pct_unreported_u = round(($count_unreported_u / $count_unreported)*100, 1);
+            }
+            // build the data for the pie chart.
+            $str_piedata = "[['Candidate', 'Votes']";
+            $str_colors = "";
+            for ($i=0; $i< $num_candidates; $i++) {
+               // if ($i > 0 ) { $str_piedata .= ","; } 
+                $candidate_name = $candresult[$i]->candidate;
+
+                $str_piedata .= ",['". $candresult[$i]->candidate."', ".$sums[$candidate_name]."]";
+                switch ($candidate_name) {
+                 case 'Yes':
+                        $str_colors .= ",'#4B874F'"; // a nice green
+                        break;
+                    case 'No':
+                        $str_colors .= ",'grey'";
+                        break;
+                }
+                switch ($candresult[$i]->party) {
+                    case 'R':
+                        $str_colors .= ",'#D33'";
+                        break; 
+                    case 'D':
+                        $str_colors .= ",'#1E73BE'"; // a nice blue
+                        break;
+                    case 'G':
+                        $str_colors .= ",'green'";
+                        break;
+                    case 'U':
+                        $str_colors .= ",'purple'";
+                        break;
+                    case 'I':
+                        $str_colors .= ",'grey'";
+                        break;
+                   
+                }
+             
+            }
+            if ($str_colors <> "") {
+                $str_colors = ',colors :['.substr($str_colors,1).']';
+            }
+            $str_piedata .= "]";
+        }
+
+        /* ********** start building html ************ */
+
+        $htmlreturn = '<div class="eai-resultsum-wrapper">';
+        if ($found_votes) {
+             $htmlreturn .= '<div id="piechart'.$raceorder.'" class="eai-racesummary-grx"></div>'; // place to put the graphics/visuals
+        }
+      
+        $htmlreturn .= '<div class="eai-racesummary"><h4>';
+        $title = 'Elections results: '.$race;
+        if ($link) {
+            $htmlreturn .= '<a href="'.$link.'">'.$title.'</a>';
+        } else {
+              $htmlreturn .= $title;
+        }
+        $htmlreturn .= '</h4>';
+       
+        /* display the results */
+        if ($raceresults) {
+            // first some of the totals & counts 
+            $htmlreturn .= '<ul class="eai-results-sum">';
+            for ($i=0; $i< $num_candidates; $i++) {
+                $candidate_name = $candresult[$i]->candidate;
+                if ($candresult[$i]->party) {
+                        $party_string = ' (<span class="party-'.$candresult[$i]->party.'">'.$candresult[$i]->party.'</span>) ';
+                    } else {
+                        $party_string = '';
+                }
+                $htmlreturn .= "<li>". $candidate_name.$party_string;
+                if ($found_votes) {
+                    $htmlreturn .= ': '.number_format_i18n($sums[$candidate_name]);
+                }
+                $htmlreturn .='</li>';  
+            }
+            $htmlreturn .= '</ul>';
+            if ($found_votes) {
+                $htmlreturn .= "<p>".$count_precinct_reporting.' of '.$count_precincts.' Precincts reporting: '.round(($count_precinct_reporting/$count_precincts)*100).'%</p>';
+                $htmlreturn .= '<p>'.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters).' voters. Participation: '.round(($count_voted/$total_voters)*100).'%</p>';
+                $htmlreturn .= '<script>var piedata'.$raceorder.' = google.visualization.arrayToDataTable('.$str_piedata.');</script>';
+                /* $htmlreturn .= '<p>Total unreported:'.number_format_i18n($count_unreported);
+                $htmlreturn .= ' d:'.number_format_i18n($count_unreported_d).'('.$pct_unreported_d.'%), ';
+                $htmlreturn .= ' r:'.number_format_i18n($count_unreported_r).'('.$pct_unreported_r.'%), ';
+                $htmlreturn .= ' u:'.number_format_i18n($count_unreported_u).'('.$pct_unreported_u.'%), ';
+                $htmlreturn .= ' g:'.number_format_i18n($count_unreported_g).'('.$pct_unreported_g.'%) ';
+                $htmlreturn .= '</p>';  */
+                 if ($link) {
+                    $htmlreturn .= '<p> Click <a href="'.$link.'"> here for more details</a>.</p>';
+                }
+                $htmlreturn .= '<h6 class="eai-results-unofficial">All results are unofficial.</h6>';
+                /* now build the js for the graphics */
+                $chart_options = "{title:'".$race."'".$str_colors."}"; // ,chartArea:{'width':'50%', height:'50%'}
+                $jsreturn = "<script>";
+                $jsreturn .= "google.setOnLoadCallback(drawChart".$raceorder.");";
+                $jsreturn .= "function drawChart".$raceorder.'(){';
+                $jsreturn .= 'var data = google.visualization.arrayToDataTable('.$str_piedata.');';
+                $jsreturn .= "var chart = new google.visualization.PieChart(document.getElementById('piechart".$raceorder."'));"; 
+                /* $jsreturn .= "var chart = new google.visualization.BarChart(document.getElementById('piechart".$raceorder."'));"; */
+                $jsreturn .= "var options = ".$chart_options.";";
+                $jsreturn .= "chart.draw(data,options);";
+                $jsreturn .="} </script>";
+
+            } else {
+                 $htmlreturn .= '<p class="eai-checkback">Polls close at 8 p.m. Check back then for results as they come in.</p>';
+            }
+           
+        } else {
+            $htmlreturn .= "<p>No results</p>";
+        }
+
+    } else {
+        $htmlreturn .= "<p>No Candidates for ".$race.".</p>";
+    }
+    $htmlreturn .="</div></div>"; // end of wrapper & identifying div.
+    return $htmlreturn.$jsreturn;
+}
+/********** END OF RESULTS RACE SUMMARY *****************/
+/**** electionResults_RaceSimple *****/
+/********** RACE SIMPLE  **********************/
+function electionResults_RaceSimple ($atts) {
+    /* short code function to display Summary of election results by Race.  Ex:  Governor's race */
+    global $wpdb;
+    $table = "elections2016"; 
+    $a = shortcode_atts( array(
+        'race' => '',
+        'link' => '',
+    ), $atts );
+
+    // initializations
+    $race = $a['race'];
+    $link = $a['link'];
+
+    $count_precinct_reporting = 0;
+    $count_precincts = 0;
+    $count_voted = 0;
+    $total_voters = 0;
+    $found_votes = false;
+    $count_unreported = 0;
+    $count_unreported_d = 0;
+    $count_unreported_r = 0;
+    $count_unreported_g = 0;
+    $count_unreported_u = 0;
+    $pct_unreported_d = 0;
+    $pct_unreported_r = 0;
+    $pct_unreported_g = 0;
+    $pct_unreported_u = 0;
+    $jsreturn = "";
+
+    /* get the candidates in the race */ 
+    $candquery = 'SELECT  distinct `candidate`, party, raceorder FROM `'. $table.'` WHERE race="'. $race.'"';
+    $candresult = $wpdb->get_results($candquery); 
+ 
+    //var_dump($candresult);
+
+    if ($candresult) {
+        $racequery = 'SELECT distinct base.precinct, reported, r_d, r_g, r_r, r_u ';
+        $c=0;
+        $sums = array();
+        foreach ($candresult as $cand) {
+            $raceorder = $cand->raceorder;
+            $c++;
+            $ctabname = (string)$c;
+            $ctabname = 'c'.$ctabname;
+            $candidate_name = $cand->candidate;
+            $sums[$candidate_name] = 0; 
+            //echo "ctabname = ". $ctabname;
+            //echo "<p>".$candidate_name."</p>";
+            $racequery .= ', (select votes FROM `'.$table.'` '. $ctabname.' WHERE '.$ctabname.'.race="'.$race.'" AND '.$ctabname.'.candidate = "'.$candidate_name .'" and '.$ctabname.'.precinct = base.precinct) `'.$candidate_name.'` ';
+        }
+        $num_candidates = $c;
+        $racequery .= ' FROM `'.$table.'` base ';
+        $racequery .= ' WHERE base.race="'.$race.'"';
+        $racequery .= ' ORDER BY base.precinct';
+        //echo "<p>".$racequery."</p>";  // for testing
+        //echo "<p>----</p>";// for testing
+        $raceresults = $wpdb->get_results($racequery);
+        //var_dump($raceresults);
+
+        /* loop thought calc the sums & totals */
+        foreach ($raceresults as $raceresult) {
+            //$htmlreturn .= "<tr>";
+            //$htmlreturn .= "<td>".$raceresult->precinct."</td>";
+            if ($raceresult->reported) {
+                $count_precinct_reporting++;
+                $found_votes = true;
+                for ($i=0; $i< $num_candidates; $i++) {
+                    $candidate_name = $candresult[$i]->candidate;
+                    $race_amount = $raceresult->$candidate_name;
+                    $sums[$candidate_name ] = $sums[$candidate_name] + $race_amount;
+                    $count_voted += $race_amount;
+                }
+            } else {
+                $count_unreported += $raceresult->r_d + $raceresult->r_r + $raceresult->r_g + $raceresult->r_u;
+                $count_unreported_d += $raceresult->r_d;
+                $count_unreported_r += $raceresult->r_r;
+                $count_unreported_g += $raceresult->r_g;
+                $count_unreported_u += $raceresult->r_u;
+            }
+            $total_voters += $raceresult->r_d + $raceresult->r_r + $raceresult->r_g + $raceresult->r_u;;         
+            $count_precincts++;
+            
+        }
+        // more calcs once all counted.
+        if ($found_votes) {
+            if ($count_unreported > 0) {
+                $pct_unreported_r = round(($count_unreported_r / $count_unreported)*100,1);
+                $pct_unreported_d = round(($count_unreported_d / $count_unreported)*100, 1);
+                $pct_unreported_g = round(($count_unreported_g / $count_unreported)*100, 1);
+                $pct_unreported_u = round(($count_unreported_u / $count_unreported)*100, 1);
+            }
+            // build the data for the pie chart.
+            $str_piedata = "[['Candidate', 'Votes']";
+            $str_colors = "";
+            for ($i=0; $i< $num_candidates; $i++) {
+               // if ($i > 0 ) { $str_piedata .= ","; } 
+                $candidate_name = $candresult[$i]->candidate;
+
+                $str_piedata .= ",['". $candresult[$i]->candidate."', ".$sums[$candidate_name]."]";
+                switch ($candidate_name) {
+                 case 'Yes':
+                        $str_colors .= ",'#4B874F'"; // a nice green
+                        break;
+                    case 'No':
+                        $str_colors .= ",'grey'";
+                        break;
+                }
+                switch ($candresult[$i]->party) {
+                    case 'R':
+                        $str_colors .= ",'#D33'";
+                        break; 
+                    case 'D':
+                        $str_colors .= ",'#1E73BE'"; // a nice blue
+                        break;
+                    case 'G':
+                        $str_colors .= ",'green'";
+                        break;
+                    case 'U':
+                        $str_colors .= ",'purple'";
+                        break;
+                    case 'I':
+                        $str_colors .= ",'grey'";
+                        break;
+                   
+                }
+             
+            }
+            if ($str_colors <> "") {
+                $str_colors = ',colors :['.substr($str_colors,1).']';
+            }
+            $str_piedata .= "]";
+        }
+
+        /* ********** start building html ************ */
+
+        $htmlreturn = '<div class="eai-resultsimple-wrapper">';
+    
+      
+        $htmlreturn .= '<div class="eai-racesimple"><h4>';
+        $title = $race;
+        if ($link) {
+            $htmlreturn .= '<a href="'.$link.'">'.$title.'</a>';
+        } else {
+              $htmlreturn .= $title;
+        }
+        $htmlreturn .= '</h4>';
+       
+        /* display the results */
+        if ($raceresults) {
+            // first some of the totals & counts 
+            $htmlreturn .= '<ul class="eai-results-sum">';
+            for ($i=0; $i< $num_candidates; $i++) {
+                $candidate_name = $candresult[$i]->candidate;
+                if ($candresult[$i]->party) {
+                        $party_string = ' (<span class="party-'.$candresult[$i]->party.'">'.$candresult[$i]->party.'</span>) ';
+                    } else {
+                        $party_string = '';
+                }
+                $htmlreturn .= "<li>". $candidate_name.$party_string;
+                if ($found_votes) {
+                    $htmlreturn .= ': '.number_format_i18n($sums[$candidate_name]);
+                }
+                if ($count_voted > 0) {
+                    $htmlreturn .= ' - '.round(($sums[$candidate_name]/$count_voted)*100).'%';
+                }
+                $htmlreturn .='</li>';  
+            }
+            $htmlreturn .= '</ul>';
+            if ($found_votes) {
+                //$htmlreturn .= "<p>".$count_precinct_reporting.' of '.$count_precincts.' Precincts reporting.'; // : '.round(($count_precinct_reporting/$count_precincts)*100).'%</p>';
+                //$htmlreturn .= '<p>'.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters).' voters. Participation: '.round(($count_voted/$total_voters)*100).'%</p>';
+
+                 /* $htmlreturn .= '<script>var piedata'.$raceorder.' = google.visualization.arrayToDataTable('.$str_piedata.');</script>';
+                $htmlreturn .= '<p>Total unreported:'.number_format_i18n($count_unreported);
+                $htmlreturn .= ' d:'.number_format_i18n($count_unreported_d).'('.$pct_unreported_d.'%), ';
+                $htmlreturn .= ' r:'.number_format_i18n($count_unreported_r).'('.$pct_unreported_r.'%), ';
+                $htmlreturn .= ' u:'.number_format_i18n($count_unreported_u).'('.$pct_unreported_u.'%), ';
+                $htmlreturn .= ' g:'.number_format_i18n($count_unreported_g).'('.$pct_unreported_g.'%) ';
+                $htmlreturn .= '</p>';  */
+                 if ($link) {
+                    $htmlreturn .= '<span> <a href="'.$link.'"> More details >>> </a></span>';
+                }
+                $htmlreturn .= '<h6 class="eai-results-unofficial">All results are unofficial.</h6>';
+
+
+            } else {
+                 $htmlreturn .= '<p class="eai-checkback">Polls close at 8 p.m. Check back then for results as they come in.</p>';
+            }
+           
+        } else {
+            $htmlreturn .= "<p>No results</p>";
+        }
+
+    } else {
+        $htmlreturn .= "<p>No Candidates for ".$race.".</p>";
+    }
+    $htmlreturn .="</div></div>"; // end of wrapper & identifying div.
+    return $htmlreturn;
+}
+/********** END OF RESULTS RACE SIMPLE *****************/
+
+?>

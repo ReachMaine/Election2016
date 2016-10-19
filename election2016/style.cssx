@@ -1,0 +1,93 @@
+@import url("../flatsome/css/foundation.css");
+/*
+Theme Name: Elections 2014
+Theme URI: http://flatsome.uxthemes.com/
+Description: This is a child theme for Flatsome - 2014 Elections
+Author: Tim Suellentrop
+Author URI: http: //www.reachmaine.com/
+Template: flatsome
+Version: 1.8
+*/
+/* Colors ---------------------------------------------- */
+/* Typography ------------------------------------------ */
+/* Custom Functions ------------------------------------ */
+/* ===================================================== */
+/* ===================================================== */
+/* Media Queries --------------------------------------- */
+/* ===================================================== */
+/* Media Queries Settings ------------------------------ */
+/* Media Query Function -------------------------------- */
+/* How To Use ------------------------------------------ */
+/*
+ * #wrapper {
+ *    margin: 0 auto;
+ *     
+ *    @include respond-to(handheld) {
+ *       width: 100%;
+ *    }
+ *     
+ *    @include respond-to(tablet) {
+ *       width: 98%;
+ *    }
+ *     
+ *    @include respond-to(desktop) {
+ *       width: 92%;
+ *    }
+ * }
+ */
+/* End Media Queries ----------------------------------- */
+/* ===================================================== */
+/* =Theme customization starts here */
+.from_the_blog_comments {
+  display: none;
+  visibility: hidden; }
+
+aside.widget.widget_recent_entries li {
+  padding-bottom: 15px; }
+
+#logo a img {
+  max-height: 200px; }
+
+#logo a {
+  padding-top: 4px; }
+
+#top-banner-ad {
+  padding: 10px 0 0 0; }
+
+.ad-container span {
+  display: inline-block;
+  width: 100%;
+  height: auto; }
+.ad-container a {
+  display: inline-block;
+  width: 100% !important;
+  height: auto !important; }
+.ad-container img {
+  width: 100%;
+  height: auto !important; }
+
+.eai-right-rail {
+  -webkit-box-shadow: 7px 15px 33px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 7px 15px 33px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 7px 15px 33px 0px rgba(0, 0, 0, 0.75);
+  margin-bottom: 35px; }
+
+ul.eai-results-sum li {
+  list-style: none; }
+
+table.eai-results {
+  width: auto; }
+  table.eai-results th {
+    color: #333;
+    font-size: 16px;
+    line-height: 18px; }
+  table.eai-results td, table.eai-results th {
+    width: 180px; }
+  table.eai-results tr.eai-results-headerrow {
+    border-bottom: 1px solid #333; }
+  table.eai-results tr.eai-results-totalrow {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333; }
+
+.eai-result-votes, .eia-result-totals {
+  text-align: right; }

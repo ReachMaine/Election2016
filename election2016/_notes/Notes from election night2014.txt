@@ -1,0 +1,9 @@
+Notes from election night
+---------------------------
+1. if only one person running, dont put % of voters
+2. 3 precincts reporting, voter turnout 2%.  (need to look at that calculation)
+3. if < n number of results, dont need totals at top & bottom.
+4. Autorefresh?
+5. Check back for live results, link to elections page, link getting stripped out.
+6. Multiple people putting results in and/or entertaining reports & publisher.
+7.  Broadcasting troubles (see Cyndi)

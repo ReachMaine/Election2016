@@ -1,0 +1,137 @@
+<?php
+/*
+Template name: Election Vote Input
+*/
+$have_town = false;
+$updated = false;
+global $wpdb;
+$table = "elections2016"; 
+
+if ( 'GET' == $_SERVER['REQUEST_METHOD'] && !empty( $_GET['action'] ) && $_GET['action'] == 'updatetown' ) {
+
+    $have_town = true;
+    $intown = $_GET['town_ddl'];
+} 
+if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'updatevotes' ) {
+    $have_town = false;
+    $updated = true;
+
+}
+
+get_header(); ?>
+
+<?php if( has_excerpt() ) { ?>
+<div class="page-header">
+	<?php the_excerpt(); ?>
+</div>
+<?php } ?>
+
+<div  class="page-wrapper page-left-sidebar">
+<div class="row">
+
+<div id="content" class="large-9 right columns" role="main">
+	<div class="page-inner">
+		<?php while ( have_posts() ) : the_post(); ?>
+
+					<?php get_template_part( 'content', 'page' ); ?>
+
+					
+			<?php endwhile; // end of the loop. ?>
+			<p> Election Input here. </p>
+			<?php if ($have_town) { echo "<p>have town = ".$intown."</p>"; }
+			      if ($updated) {echo "<p>updated.</p>"; } ?>
+			<form method="get" id="town_form" action="<?php the_permalink(); ?>">
+				<select name="town_ddl" class="amw" >
+					<option value="">Select Town</option>
+					<option value="Amherst">Amherst</option>
+					<option value="Aurora">Aurora</option>
+					<option value="Bar Harbor">Bar Harbor</option>
+					<option value="Blue Hill">Blue Hill</option>
+					<option value="Brooklin">Brooklin</option>
+					<option value="Bucksport">Bucksport</option>
+					<option value="http://www.reachdowneast.com/elections2016/castine/" id="menu-item-147000" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147000">Castine</option>
+					<option value="http://www.reachdowneast.com/elections2016/cranberry-islands/" id="menu-item-147001" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147001">Cranberry Islands</option>
+					<option value="http://www.reachdowneast.com/elections2016/dedham/" id="menu-item-147002" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147002">Dedham</option>
+					<option value="http://www.reachdowneast.com/elections2016/deer-isle/" id="menu-item-147003" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147003">Deer Isle</option>
+					<option value="http://www.reachdowneast.com/elections2016/eastbrook/" id="menu-item-147004" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147004">Eastbrook</option>
+					<option value="http://www.reachdowneast.com/elections2016/ellsworth/" id="menu-item-147005" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147005">Ellsworth</option>
+					<option value="http://www.reachdowneast.com/elections2016/franklin/" id="menu-item-147006" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147006">Franklin</option>
+					<option value="http://www.reachdowneast.com/elections2016/frenchboro/" id="menu-item-147007" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147007">Frenchboro</option>
+					<option value="http://www.reachdowneast.com/elections2016/gouldsboro/" id="menu-item-147008" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147008">Gouldsboro</option>
+					<option value="http://www.reachdowneast.com/elections2016/great-pond/" id="menu-item-147009" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147009">Great Pond</option>
+					<option value="http://www.reachdowneast.com/elections2016/hancock/" id="menu-item-147010" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147010">Hancock</option>
+					<option value="http://www.reachdowneast.com/elections2016/lamoine/" id="menu-item-147011" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147011">Lamoine</option>
+					<option value="http://www.reachdowneast.com/elections2016/mount-desert/" id="menu-item-147012" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147012">Mount Desert</option>
+					<option value="http://www.reachdowneast.com/elections2016/orland/" id="menu-item-147013" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147013">Orland</option>
+					<option value="http://www.reachdowneast.com/elections2016/osborn/" id="menu-item-147014" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147014">Osborn</option>
+					<option value="http://www.reachdowneast.com/elections2016/otis/" id="menu-item-147015" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147015">Otis</option>
+					<option value="Penobscot">Penobscot</option>
+					<option value="Sedgwick">Sedgwick</option>
+					<option value="Sorrento">Sorrento</option>
+					<option value="Southwest Harbor">Southwest Harbor</option>
+					<option value="http://www.reachdowneast.com/elections2016/stonington/" id="menu-item-147020" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147020">Stonington</option>
+					<option value="http://www.reachdowneast.com/elections2016/sullivan/" id="menu-item-147021" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147021">Sullivan</option>
+					<option value="http://www.reachdowneast.com/elections2016/surry/" id="menu-item-147022" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147022">Surry</option>
+					<option value="http://www.reachdowneast.com/elections2016/swans-island/" id="menu-item-147023" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147023">Swan’s Island</option>
+					<option value="http://www.reachdowneast.com/elections2016/tremont/" id="menu-item-147024" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147024">Tremont</option>
+					<option value="http://www.reachdowneast.com/elections2016/trenton/" id="menu-item-147025" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147025">Trenton</option>
+					<option value="http://www.reachdowneast.com/elections2016/verona-island/" id="menu-item-147026" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147026">Verona Island</option>
+					<option value="http://www.reachdowneast.com/elections2016/waltham/" id="menu-item-147027" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147027">Waltham</option>
+					<option value="Winter Harbor" id="menu-item-147028" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147028">Winter Harbor</option> 
+				</select>
+				<input name="updatetown" type="submit" id="updatetown" class="submit button" value="GO" />
+			    <input name="action" type="hidden" id="action" value="updatetown" />
+			</form>  
+			<form method="post" id="voting_form" action="<?php the_permalink(); ?>" class="eai-election-inputs-form">
+				<?php /* */ 
+				   $racesquery = 'SELECT  distinct `race` FROM `'.$table.'` WHERE town="'. $intown.'" ORDER BY raceorder';
+				    //*echo '<p>RacesQuery: '.$racesquery.'</p>'; // testing
+				    $racesresults = $wpdb->get_results($racesquery); 
+				    //echo "<pre>"; var_dump($racesresults); echo "</pre>";// testing
+				    $htmlout = "";
+				    if ($racesresults) {
+        				foreach ($racesresults as $race) {
+				            //echo '<p> Race:'.$race->race.' Reg. voters:'.$race->registeredvoters.'</p>'; // testing
+				            $indracequery = 'SELECT DISTINCT candidate, party, votes, town, reported FROM '.$table.' WHERE town = "'.$intown.'" AND race="'.$race->race.'"';
+				            //echo '<p>'.$indracequery.'</p>'; // testing
+				            $indraceresults = $wpdb->get_results($indracequery); 
+							//echo "<pre>";var_dump($indraceresults); echo "</pre>";// testing
+				            if ($indraceresults) {
+				            	
+				            	//$htmlout .= '<p>'.$race->race.'</p>';
+				            	$htmlout .= "<fieldset>";
+				            	$htmlout .= '<legend>'.$race->race.'</legend>';
+				            	$htmlout .= '<dl>';
+				            	foreach ($indraceresults as $indrace) {
+				            		
+				            		$htmlout .= '<dt>'.$indrace->candidate.'</dt>';
+				            		$htmlout .= '<dd><input type="number" name="votes" label="'.$indrace->candidate.'" ></dd>';
+				            		$htmlout .= '<dd><input type="checkbox" label="reported"></dd>';
+				                   // $htmlout .= '</br>';
+				                } /*end for individual race */
+				                $htmlout .= "</dl>";
+				                 $htmlout .= "</fieldset>";
+				            }  else {
+	        					echo "<p>no ind. results </p>";
+	        					$htmlout = "<p>no ind. results </p> ";
+	        				}
+        				} /* end for raceresults */
+        			} else { $htmlout =  "<p>No results</p>";}
+        			echo $htmlout;
+				?>
+				<input name="updatevotes" type="submit" id="updatevotes" class="submit button" value="Save" />
+				<input name="action" type="hidden" id="action" value="updatevotes" />
+			</form>                
+
+	</div><!-- .page-inner -->
+</div><!-- end #content large-9 left -->
+
+<div class="large-3 columns left">
+<?php get_sidebar(); ?>
+</div><!-- end sidebar -->
+
+</div><!-- end row -->
+</div><!-- end page-right-sidebar container -->
+
+
+<?php get_footer(); ?>

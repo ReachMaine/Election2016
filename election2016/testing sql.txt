@@ -1,0 +1,54 @@
+SELECT * FROM `election_2014` WHERE race="US Senate"
+
+SELECT precinct, town,`candidate`, votes FROM `election_2014` WHERE race="US Senate"
+
+
+SELECT precinct,`candidate`, votes FROM `election_2014` WHERE race="US Senate" 
+	-- group by precinct 
+	order by town
+
+SET @c1 = "Susan Collins";
+SET @c2 = "Shenna Bellows";
+
+SELECT precinct,`candidate`, votes FROM `election_2014` WHERE race="US Senate" 
+	-- group by precinct 
+	order by town
+
+
+SELECT  `candidate` FROM `election_2014` WHERE race="US Senate" 
+	group by precinct, candidate 
+	order by precinct
+
+SET @c1 = "Susan Collins";
+SET @c2 = "Shenna Bellows";
+
+SELECT base.precinct,c1.candidate,c2.candidate ,base.votes FROM `election_2014` base
+	JOIN `election_2014` c1 on c1.`candidate` = @c1
+    JOIN `election_2014` c2 on c2.`candidate` = @c2
+
+	WHERE base.race="US Senate" 
+------------------------------------------------
+trying embeded selects....
+------------------
+
+SET @c1 = "Susan Collins";
+SET @c2 = "Shenna Bellows";
+SET @race="US Senate";
+
+SELECT base.precinct,
+	(select votes FROM `election_2014` c1  where c1.race="US Senate" AND c1.candidate = "Susan Collins" and c1.precinct = base.precinct) candidate1
+	-- JOIN `election_2014` c1 on c1.`candidate` = @c1
+    -- JOIN `election_2014` c2 on c2.`candidate` = @c2
+	FROM `election_2014` base
+	WHERE base.race="US Senate" 
+--------------------
+
+SET @c1 = "Susan Collins";
+SET @c2 = "Shenna Bellows";
+SET @race="US Senate";
+
+SELECT base.precinct,
+	(select votes FROM `election_2014` c1  where c1.race="US Senate" AND c1.candidate = "Susan Collins" and c1.precinct = base.precinct) candidate1,
+    (select votes FROM `election_2014` c2  where c2.race="US Senate" AND c2.candidate = "Shenna Bellows" and c2.precinct = base.precinct) candidate1
+	FROM `election_2014` base
+	WHERE base.race="US Senate" 

@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS elections2016(
+   raceorder        INTEGER  NOT NULL PRIMARY KEY 
+  ,votes            INTEGER  NOT NULL
+  ,registeredvoters INTEGER  NOT NULL
+  ,reported         BIT  NOT NULL
+  ,race             VARCHAR(68) NOT NULL
+  ,candidate        VARCHAR(20) NOT NULL
+  ,town             VARCHAR(25) NOT NULL
+  ,party            VARCHAR(1)
+  ,precinct         VARCHAR(34) NOT NULL
+  ,electionrecordid INTEGER  NOT NULL
+  ,r_d              INTEGER  NOT NULL
+  ,r_g              INTEGER  NOT NULL
+  ,r_r              INTEGER  NOT NULL
+  ,r_u              INTEGER  NOT NULL
+  ,pct_d            NUMERIC(4,2) NOT NULL
+  ,pct_r            NUMERIC(4,2) NOT NULL
+  ,pct_u            NUMERIC(4,2) NOT NULL
+);

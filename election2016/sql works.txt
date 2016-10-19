@@ -1,0 +1,49 @@
+THESE SEEM TO WORK....
+
+-----------------------------
+PER RACE RESULTS 
+-------------------------------
+
+PER RACE results per precinct. given input as candidates, then can build candidate name into query as column name.
+--- OR --- could query to get the candidate names in a given race.and loop through those as names.
+
+
+// GET THE CANDIDATES IN A RACE //
+SELECT  distinct `candidate` FROM `election_2014` WHERE race="US Senate" 
+
+
+
+SET @c1 = "Susan Collins";
+SET @c2 = "Shenna Bellows";
+SET @race="US Senate";
+
+SELECT base.precinct,
+	(select votes FROM `election_2014` c1  where c1.race=@race AND c1.candidate = @c1 and c1.precinct = base.precinct) `candidate1`,
+   	(select votes FROM `election_2014` c2  where c2.race=@race AND c2.candidate = @c2  and c2.precinct = base.precinct) `candidate2`
+	FROM `election_2014` base
+	WHERE base.race=@race
+
+AND for the sums
+
+SET @race="US Senate";
+SET @c1 = "Susan Collins";
+SET @c2 = "Shenna Bellows";
+SELECT 	distinct base.race, 
+	(select sum(votes) FROM `election_2014` c1  where c1.race=@race AND c1.candidate = @c1) `candidate1`,
+   	(select sum(votes) FROM `election_2014` c2  where c2.race=@race AND c2.candidate = @c2) `candidate2`
+	FROM `election_2014` base
+	WHERE base.race=@race
+
+
+---------------------------------------------------------
+PER TOWN RESULTS 
+---------------------------------------------------------
+
+
+-- GET THE RACES for Ellsworth 
+SET @town="Ellsworth"; 
+SELECT distinct race FROM `election_2014` WHERE town=@town
+
+-- GET THE PRECENCTS of given town
+SET @town="Ellsworth";
+SELECT distinct `precinct` FROM `election_2014` WHERE town=@town

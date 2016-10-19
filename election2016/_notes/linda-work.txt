@@ -1,0 +1,13 @@
+
+ Election Results
+
+[electionresultstown town=""]
+
+
+
+<a class="election-link" href="http://www.reachdowneast.com/elections-2014/bar-harbor-election-results/">Click here for Bar Harbor Election Results</a>
+
+<a class="election-link" href="http://www.reachdowneast.com/elections-2014/xxx-election-results/">Click here for Election Results</a>
+
+
+

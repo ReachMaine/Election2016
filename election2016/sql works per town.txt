@@ -1,0 +1,44 @@
+--------  per town results
+
+// GET THE RACES for Ellsworth 
+SET @town="Ellsworth"; 
+SELECT distinct race FROM `election_2014` WHERE town=@town
+
+
+
+// GET THE PRECENCTS of given town
+
+SET @town="Ellsworth";
+SELECT distinct `precinct` FROM `election_2014` WHERE town=@town
+
+
+
+// show them all 
+SET @town="Ellsworth";
+SET @race="Governor";
+
+SELECT candidate, votes, precinct -- , 
+	-- (select sum(votes) from  `election_2014` t1 where t1.town=@town and t1.race=@race and t1.candidate = base.candidate) as votecount
+	FROM `election_2014` base
+	WHERE base.town=@town AND base.race=@race
+    -- GROUP BY candidate
+
+
+// add up per candidate 
+
+SET @town="Ellsworth";
+SET @race="Governor";
+
+SELECT candidate, 
+	(select sum(votes) from  `election_2014` t1 where t1.town=@town and t1.race=@race and t1.candidate = base.candidate) as votecount
+	FROM `election_2014` base
+	WHERE base.town=@town AND base.race=@race
+    GROUP BY candidate
+
+
+/// REGISTERED VOTERS PER TOWN 
+-- dont know if this works, need better data.  If 
+SET @town="Ellsworth";
+SELECT distinct town, registeredvoters
+	FROM `election_2014` base
+	WHERE base.town=@town

@@ -1,0 +1,176 @@
+@import url("../flatsome/css/foundation.css");
+/*
+Theme Name: Elections 2014
+Theme URI: http://flatsome.uxthemes.com/
+Description: This is a child theme for Flatsome - 2014 Elections
+Author: Tim Suellentrop
+Author URI: http: //www.reachmaine.com/
+Template: flatsome
+Version: 1.8
+*/
+/* Colors ---------------------------------------------- */
+/* Typography ------------------------------------------ */
+/* Custom Functions ------------------------------------ */
+/* ===================================================== */
+/* ===================================================== */
+/* Media Queries --------------------------------------- */
+/* ===================================================== */
+/* Media Queries Settings ------------------------------ */
+/* Media Query Function -------------------------------- */
+/* How To Use ------------------------------------------ */
+/*
+ * #wrapper {
+ *    margin: 0 auto;
+ *     
+ *    @include respond-to(handheld) {
+ *       width: 100%;
+ *    }
+ *     
+ *    @include respond-to(tablet) {
+ *       width: 98%;
+ *    }
+ *     
+ *    @include respond-to(desktop) {
+ *       width: 92%;
+ *    }
+ * }
+ */
+/* End Media Queries ----------------------------------- */
+/* ===================================================== */
+.party-R {
+  color: #dd3333;
+  font-weight: bold; }
+
+.party-D {
+  color: #1e73be;
+  font-weight: bold; }
+
+.eai-resultsrace-wrapper {
+  border-bottom: 1px solid #333;
+  margin-bottom: 10px; }
+
+ul.eai-results-sum li {
+  list-style: none; }
+
+table.eai-results {
+  width: auto; }
+  table.eai-results th {
+    color: #333;
+    font-size: 16px;
+    line-height: 18px; }
+  table.eai-results td, table.eai-results th {
+    width: 180px; }
+  table.eai-results tr.eai-results-headerrow {
+    border-bottom: 1px solid #333; }
+  table.eai-results tr.eai-results-totalrow {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333; }
+
+.eai-results-unofficial {
+  color: red; }
+
+.eai-result-votes, .eia-result-totals {
+  text-align: right; }
+
+.eia-result-totals {
+  font-weight: bold;
+  border-bottom: 1px solid grey; }
+
+.eai-resultsum-wrapper {
+  padding-top: 10px;
+  border-bottom: 1px solid grey; }
+  .eai-resultsum-wrapper .eai-racesummary-grx {
+    width: 450px;
+    float: left; }
+
+.eai-resultsrace-wrapper .eai-racesum {
+  float: left;
+  width: 100%; }
+  .eai-resultsrace-wrapper .eai-racesum .eai-race-vote-pie {
+    float: left; }
+    .eai-resultsrace-wrapper .eai-racesum .eai-race-vote-pie .eai-race-grx {
+      width: 300px; }
+  .eai-resultsrace-wrapper .eai-racesum .eai-voter-partcip {
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px; }
+    .eai-resultsrace-wrapper .eai-racesum .eai-voter-partcip .eai-voter-precent {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 0px; }
+    .eai-resultsrace-wrapper .eai-racesum .eai-voter-partcip .eai-voter-title {
+      text-align: center; }
+  .eai-resultsrace-wrapper .eai-racesum .vote-count {
+    float: left;
+    width: 25%; }
+  .eai-resultsrace-wrapper .eai-racesum .eai-precincts-reporting {
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px; }
+    .eai-resultsrace-wrapper .eai-racesum .eai-precincts-reporting .eai-precincts-title {
+      text-align: center; }
+    .eai-resultsrace-wrapper .eai-racesum .eai-precincts-reporting .eai-precincts-precent {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 0px; }
+  .eai-resultsrace-wrapper .eai-racesum .eai-unvoted {
+    float: right; }
+    .eai-resultsrace-wrapper .eai-racesum .eai-unvoted .eai-voter-grx {
+      float: right;
+      width: 300px; }
+.eai-resultsrace-wrapper .eai-results-race-details {
+  border-top: 1px solid grey;
+  clear: both; }
+
+.eai-resultsimple-wrapper {
+  width: 30%;
+  float: left;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid grey; }
+  .eai-resultsimple-wrapper .eai-results-sum {
+    margin-bottom: 5px; }
+  .eai-resultsimple-wrapper p {
+    margin-bottom: 0px; }
+
+.eai-checkback:before {
+  content: url(http://www.reachdowneast.com/elections-2014/wp-content/themes/ea-local1/images/election_graphic.jpg); }
+
+.eai-checkback {
+  color: #D33;
+  font-size: 24px; }
+
+/* =Theme customization starts here */
+.from_the_blog_comments {
+  display: none;
+  visibility: hidden; }
+
+aside.widget.widget_recent_entries li {
+  padding-bottom: 15px; }
+
+#logo a img {
+  max-height: 200px; }
+
+#logo a {
+  padding-top: 4px; }
+
+#top-banner-ad {
+  padding: 10px 0 0 0; }
+
+.ad-container span {
+  display: inline-block;
+  width: 100%;
+  height: auto; }
+.ad-container a {
+  display: inline-block;
+  width: 100% !important;
+  height: auto !important; }
+.ad-container img {
+  width: 100%;
+  height: auto !important; }
+
+.eai-right-rail {
+  -webkit-box-shadow: 7px 15px 33px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 7px 15px 33px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 7px 15px 33px 0px rgba(0, 0, 0, 0.75);
+  margin-bottom: 35px; }

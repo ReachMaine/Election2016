@@ -1,0 +1,41 @@
+/************* media related styling for skeleton responsive grid *****************/
+
+/* Table (portrait)  (min-width: 768px) and (max-width: 959px) width: 768  */
+/* MEDIUM/BIG size */
+@media only screen and (min-width: 768px) and (max-width: 959px){
+
+}
+/* #Mobile (Portrait)   width: 300px; */
+/* SMALLEST SIZE - mobile default, modified below for mobile landscape */
+@media only screen and (max-width: 767px)  {
+	// adjust logo image & shopping cart.
+	#outerheader  {
+		#logoimg img {
+			width: 420px;
+		}
+
+		#chart {
+			margin-top: 115px;
+		}
+		#searchform {
+			margin-top: 15px;
+			margin-right: 0px;
+		}
+		#navigation {
+			margin-top: 15px;
+		}
+		//width: 100%!important;
+	}
+}
+
+/* #Mobile (Landscape)  (min-width: 480px) and (max-width: 767px) width: 480px   */
+/* *MEDIUM/SMALL SIZE */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	#outerheader {
+		#chart {
+			margin-top: 0px;
+		}
+	}
+}
+
+/********** end media  ******************************/
