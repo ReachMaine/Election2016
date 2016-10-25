@@ -1,4 +1,3 @@
-@import url("../flatsome/css/foundation.css");
 /*
 Theme Name: Elections 2014
 Theme URI: http://flatsome.uxthemes.com/
@@ -8,6 +7,7 @@ Author URI: http: //www.reachmaine.com/
 Template: flatsome
 Version: 1.8
 */
+@import url("../flatsome/css/foundation.css");
 /* Colors ---------------------------------------------- */
 /* Typography ------------------------------------------ */
 /* Custom Functions ------------------------------------ */
@@ -38,12 +38,12 @@ Version: 1.8
 /* End Media Queries ----------------------------------- */
 /* ===================================================== */
 .party-R {
-  color: #dd3333;
+  color: #D33;
   font-weight: bold;
   width: initial; }
 
 .party-D {
-  color: #1e73be;
+  color: #1E73BE;
   font-weight: bold;
   width: initial; }
 
@@ -144,6 +144,19 @@ table.eai-results {
 .eai-election-inputs-form dd, .eai-election-inputs-form dt {
   display: inline-block;
   padding: 3px; }
+
+div[class|=wpd3] svg {
+  float: right;
+  margin: 0px 15px 15px 0px; }
+div[class|=wpd3] .arc text {
+  font: 16px sans-serif;
+  text-anchor: middle; }
+div[class|=wpd3] text.votes {
+  fill: white; }
+div[class|=wpd3] text.names {
+  font-weight: bold; }
+div[class|=wpd3] .arc path {
+  stroke: #fff; }
 
 /* =Theme customization starts here */
 .from_the_blog_comments {

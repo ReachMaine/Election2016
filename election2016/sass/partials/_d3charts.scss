@@ -1,0 +1,22 @@
+div[class|=wpd3] {
+  svg {
+  float: right;
+  margin: 0px 15px 15px 0px;
+  }
+  .arc text {
+      font: 16px sans-serif;
+      text-anchor: middle;
+    }
+
+    text.votes {
+      fill: white;
+    }
+
+    text.names {
+      font-weight: bold;
+    }
+
+    .arc path {
+      stroke: #fff;
+    }
+  }
