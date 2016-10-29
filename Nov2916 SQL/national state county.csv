@@ -1,0 +1,425 @@
+electionrecordid,raceorder,votes,reported,race,candidate,party,town,precinct,r_d,r_g,r_r,r_u,pct_d,pct_r,pct_u
+,10,0,0,U.S. President,Hillary Clinton,D,Amherst,,52,9,73,66,0.26,0.37,0.33
+,10,0,0,U.S. President,Hillary Clinton,D,Aurora,,15,2,38,22,0.19,0.49,0.29
+,10,0,0,U.S. President,Hillary Clinton,D,Bar Harbor,,1654,172,859,1420,0.4,0.21,0.35
+,10,0,0,U.S. President,Hillary Clinton,D,Blue Hill,,902,81,624,676,0.4,0.27,0.3
+,10,0,0,U.S. President,Hillary Clinton,D,Brooklin,,257,45,191,248,0.35,0.26,0.33
+,10,0,0,U.S. President,Hillary Clinton,D,Brooksville,,291,45,220,241,0.37,0.28,0.3
+,10,0,0,U.S. President,Hillary Clinton,D,Bucksport,,1047,71,1103,1531,0.28,0.29,0.41
+,10,0,0,U.S. President,Hillary Clinton,D,Castine,,307,48,316,375,0.29,0.3,0.36
+,10,0,0,U.S. President,Hillary Clinton,D,Cranberry Isles,,70,5,42,77,0.36,0.22,0.4
+,10,0,0,U.S. President,Hillary Clinton,D,Dedham,,324,41,450,506,0.25,0.34,0.38
+,10,0,0,U.S. President,Hillary Clinton,D,Deer Isle,,574,62,416,644,0.34,0.25,0.38
+,10,0,0,U.S. President,Hillary Clinton,D,Eastbrook,,73,10,124,112,0.23,0.39,0.35
+,10,0,0,U.S. President,Hillary Clinton,D,Ellsworth,,1377,196,2075,1840,0.25,0.38,0.34
+,10,0,0,U.S. President,Hillary Clinton,D,Fletchers Landing,,,,,,,,
+,10,0,0,U.S. President,Hillary Clinton,D,Franklin,,249,49,375,340,0.25,0.37,0.34
+,10,0,0,U.S. President,Hillary Clinton,D,Frenchboro,,12,4,9,17,0.29,0.21,0.4
+,10,0,0,U.S. President,Hillary Clinton,D,Gouldsboro,,369,81,515,541,0.25,0.34,0.36
+,10,0,0,U.S. President,Hillary Clinton,D,Great Pond,,9,0,16,14,0.23,0.41,0.36
+,10,0,0,U.S. President,Hillary Clinton,D,Hancock,,407,62,676,582,0.24,0.39,0.34
+,10,0,0,U.S. President,Hillary Clinton,D,Lamoine,,374,63,535,458,0.26,0.37,0.32
+,10,0,0,U.S. President,Hillary Clinton,D,Mariaville,,76,18,113,148,0.21,0.32,0.42
+,10,0,0,U.S. President,Hillary Clinton,D,Mount Desert,,637,66,494,615,0.35,0.27,0.34
+,10,0,0,U.S. President,Hillary Clinton,D,Orland,,446,72,415,648,0.28,0.26,0.41
+,10,0,0,U.S. President,Hillary Clinton,D,Osborn,,9,1,33,8,0.18,0.65,0.16
+,10,0,0,U.S. President,Hillary Clinton,D,Otis,,131,29,218,193,0.23,0.38,0.34
+,10,0,0,U.S. President,Hillary Clinton,D,Penobscot,,286,52,297,367,0.29,0.3,0.37
+,10,0,0,U.S. President,Hillary Clinton,D,Sedgwick,,342,57,238,336,0.35,0.24,0.35
+,10,0,0,U.S. President,Hillary Clinton,D,Sorrento,,86,8,94,77,0.32,0.35,0.29
+,10,0,0,U.S. President,Hillary Clinton,D,Southwest Harbor,,468,69,383,590,0.31,0.25,0.39
+,10,0,0,U.S. President,Hillary Clinton,D,Stonington,,285,37,169,410,0.32,0.19,0.46
+,10,0,0,U.S. President,Hillary Clinton,D,Sullivan,,208,56,258,349,0.24,0.3,0.4
+,10,0,0,U.S. President,Hillary Clinton,D,Surry,,378,64,433,368,0.3,0.35,0.3
+,10,0,0,U.S. President,Hillary Clinton,D,Swans Island,,64,19,115,118,0.2,0.36,0.37
+,10,0,0,U.S. President,Hillary Clinton,D,Tremont,,64,19,115,118,0.2,0.36,0.37
+,10,0,0,U.S. President,Hillary Clinton,D,Trenton,,290,55,359,419,0.26,0.32,0.37
+,10,0,0,U.S. President,Hillary Clinton,D,Verona Island,,136,14,141,134,0.32,0.33,0.32
+,10,0,0,U.S. President,Hillary Clinton,D,Waltham,,45,7,139,71,0.17,0.53,0.27
+,10,0,0,U.S. President,Hillary Clinton,D,Winter Harbor,,96,14,171,149,0.22,0.4,0.35
+,10,0,0,U.S. President,Donald Trump,R,Amherst,,52,9,73,66,0.26,0.37,0.33
+,10,0,0,U.S. President,Donald Trump,R,Aurora,,15,2,38,22,0.19,0.49,0.29
+,10,0,0,U.S. President,Donald Trump,R,Bar Harbor,,1654,172,859,1420,0.4,0.21,0.35
+,10,0,0,U.S. President,Donald Trump,R,Blue Hill,,902,81,624,676,0.4,0.27,0.3
+,10,0,0,U.S. President,Donald Trump,R,Brooklin,,257,45,191,248,0.35,0.26,0.33
+,10,0,0,U.S. President,Donald Trump,R,Brooksville,,291,45,220,241,0.37,0.28,0.3
+,10,0,0,U.S. President,Donald Trump,R,Bucksport,,1047,71,1103,1531,0.28,0.29,0.41
+,10,0,0,U.S. President,Donald Trump,R,Castine,,307,48,316,375,0.29,0.3,0.36
+,10,0,0,U.S. President,Donald Trump,R,Cranberry Isles,,70,5,42,77,0.36,0.22,0.4
+,10,0,0,U.S. President,Donald Trump,R,Dedham,,324,41,450,506,0.25,0.34,0.38
+,10,0,0,U.S. President,Donald Trump,R,Deer Isle,,574,62,416,644,0.34,0.25,0.38
+,10,0,0,U.S. President,Donald Trump,R,Eastbrook,,73,10,124,112,0.23,0.39,0.35
+,10,0,0,U.S. President,Donald Trump,R,Ellsworth,,1377,196,2075,1840,0.25,0.38,0.34
+,10,0,0,U.S. President,Donald Trump,R,Fletchers Landing,,,,,,,,
+,10,0,0,U.S. President,Donald Trump,R,Franklin,,249,49,375,340,0.25,0.37,0.34
+,10,0,0,U.S. President,Donald Trump,R,Frenchboro,,12,4,9,17,0.29,0.21,0.4
+,10,0,0,U.S. President,Donald Trump,R,Gouldsboro,,369,81,515,541,0.25,0.34,0.36
+,10,0,0,U.S. President,Donald Trump,R,Great Pond,,9,0,16,14,0.23,0.41,0.36
+,10,0,0,U.S. President,Donald Trump,R,Hancock,,407,62,676,582,0.24,0.39,0.34
+,10,0,0,U.S. President,Donald Trump,R,Lamoine,,374,63,535,458,0.26,0.37,0.32
+,10,0,0,U.S. President,Donald Trump,R,Mariaville,,76,18,113,148,0.21,0.32,0.42
+,10,0,0,U.S. President,Donald Trump,R,Mount Desert,,637,66,494,615,0.35,0.27,0.34
+,10,0,0,U.S. President,Donald Trump,R,Orland,,446,72,415,648,0.28,0.26,0.41
+,10,0,0,U.S. President,Donald Trump,R,Osborn,,9,1,33,8,0.18,0.65,0.16
+,10,0,0,U.S. President,Donald Trump,R,Otis,,131,29,218,193,0.23,0.38,0.34
+,10,0,0,U.S. President,Donald Trump,R,Penobscot,,286,52,297,367,0.29,0.3,0.37
+,10,0,0,U.S. President,Donald Trump,R,Sedgwick,,342,57,238,336,0.35,0.24,0.35
+,10,0,0,U.S. President,Donald Trump,R,Sorrento,,86,8,94,77,0.32,0.35,0.29
+,10,0,0,U.S. President,Donald Trump,R,Southwest Harbor,,468,69,383,590,0.31,0.25,0.39
+,10,0,0,U.S. President,Donald Trump,R,Stonington,,285,37,169,410,0.32,0.19,0.46
+,10,0,0,U.S. President,Donald Trump,R,Sullivan,,208,56,258,349,0.24,0.3,0.4
+,10,0,0,U.S. President,Donald Trump,R,Surry,,378,64,433,368,0.3,0.35,0.3
+,10,0,0,U.S. President,Donald Trump,R,Swans Island,,64,19,115,118,0.2,0.36,0.37
+,10,0,0,U.S. President,Donald Trump,R,Tremont,,64,19,115,118,0.2,0.36,0.37
+,10,0,0,U.S. President,Donald Trump,R,Trenton,,290,55,359,419,0.26,0.32,0.37
+,10,0,0,U.S. President,Donald Trump,R,Verona Island,,136,14,141,134,0.32,0.33,0.32
+,10,0,0,U.S. President,Donald Trump,R,Waltham,,45,7,139,71,0.17,0.53,0.27
+,10,0,0,U.S. President,Donald Trump,R,Winter Harbor,,96,14,171,149,0.22,0.4,0.35
+,10,0,0,U.S. President,Jill Stein,G,Amherst,,52,9,73,66,0.26,0.37,0.33
+,10,0,0,U.S. President,Jill Stein,G,Aurora,,15,2,38,22,0.19,0.49,0.29
+,10,0,0,U.S. President,Jill Stein,G,Bar Harbor,,1654,172,859,1420,0.4,0.21,0.35
+,10,0,0,U.S. President,Jill Stein,G,Blue Hill,,902,81,624,676,0.4,0.27,0.3
+,10,0,0,U.S. President,Jill Stein,G,Brooklin,,257,45,191,248,0.35,0.26,0.33
+,10,0,0,U.S. President,Jill Stein,G,Brooksville,,291,45,220,241,0.37,0.28,0.3
+,10,0,0,U.S. President,Jill Stein,G,Bucksport,,1047,71,1103,1531,0.28,0.29,0.41
+,10,0,0,U.S. President,Jill Stein,G,Castine,,307,48,316,375,0.29,0.3,0.36
+,10,0,0,U.S. President,Jill Stein,G,Cranberry Isles,,70,5,42,77,0.36,0.22,0.4
+,10,0,0,U.S. President,Jill Stein,G,Dedham,,324,41,450,506,0.25,0.34,0.38
+,10,0,0,U.S. President,Jill Stein,G,Deer Isle,,574,62,416,644,0.34,0.25,0.38
+,10,0,0,U.S. President,Jill Stein,G,Eastbrook,,73,10,124,112,0.23,0.39,0.35
+,10,0,0,U.S. President,Jill Stein,G,Ellsworth,,1377,196,2075,1840,0.25,0.38,0.34
+,10,0,0,U.S. President,Jill Stein,G,Fletchers Landing,,,,,,,,
+,10,0,0,U.S. President,Jill Stein,G,Franklin,,249,49,375,340,0.25,0.37,0.34
+,10,0,0,U.S. President,Jill Stein,G,Frenchboro,,12,4,9,17,0.29,0.21,0.4
+,10,0,0,U.S. President,Jill Stein,G,Gouldsboro,,369,81,515,541,0.25,0.34,0.36
+,10,0,0,U.S. President,Jill Stein,G,Great Pond,,9,0,16,14,0.23,0.41,0.36
+,10,0,0,U.S. President,Jill Stein,G,Hancock,,407,62,676,582,0.24,0.39,0.34
+,10,0,0,U.S. President,Jill Stein,G,Lamoine,,374,63,535,458,0.26,0.37,0.32
+,10,0,0,U.S. President,Jill Stein,G,Mariaville,,76,18,113,148,0.21,0.32,0.42
+,10,0,0,U.S. President,Jill Stein,G,Mount Desert,,637,66,494,615,0.35,0.27,0.34
+,10,0,0,U.S. President,Jill Stein,G,Orland,,446,72,415,648,0.28,0.26,0.41
+,10,0,0,U.S. President,Jill Stein,G,Osborn,,9,1,33,8,0.18,0.65,0.16
+,10,0,0,U.S. President,Jill Stein,G,Otis,,131,29,218,193,0.23,0.38,0.34
+,10,0,0,U.S. President,Jill Stein,G,Penobscot,,286,52,297,367,0.29,0.3,0.37
+,10,0,0,U.S. President,Jill Stein,G,Sedgwick,,342,57,238,336,0.35,0.24,0.35
+,10,0,0,U.S. President,Jill Stein,G,Sorrento,,86,8,94,77,0.32,0.35,0.29
+,10,0,0,U.S. President,Jill Stein,G,Southwest Harbor,,468,69,383,590,0.31,0.25,0.39
+,10,0,0,U.S. President,Jill Stein,G,Stonington,,285,37,169,410,0.32,0.19,0.46
+,10,0,0,U.S. President,Jill Stein,G,Sullivan,,208,56,258,349,0.24,0.3,0.4
+,10,0,0,U.S. President,Jill Stein,G,Surry,,378,64,433,368,0.3,0.35,0.3
+,10,0,0,U.S. President,Jill Stein,G,Swans Island,,64,19,115,118,0.2,0.36,0.37
+,10,0,0,U.S. President,Jill Stein,G,Tremont,,64,19,115,118,0.2,0.36,0.37
+,10,0,0,U.S. President,Jill Stein,G,Trenton,,290,55,359,419,0.26,0.32,0.37
+,10,0,0,U.S. President,Jill Stein,G,Verona Island,,136,14,141,134,0.32,0.33,0.32
+,10,0,0,U.S. President,Jill Stein,G,Waltham,,45,7,139,71,0.17,0.53,0.27
+,10,0,0,U.S. President,Jill Stein,G,Winter Harbor,,96,14,171,149,0.22,0.4,0.35
+,10,0,0,U.S. President,Gary Jonson,L,Amherst,,52,9,73,66,0.26,0.37,0.33
+,10,0,0,U.S. President,Gary Jonson,L,Aurora,,15,2,38,22,0.19,0.49,0.29
+,10,0,0,U.S. President,Gary Jonson,L,Bar Harbor,,1654,172,859,1420,0.4,0.21,0.35
+,10,0,0,U.S. President,Gary Jonson,L,Blue Hill,,902,81,624,676,0.4,0.27,0.3
+,10,0,0,U.S. President,Gary Jonson,L,Brooklin,,257,45,191,248,0.35,0.26,0.33
+,10,0,0,U.S. President,Gary Jonson,L,Brooksville,,291,45,220,241,0.37,0.28,0.3
+,10,0,0,U.S. President,Gary Jonson,L,Bucksport,,1047,71,1103,1531,0.28,0.29,0.41
+,10,0,0,U.S. President,Gary Jonson,L,Castine,,307,48,316,375,0.29,0.3,0.36
+,10,0,0,U.S. President,Gary Jonson,L,Cranberry Isles,,70,5,42,77,0.36,0.22,0.4
+,10,0,0,U.S. President,Gary Jonson,L,Dedham,,324,41,450,506,0.25,0.34,0.38
+,10,0,0,U.S. President,Gary Jonson,L,Deer Isle,,574,62,416,644,0.34,0.25,0.38
+,10,0,0,U.S. President,Gary Jonson,L,Eastbrook,,73,10,124,112,0.23,0.39,0.35
+,10,0,0,U.S. President,Gary Jonson,L,Ellsworth,,1377,196,2075,1840,0.25,0.38,0.34
+,10,0,0,U.S. President,Gary Jonson,L,Fletchers Landing,,,,,,,,
+,10,0,0,U.S. President,Gary Jonson,L,Franklin,,249,49,375,340,0.25,0.37,0.34
+,10,0,0,U.S. President,Gary Jonson,L,Frenchboro,,12,4,9,17,0.29,0.21,0.4
+,10,0,0,U.S. President,Gary Jonson,L,Gouldsboro,,369,81,515,541,0.25,0.34,0.36
+,10,0,0,U.S. President,Gary Jonson,L,Great Pond,,9,0,16,14,0.23,0.41,0.36
+,10,0,0,U.S. President,Gary Jonson,L,Hancock,,407,62,676,582,0.24,0.39,0.34
+,10,0,0,U.S. President,Gary Jonson,L,Lamoine,,374,63,535,458,0.26,0.37,0.32
+,10,0,0,U.S. President,Gary Jonson,L,Mariaville,,76,18,113,148,0.21,0.32,0.42
+,10,0,0,U.S. President,Gary Jonson,L,Mount Desert,,637,66,494,615,0.35,0.27,0.34
+,10,0,0,U.S. President,Gary Jonson,L,Orland,,446,72,415,648,0.28,0.26,0.41
+,10,0,0,U.S. President,Gary Jonson,L,Osborn,,9,1,33,8,0.18,0.65,0.16
+,10,0,0,U.S. President,Gary Jonson,L,Otis,,131,29,218,193,0.23,0.38,0.34
+,10,0,0,U.S. President,Gary Jonson,L,Penobscot,,286,52,297,367,0.29,0.3,0.37
+,10,0,0,U.S. President,Gary Jonson,L,Sedgwick,,342,57,238,336,0.35,0.24,0.35
+,10,0,0,U.S. President,Gary Jonson,L,Sorrento,,86,8,94,77,0.32,0.35,0.29
+,10,0,0,U.S. President,Gary Jonson,L,Southwest Harbor,,468,69,383,590,0.31,0.25,0.39
+,10,0,0,U.S. President,Gary Jonson,L,Stonington,,285,37,169,410,0.32,0.19,0.46
+,10,0,0,U.S. President,Gary Jonson,L,Sullivan,,208,56,258,349,0.24,0.3,0.4
+,10,0,0,U.S. President,Gary Jonson,L,Surry,,378,64,433,368,0.3,0.35,0.3
+,10,0,0,U.S. President,Gary Jonson,L,Swans Island,,64,19,115,118,0.2,0.36,0.37
+,10,0,0,U.S. President,Gary Jonson,L,Tremont,,64,19,115,118,0.2,0.36,0.37
+,10,0,0,U.S. President,Gary Jonson,L,Trenton,,290,55,359,419,0.26,0.32,0.37
+,10,0,0,U.S. President,Gary Jonson,L,Verona Island,,136,14,141,134,0.32,0.33,0.32
+,10,0,0,U.S. President,Gary Jonson,L,Waltham,,45,7,139,71,0.17,0.53,0.27
+,10,0,0,U.S. President,Gary Jonson,L,Winter Harbor,,96,14,171,149,0.22,0.4,0.35
+,11,0,0,US House District 2,Emily Ann Cain,D,Amherst,,52,9,73,66,0.26,0.37,0.33
+,11,0,0,US House District 2,Emily Ann Cain,D,Aurora,,15,2,38,22,0.19,0.49,0.29
+,11,0,0,US House District 2,Emily Ann Cain,D,Bar Harbor,,1654,172,859,1420,0.4,0.21,0.35
+,11,0,0,US House District 2,Emily Ann Cain,D,Blue Hill,,902,81,624,676,0.4,0.27,0.3
+,11,0,0,US House District 2,Emily Ann Cain,D,Brooklin,,257,45,191,248,0.35,0.26,0.33
+,11,0,0,US House District 2,Emily Ann Cain,D,Brooksville,,291,45,220,241,0.37,0.28,0.3
+,11,0,0,US House District 2,Emily Ann Cain,D,Bucksport,,1047,71,1103,1531,0.28,0.29,0.41
+,11,0,0,US House District 2,Emily Ann Cain,D,Castine,,307,48,316,375,0.29,0.3,0.36
+,11,0,0,US House District 2,Emily Ann Cain,D,Cranberry Isles,,70,5,42,77,0.36,0.22,0.4
+,11,0,0,US House District 2,Emily Ann Cain,D,Dedham,,324,41,450,506,0.25,0.34,0.38
+,11,0,0,US House District 2,Emily Ann Cain,D,Deer Isle,,574,62,416,644,0.34,0.25,0.38
+,11,0,0,US House District 2,Emily Ann Cain,D,Eastbrook,,73,10,124,112,0.23,0.39,0.35
+,11,0,0,US House District 2,Emily Ann Cain,D,Ellsworth,,1377,196,2075,1840,0.25,0.38,0.34
+,11,0,0,US House District 2,Emily Ann Cain,D,Franklin,,249,49,375,340,0.25,0.37,0.34
+,11,0,0,US House District 2,Emily Ann Cain,D,Fletchers Landing,,,,,,,,
+,11,0,0,US House District 2,Emily Ann Cain,D,Frenchboro,,12,4,9,17,0.29,0.21,0.4
+,11,0,0,US House District 2,Emily Ann Cain,D,Gouldsboro,,369,81,515,541,0.25,0.34,0.36
+,11,0,0,US House District 2,Emily Ann Cain,D,Great Pond,,9,0,16,14,0.23,0.41,0.36
+,11,0,0,US House District 2,Emily Ann Cain,D,Hancock,,407,62,676,582,0.24,0.39,0.34
+,11,0,0,US House District 2,Emily Ann Cain,D,Lamoine,,374,63,535,458,0.26,0.37,0.32
+,11,0,0,US House District 2,Emily Ann Cain,D,Mariaville,,76,18,113,148,0.21,0.32,0.42
+,11,0,0,US House District 2,Emily Ann Cain,D,Mount Desert,,637,66,494,615,0.35,0.27,0.34
+,11,0,0,US House District 2,Emily Ann Cain,D,Orland,,446,72,415,648,0.28,0.26,0.41
+,11,0,0,US House District 2,Emily Ann Cain,D,Osborn,,9,1,33,8,0.18,0.65,0.16
+,11,0,0,US House District 2,Emily Ann Cain,D,Otis,,131,29,218,193,0.23,0.38,0.34
+,11,0,0,US House District 2,Emily Ann Cain,D,Penobscot,,286,52,297,367,0.29,0.3,0.37
+,11,0,0,US House District 2,Emily Ann Cain,D,Sedgwick,,342,57,238,336,0.35,0.24,0.35
+,11,0,0,US House District 2,Emily Ann Cain,D,Sorrento,,86,8,94,77,0.32,0.35,0.29
+,11,0,0,US House District 2,Emily Ann Cain,D,Southwest Harbor,,468,69,383,590,0.31,0.25,0.39
+,11,0,0,US House District 2,Emily Ann Cain,D,Stonington,,285,37,169,410,0.32,0.19,0.46
+,11,0,0,US House District 2,Emily Ann Cain,D,Sullivan,,208,56,258,349,0.24,0.3,0.4
+,11,0,0,US House District 2,Emily Ann Cain,D,Surry,,378,64,433,368,0.3,0.35,0.3
+,11,0,0,US House District 2,Emily Ann Cain,D,Swans Island,,64,19,115,118,0.2,0.36,0.37
+,11,0,0,US House District 2,Emily Ann Cain,D,Tremont,,64,19,115,118,0.2,0.36,0.37
+,11,0,0,US House District 2,Emily Ann Cain,D,Trenton,,290,55,359,419,0.26,0.32,0.37
+,11,0,0,US House District 2,Emily Ann Cain,D,Verona Island,,136,14,141,134,0.32,0.33,0.32
+,11,0,0,US House District 2,Emily Ann Cain,D,Waltham,,45,7,139,71,0.17,0.53,0.27
+,11,0,0,US House District 2,Emily Ann Cain,D,Winter Harbor,,96,14,171,149,0.22,0.4,0.35
+,11,0,0,US House District 2,Bruce Poliquin,R,Amherst,,52,9,73,66,0.26,0.37,0.33
+,11,0,0,US House District 2,Bruce Poliquin,R,Aurora,,15,2,38,22,0.19,0.49,0.29
+,11,0,0,US House District 2,Bruce Poliquin,R,Bar Harbor,,1654,172,859,1420,0.4,0.21,0.35
+,11,0,0,US House District 2,Bruce Poliquin,R,Blue Hill,,902,81,624,676,0.4,0.27,0.3
+,11,0,0,US House District 2,Bruce Poliquin,R,Brooklin,,257,45,191,248,0.35,0.26,0.33
+,11,0,0,US House District 2,Bruce Poliquin,R,Brooksville,,291,45,220,241,0.37,0.28,0.3
+,11,0,0,US House District 2,Bruce Poliquin,R,Bucksport,,1047,71,1103,1531,0.28,0.29,0.41
+,11,0,0,US House District 2,Bruce Poliquin,R,Castine,,307,48,316,375,0.29,0.3,0.36
+,11,0,0,US House District 2,Bruce Poliquin,R,Cranberry Isles,,70,5,42,77,0.36,0.22,0.4
+,11,0,0,US House District 2,Bruce Poliquin,R,Dedham,,324,41,450,506,0.25,0.34,0.38
+,11,0,0,US House District 2,Bruce Poliquin,R,Deer Isle,,574,62,416,644,0.34,0.25,0.38
+,11,0,0,US House District 2,Bruce Poliquin,R,Eastbrook,,73,10,124,112,0.23,0.39,0.35
+,11,0,0,US House District 2,Bruce Poliquin,R,Ellsworth,,1377,196,2075,1840,0.25,0.38,0.34
+,11,0,0,US House District 2,Bruce Poliquin,R,Fletchers Landing,,,,,,,,
+,11,0,0,US House District 2,Bruce Poliquin,R,Franklin,,249,49,375,340,0.25,0.37,0.34
+,11,0,0,US House District 2,Bruce Poliquin,R,Frenchboro,,12,4,9,17,0.29,0.21,0.4
+,11,0,0,US House District 2,Bruce Poliquin,R,Gouldsboro,,369,81,515,541,0.25,0.34,0.36
+,11,0,0,US House District 2,Bruce Poliquin,R,Great Pond,,9,0,16,14,0.23,0.41,0.36
+,11,0,0,US House District 2,Bruce Poliquin,R,Hancock,,407,62,676,582,0.24,0.39,0.34
+,11,0,0,US House District 2,Bruce Poliquin,R,Lamoine,,374,63,535,458,0.26,0.37,0.32
+,11,0,0,US House District 2,Bruce Poliquin,R,Mariaville,,76,18,113,148,0.21,0.32,0.42
+,11,0,0,US House District 2,Bruce Poliquin,R,Mount Desert,,637,66,494,615,0.35,0.27,0.34
+,11,0,0,US House District 2,Bruce Poliquin,R,Orland,,446,72,415,648,0.28,0.26,0.41
+,11,0,0,US House District 2,Bruce Poliquin,R,Osborn,,9,1,33,8,0.18,0.65,0.16
+,11,0,0,US House District 2,Bruce Poliquin,R,Otis,,131,29,218,193,0.23,0.38,0.34
+,11,0,0,US House District 2,Bruce Poliquin,R,Penobscot,,286,52,297,367,0.29,0.3,0.37
+,11,0,0,US House District 2,Bruce Poliquin,R,Sedgwick,,342,57,238,336,0.35,0.24,0.35
+,11,0,0,US House District 2,Bruce Poliquin,R,Sorrento,,86,8,94,77,0.32,0.35,0.29
+,11,0,0,US House District 2,Bruce Poliquin,R,Southwest Harbor,,468,69,383,590,0.31,0.25,0.39
+,11,0,0,US House District 2,Bruce Poliquin,R,Stonington,,285,37,169,410,0.32,0.19,0.46
+,11,0,0,US House District 2,Bruce Poliquin,R,Sullivan,,208,56,258,349,0.24,0.3,0.4
+,11,0,0,US House District 2,Bruce Poliquin,R,Surry,,378,64,433,368,0.3,0.35,0.3
+,11,0,0,US House District 2,Bruce Poliquin,R,Swans Island,,64,19,115,118,0.2,0.36,0.37
+,11,0,0,US House District 2,Bruce Poliquin,R,Tremont,,64,19,115,118,0.2,0.36,0.37
+,11,0,0,US House District 2,Bruce Poliquin,R,Trenton,,290,55,359,419,0.26,0.32,0.37
+,11,0,0,US House District 2,Bruce Poliquin,R,Verona Island,,136,14,141,134,0.32,0.33,0.32
+,11,0,0,US House District 2,Bruce Poliquin,R,Waltham,,45,7,139,71,0.17,0.53,0.27
+,11,0,0,US House District 2,Bruce Poliquin,R,Winter Harbor,,96,14,171,149,0.22,0.4,0.35
+,23,0,0,State Senate District 8,Kimberley C. Rosen,R,Bucksport,,1047,71,1103,1531,0.28,0.29,0.41
+,23,0,0,State Senate District 8,Kimberley C. Rosen,R,Castine,,307,48,316,375,0.29,0.3,0.36
+,23,0,0,State Senate District 8,Kimberley C. Rosen,R,Dedham,,324,41,450,506,0.25,0.34,0.38
+,23,0,0,State Senate District 8,Kimberley C. Rosen,R,Great Pond,,9,0,16,14,0.23,0.41,0.36
+,23,0,0,State Senate District 8,Kimberley C. Rosen,R,Orland,,446,72,415,648,0.28,0.26,0.41
+,23,0,0,State Senate District 8,Kimberley C. Rosen,R,Verona Island,,136,14,141,134,0.32,0.33,0.32
+,23,0,0,State Senate District 8,Kimberley C. Rosen,R,Waltham,,45,7,139,71,0.17,0.53,0.27
+,23,0,0,State Senate District 8,Kimberley C. Rosen,R,Winter Harbor,,96,14,171,149,0.22,0.4,0.35
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Amherst,,52,9,73,66,0.26,0.37,0.33
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Aurora,,15,2,38,22,0.19,0.49,0.29
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Bar Harbor,,1654,172,859,1420,0.4,0.21,0.35
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Blue Hill,,902,81,624,676,0.4,0.27,0.3
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Brooklin,,257,45,191,248,0.35,0.26,0.33
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Brooksville,,291,45,220,241,0.37,0.28,0.3
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Cranberry Isles,,70,5,42,77,0.36,0.22,0.4
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Deer Isle,,574,62,416,644,0.34,0.25,0.38
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Ellsworth,,1377,196,2075,1840,0.25,0.38,0.34
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Franklin,,249,49,375,340,0.25,0.37,0.34
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Frenchboro,,12,4,9,17,0.29,0.21,0.4
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Hancock,,407,62,676,582,0.24,0.39,0.34
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Lamoine,,374,63,535,458,0.26,0.37,0.32
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Mariaville,,76,18,113,148,0.21,0.32,0.42
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Mount Desert,,637,66,494,615,0.35,0.27,0.34
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Osborn,,9,1,33,8,0.18,0.65,0.16
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Otis,,131,29,218,193,0.23,0.38,0.34
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Sedgwick,,342,57,238,336,0.35,0.24,0.35
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Sorrento,,86,8,94,77,0.32,0.35,0.29
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Southwest Harbor,,468,69,383,590,0.31,0.25,0.39
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Stonington,,285,37,169,410,0.32,0.19,0.46
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Surry,,378,64,433,368,0.3,0.35,0.3
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Swans Island,,64,19,115,118,0.2,0.36,0.37
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Tremont,,64,19,115,118,0.2,0.36,0.37
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Trenton,,290,55,359,419,0.26,0.32,0.37
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Waltham,,45,7,139,71,0.17,0.53,0.27
+,22,0,0,State Senate District 7,Moira K. O&#039;Neil,D,Eastbrook,,73,10,124,112,0.23,0.39,0.35
+,22,0,0,State Senate District 7,Brian D. Langley,R,Amherst,,52,9,73,66,0.26,0.37,0.33
+,22,0,0,State Senate District 7,Brian D. Langley,R,Aurora,,15,2,38,22,0.19,0.49,0.29
+,22,0,0,State Senate District 7,Brian D. Langley,R,Bar Harbor,,1654,172,859,1420,0.4,0.21,0.35
+,22,0,0,State Senate District 7,Brian D. Langley,R,Blue Hill,,902,81,624,676,0.4,0.27,0.3
+,22,0,0,State Senate District 7,Brian D. Langley,R,Brooklin,,257,45,191,248,0.35,0.26,0.33
+,22,0,0,State Senate District 7,Brian D. Langley,R,Brooksville,,291,45,220,241,0.37,0.28,0.3
+,22,0,0,State Senate District 7,Brian D. Langley,R,Cranberry Isles,,70,5,42,77,0.36,0.22,0.4
+,22,0,0,State Senate District 7,Brian D. Langley,R,Deer Isle,,574,62,416,644,0.34,0.25,0.38
+,22,0,0,State Senate District 7,Brian D. Langley,R,Ellsworth,,1377,196,2075,1840,0.25,0.38,0.34
+,22,0,0,State Senate District 7,Brian D. Langley,R,Franklin,,249,49,375,340,0.25,0.37,0.34
+,22,0,0,State Senate District 7,Brian D. Langley,R,Frenchboro,,12,4,9,17,0.29,0.21,0.4
+,22,0,0,State Senate District 7,Brian D. Langley,R,Hancock,,407,62,676,582,0.24,0.39,0.34
+,22,0,0,State Senate District 7,Brian D. Langley,R,Lamoine,,374,63,535,458,0.26,0.37,0.32
+,22,0,0,State Senate District 7,Brian D. Langley,R,Mariaville,,76,18,113,148,0.21,0.32,0.42
+,22,0,0,State Senate District 7,Brian D. Langley,R,Mount Desert,,637,66,494,615,0.35,0.27,0.34
+,22,0,0,State Senate District 7,Brian D. Langley,R,Osborn,,9,1,33,8,0.18,0.65,0.16
+,22,0,0,State Senate District 7,Brian D. Langley,R,Otis,,131,29,218,193,0.23,0.38,0.34
+,22,0,0,State Senate District 7,Brian D. Langley,R,Sedgwick,,342,57,238,336,0.35,0.24,0.35
+,22,0,0,State Senate District 7,Brian D. Langley,R,Sorrento,,86,8,94,77,0.32,0.35,0.29
+,22,0,0,State Senate District 7,Brian D. Langley,R,Southwest Harbor,,468,69,383,590,0.31,0.25,0.39
+,22,0,0,State Senate District 7,Brian D. Langley,R,Stonington,,285,37,169,410,0.32,0.19,0.46
+,22,0,0,State Senate District 7,Brian D. Langley,R,Surry,,378,64,433,368,0.3,0.35,0.3
+,22,0,0,State Senate District 7,Brian D. Langley,R,Swans Island,,64,19,115,118,0.2,0.36,0.37
+,22,0,0,State Senate District 7,Brian D. Langley,R,Tremont,,64,19,115,118,0.2,0.36,0.37
+,22,0,0,State Senate District 7,Brian D. Langley,R,Trenton,,290,55,359,419,0.26,0.32,0.37
+,22,0,0,State Senate District 7,Brian D. Langley,R,Waltham,,45,7,139,71,0.17,0.53,0.27
+,22,0,0,State Senate District 7,Brian D. Langley,R,Eastbrook,,73,10,124,112,0.23,0.39,0.35
+,21,0,0,State Senator District 6,Joyce A. Maker,R,Gouldsboro,Gouldsboro,369,81,515,541,0.25,0.34,0.36
+,21,0,0,State Senator District 6,Joyce A. Maker,R,Sullivan,Sullivan,208,56,258,349,0.24,0.3,0.4
+,21,0,0,State Senator District 6,Joyce A. Maker,R,Winter Harbor,Winter Harbor,96,14,171,149,0.22,0.4,0.35
+,21,0,0,State Senator District 6,Rock A. Alley,D,Gouldsboro,Gouldsboro,369,81,515,541,0.25,0.34,0.36
+,21,0,0,State Senator District 6,Rock A. Alley,D,Sullivan,Sullivan,208,56,258,349,0.24,0.3,0.4
+,21,0,0,State Senator District 6,Rock A. Alley,D,Winter Harbor,Winter Harbor,96,14,171,149,0.22,0.4,0.35
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Amherst,Amherst,52,9,73,66,0.26,0.37,0.33
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Aurora,Aurora,15,2,38,22,0.19,0.49,0.29
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Bar Harbor,Bar Harbor,1654,172,859,1420,0.4,0.21,0.35
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Blue Hill,Blue Hill,902,81,624,676,0.4,0.27,0.3
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Brooklin,Brooklin,257,45,191,248,0.35,0.26,0.33
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Brooksville,Brooksville,291,45,220,241,0.37,0.28,0.3
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Bucksport,Bucksport,1047,71,1103,1531,0.28,0.29,0.41
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Castine,Castine,307,48,316,375,0.29,0.3,0.36
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Cranberry Isles,Cranberry Isles,70,5,42,77,0.36,0.22,0.4
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Dedham,Dedham,324,41,450,506,0.25,0.34,0.38
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Deer Isle,Deer Isle,574,62,416,644,0.34,0.25,0.38
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Eastbrook,Eastbrook,73,10,124,112,0.23,0.39,0.35
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Ellsworth,Ellsworth,1377,196,2075,1840,0.25,0.38,0.34
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Fletchers Landing,Fletchers Landing,,,,,,,
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Franklin,Franklin,249,49,375,340,0.25,0.37,0.34
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Frenchboro,Frenchboro,12,4,9,17,0.29,0.21,0.4
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Gouldsboro,Gouldsboro,369,81,515,541,0.25,0.34,0.36
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Great Pond,Great Pond,9,0,16,14,0.23,0.41,0.36
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Hancock,Hancock,407,62,676,582,0.24,0.39,0.34
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Lamoine,Lamoine,374,63,535,458,0.26,0.37,0.32
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Mariaville,Mariaville,76,18,113,148,0.21,0.32,0.42
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Mount Desert,Mount Desert,637,66,494,615,0.35,0.27,0.34
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Orland,Orland,446,72,415,648,0.28,0.26,0.41
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Osborn,Osborn,9,1,33,8,0.18,0.65,0.16
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Otis,Otis,131,29,218,193,0.23,0.38,0.34
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Penobscot,Penobscot,286,52,297,367,0.29,0.3,0.37
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Sedgwick,Sedgwick,342,57,238,336,0.35,0.24,0.35
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Sorrento,Sorrento,86,8,94,77,0.32,0.35,0.29
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Southwest Harbor,Southwest Harbor,468,69,383,590,0.31,0.25,0.39
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Stonington,Stonington,285,37,169,410,0.32,0.19,0.46
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Sullivan,Sullivan,208,56,258,349,0.24,0.3,0.4
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Surry,Surry,378,64,433,368,0.3,0.35,0.3
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Swans Island,Swans Island,64,19,115,118,0.2,0.36,0.37
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Tremont,Tremont,64,19,115,118,0.2,0.36,0.37
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Trenton,Trenton,290,55,359,419,0.26,0.32,0.37
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Verona Island,Verona Island,136,14,141,134,0.32,0.33,0.32
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Waltham,Waltham,45,7,139,71,0.17,0.53,0.27
+,31,0,0,Register of Probate,Gale S. Coughlin,R,Winter Harbor,Winter Harbor,96,14,171,149,0.22,0.4,0.35
+,32,0,0,County Commissioner District 1,Susan E. Walsh,D,Amherst,Amherst,52,9,73,66,0.26,0.37,0.33
+,32,0,0,County Commissioner District 1,Susan E. Walsh,D,Aurora,Aurora,15,2,38,22,0.19,0.49,0.29
+,32,0,0,County Commissioner District 1,Susan E. Walsh,D,Blue Hill,Blue Hill,902,81,624,676,0.4,0.27,0.3
+,32,0,0,County Commissioner District 1,Susan E. Walsh,D,Eastbrook,Eastbrook,73,10,124,112,0.23,0.39,0.35
+,32,0,0,County Commissioner District 1,Susan E. Walsh,D,Ellsworth,Ellsworth,1377,196,2075,1840,0.25,0.38,0.34
+,32,0,0,County Commissioner District 1,Susan E. Walsh,D,Gouldsboro,Gouldsboro,369,81,515,541,0.25,0.34,0.36
+,32,0,0,County Commissioner District 1,Susan E. Walsh,D,Great Pond,Great Pond,9,0,16,14,0.23,0.41,0.36
+,32,0,0,County Commissioner District 1,Susan E. Walsh,D,Mariaville,Mariaville,76,18,113,148,0.21,0.32,0.42
+,32,0,0,County Commissioner District 1,Susan E. Walsh,D,Osborn,Osborn,9,1,33,8,0.18,0.65,0.16
+,32,0,0,County Commissioner District 1,Susan E. Walsh,D,Otis,Otis,131,29,218,193,0.23,0.38,0.34
+,32,0,0,County Commissioner District 1,Susan E. Walsh,D,Sorrento,Sorrento,86,8,94,77,0.32,0.35,0.29
+,32,0,0,County Commissioner District 1,Susan E. Walsh,D,Sullivan,Sullivan,208,56,258,349,0.24,0.3,0.4
+,32,0,0,County Commissioner District 1,Susan E. Walsh,D,Surry,Surry,378,64,433,368,0.3,0.35,0.3
+,32,0,0,County Commissioner District 1,Susan E. Walsh,D,Waltham,Waltham,45,7,139,71,0.17,0.53,0.27
+,32,0,0,County Commissioner District 1,Susan E. Walsh,D,Winter Harbor,Winter Harbor,96,14,171,149,0.22,0.4,0.35
+,32,0,0,County Commissioner District 1,Bill Clark,R,Amherst,Amherst,52,9,73,66,0.26,0.37,0.33
+,32,0,0,County Commissioner District 1,Bill Clark,R,Aurora,Aurora,15,2,38,22,0.19,0.49,0.29
+,32,0,0,County Commissioner District 1,Bill Clark,R,Blue Hill,Blue Hill,902,81,624,676,0.4,0.27,0.3
+,32,0,0,County Commissioner District 1,Bill Clark,R,Eastbrook,Eastbrook,73,10,124,112,0.23,0.39,0.35
+,32,0,0,County Commissioner District 1,Bill Clark,R,Ellsworth,Ellsworth,1377,196,2075,1840,0.25,0.38,0.34
+,32,0,0,County Commissioner District 1,Bill Clark,R,Gouldsboro,Gouldsboro,369,81,515,541,0.25,0.34,0.36
+,32,0,0,County Commissioner District 1,Bill Clark,R,Great Pond,Great Pond,9,0,16,14,0.23,0.41,0.36
+,32,0,0,County Commissioner District 1,Bill Clark,R,Mariaville,Mariaville,76,18,113,148,0.21,0.32,0.42
+,32,0,0,County Commissioner District 1,Bill Clark,R,Osborn,Osborn,9,1,33,8,0.18,0.65,0.16
+,32,0,0,County Commissioner District 1,Bill Clark,R,Otis,Otis,131,29,218,193,0.23,0.38,0.34
+,32,0,0,County Commissioner District 1,Bill Clark,R,Sorrento,Sorrento,86,8,94,77,0.32,0.35,0.29
+,32,0,0,County Commissioner District 1,Bill Clark,R,Sullivan,Sullivan,208,56,258,349,0.24,0.3,0.4
+,32,0,0,County Commissioner District 1,Bill Clark,R,Surry,Surry,378,64,433,368,0.3,0.35,0.3
+,32,0,0,County Commissioner District 1,Bill Clark,R,Waltham,Waltham,45,7,139,71,0.17,0.53,0.27
+,32,0,0,County Commissioner District 1,Bill Clark,R,Winter Harbor,Winter Harbor,96,14,171,149,0.22,0.4,0.35
+,33,0,0,County Commissioner District 3,Antonio Blasi,D,Bar Harbor,Bar Harbor,1654,172,859,1420,0.4,0.21,0.35
+,33,0,0,County Commissioner District 3,Antonio Blasi,D,Cranberry Isles,Cranberry Isles,70,5,42,77,0.36,0.22,0.4
+,33,0,0,County Commissioner District 3,Antonio Blasi,D,Franklin,Franklin,249,49,375,340,0.25,0.37,0.34
+,33,0,0,County Commissioner District 3,Antonio Blasi,D,Frenchboro,Frenchboro,12,4,9,17,0.29,0.21,0.4
+,33,0,0,County Commissioner District 3,Antonio Blasi,D,Hancock,Hancock,407,62,676,582,0.24,0.39,0.34
+,33,0,0,County Commissioner District 3,Antonio Blasi,D,Lamoine,Lamoine,374,63,535,458,0.26,0.37,0.32
+,33,0,0,County Commissioner District 3,Antonio Blasi,D,Mount Desert,Mount Desert,637,66,494,615,0.35,0.27,0.34
+,33,0,0,County Commissioner District 3,Antonio Blasi,D,Southwest Harbor,Southwest Harbor,468,69,383,590,0.31,0.25,0.39
+,33,0,0,County Commissioner District 3,Antonio Blasi,D,Swans Island,Swans Island,64,19,115,118,0.2,0.36,0.37
+,33,0,0,County Commissioner District 3,Antonio Blasi,D,Tremont,Tremont,64,19,115,118,0.2,0.36,0.37
+,33,0,0,County Commissioner District 3,Antonio Blasi,D,Trenton,Trenton,290,55,359,419,0.26,0.32,0.37
+,33,0,0,County Commissioner District 3,Frederick R. Ehrlenbach,R,Bar Harbor,Bar Harbor,1654,172,859,1420,0.4,0.21,0.35
+,33,0,0,County Commissioner District 3,Frederick R. Ehrlenbach,R,Cranberry Isles,Cranberry Isles,70,5,42,77,0.36,0.22,0.4
+,33,0,0,County Commissioner District 3,Frederick R. Ehrlenbach,R,Franklin,Franklin,249,49,375,340,0.25,0.37,0.34
+,33,0,0,County Commissioner District 3,Frederick R. Ehrlenbach,R,Frenchboro,Frenchboro,12,4,9,17,0.29,0.21,0.4
+,33,0,0,County Commissioner District 3,Frederick R. Ehrlenbach,R,Hancock,Hancock,407,62,676,582,0.24,0.39,0.34
+,33,0,0,County Commissioner District 3,Frederick R. Ehrlenbach,R,Lamoine,Lamoine,374,63,535,458,0.26,0.37,0.32
+,33,0,0,County Commissioner District 3,Frederick R. Ehrlenbach,R,Mount Desert,Mount Desert,637,66,494,615,0.35,0.27,0.34
+,33,0,0,County Commissioner District 3,Frederick R. Ehrlenbach,R,Southwest Harbor,Southwest Harbor,468,69,383,590,0.31,0.25,0.39
+,33,0,0,County Commissioner District 3,Frederick R. Ehrlenbach,R,Swans Island,Swans Island,64,19,115,118,0.2,0.36,0.37
+,33,0,0,County Commissioner District 3,Frederick R. Ehrlenbach,R,Tremont,Tremont,64,19,115,118,0.2,0.36,0.37
+,33,0,0,County Commissioner District 3,Frederick R. Ehrlenbach,R,Trenton,Trenton,290,55,359,419,0.26,0.32,0.37
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,

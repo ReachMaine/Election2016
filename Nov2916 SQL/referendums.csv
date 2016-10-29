@@ -1,0 +1,439 @@
+electionrecordid,raceorder,votes,reported,race,candidate,party,town,precinct,r_d,r_g,r_r,r_u,pct_d,pct_r,pct_u
+,10,0,0,Question 1: Legal marijuana,Yes,,Amherst,Amherst,52,9,73,66,0.26,0.37,0.33
+,10,0,0,Question 1: Legal marijuana,Yes,,Aurora,Aurora,15,2,38,22,0.19,0.49,0.29
+,10,0,0,Question 1: Legal marijuana,Yes,,Bar Harbor,Bar Harbor,1654,172,859,1420,0.4,0.21,0.35
+,10,0,0,Question 1: Legal marijuana,Yes,,Blue Hill,Blue Hill,902,81,624,676,0.4,0.27,0.3
+,10,0,0,Question 1: Legal marijuana,Yes,,Brooklin,Brooklin,257,45,191,248,0.35,0.26,0.33
+,10,0,0,Question 1: Legal marijuana,Yes,,Brooksville,Brooksville,291,45,220,241,0.37,0.28,0.3
+,10,0,0,Question 1: Legal marijuana,Yes,,Bucksport,Bucksport,1047,71,1103,1531,0.28,0.29,0.41
+,10,0,0,Question 1: Legal marijuana,Yes,,Castine,Castine,307,48,316,375,0.29,0.3,0.36
+,10,0,0,Question 1: Legal marijuana,Yes,,Cranberry Isles,Cranberry Isles,70,5,42,77,0.36,0.22,0.4
+,10,0,0,Question 1: Legal marijuana,Yes,,Dedham,Dedham,324,41,450,506,0.25,0.34,0.38
+,10,0,0,Question 1: Legal marijuana,Yes,,Deer Isle,Deer Isle,574,62,416,644,0.34,0.25,0.38
+,10,0,0,Question 1: Legal marijuana,Yes,,Eastbrook,Eastbrook,73,10,124,112,0.23,0.39,0.35
+,10,0,0,Question 1: Legal marijuana,Yes,,Ellsworth,Ellsworth,1377,196,2075,1840,0.25,0.38,0.34
+,10,0,0,Question 1: Legal marijuana,Yes,,Fletchers Landing,Fletchers Landing,,,,,,,
+,10,0,0,Question 1: Legal marijuana,Yes,,Franklin,Franklin,249,49,375,340,0.25,0.37,0.34
+,10,0,0,Question 1: Legal marijuana,Yes,,Frenchboro,Frenchboro,12,4,9,17,0.29,0.21,0.4
+,10,0,0,Question 1: Legal marijuana,Yes,,Gouldsboro,Gouldsboro,369,81,515,541,0.25,0.34,0.36
+,10,0,0,Question 1: Legal marijuana,Yes,,Great Pond,Great Pond,9,0,16,14,0.23,0.41,0.36
+,10,0,0,Question 1: Legal marijuana,Yes,,Hancock,Hancock,407,62,676,582,0.24,0.39,0.34
+,10,0,0,Question 1: Legal marijuana,Yes,,Lamoine,Lamoine,374,63,535,458,0.26,0.37,0.32
+,10,0,0,Question 1: Legal marijuana,Yes,,Mariaville,Mariaville,76,18,113,148,0.21,0.32,0.42
+,10,0,0,Question 1: Legal marijuana,Yes,,Mount Desert,Mount Desert,637,66,494,615,0.35,0.27,0.34
+,10,0,0,Question 1: Legal marijuana,Yes,,Orland,Orland,446,72,415,648,0.28,0.26,0.41
+,10,0,0,Question 1: Legal marijuana,Yes,,Osborn,Osborn,9,1,33,8,0.18,0.65,0.16
+,10,0,0,Question 1: Legal marijuana,Yes,,Otis,Otis,131,29,218,193,0.23,0.38,0.34
+,10,0,0,Question 1: Legal marijuana,Yes,,Penobscot,Penobscot,286,52,297,367,0.29,0.3,0.37
+,10,0,0,Question 1: Legal marijuana,Yes,,Sedgwick,Sedgwick,342,57,238,336,0.35,0.24,0.35
+,10,0,0,Question 1: Legal marijuana,Yes,,Sorrento,Sorrento,86,8,94,77,0.32,0.35,0.29
+,10,0,0,Question 1: Legal marijuana,Yes,,Southwest Harbor,Southwest Harbor,468,69,383,590,0.31,0.25,0.39
+,10,0,0,Question 1: Legal marijuana,Yes,,Stonington,Stonington,285,37,169,410,0.32,0.19,0.46
+,10,0,0,Question 1: Legal marijuana,Yes,,Sullivan,Sullivan,208,56,258,349,0.24,0.3,0.4
+,10,0,0,Question 1: Legal marijuana,Yes,,Surry,Surry,378,64,433,368,0.3,0.35,0.3
+,10,0,0,Question 1: Legal marijuana,Yes,,Swan's Island,Swans Island,64,19,115,118,0.2,0.36,0.37
+,10,0,0,Question 1: Legal marijuana,Yes,,Tremont,Tremont,64,19,115,118,0.2,0.36,0.37
+,10,0,0,Question 1: Legal marijuana,Yes,,Trenton,Trenton,290,55,359,419,0.26,0.32,0.37
+,10,0,0,Question 1: Legal marijuana,Yes,,Verona Island,Verona Island,136,14,141,134,0.32,0.33,0.32
+,10,0,0,Question 1: Legal marijuana,Yes,,Waltham,Waltham,45,7,139,71,0.17,0.53,0.27
+,10,0,0,Question 1: Legal marijuana,Yes,,Winter Harbor,Winter Harbor,96,14,171,149,0.22,0.4,0.35
+,10,0,0,Question 1: Legal marijuana,No,,Amherst,Amherst,52,9,73,66,0.26,0.37,0.33
+,10,0,0,Question 1: Legal marijuana,No,,Aurora,Aurora,15,2,38,22,0.19,0.49,0.29
+,10,0,0,Question 1: Legal marijuana,No,,Bar Harbor,Bar Harbor,1654,172,859,1420,0.4,0.21,0.35
+,10,0,0,Question 1: Legal marijuana,No,,Blue Hill,Blue Hill,902,81,624,676,0.4,0.27,0.3
+,10,0,0,Question 1: Legal marijuana,No,,Brooklin,Brooklin,257,45,191,248,0.35,0.26,0.33
+,10,0,0,Question 1: Legal marijuana,No,,Brooksville,Brooksville,291,45,220,241,0.37,0.28,0.3
+,10,0,0,Question 1: Legal marijuana,No,,Bucksport,Bucksport,1047,71,1103,1531,0.28,0.29,0.41
+,10,0,0,Question 1: Legal marijuana,No,,Castine,Castine,307,48,316,375,0.29,0.3,0.36
+,10,0,0,Question 1: Legal marijuana,No,,Cranberry Isles,Cranberry Isles,70,5,42,77,0.36,0.22,0.4
+,10,0,0,Question 1: Legal marijuana,No,,Dedham,Dedham,324,41,450,506,0.25,0.34,0.38
+,10,0,0,Question 1: Legal marijuana,No,,Deer Isle,Deer Isle,574,62,416,644,0.34,0.25,0.38
+,10,0,0,Question 1: Legal marijuana,No,,Eastbrook,Eastbrook,73,10,124,112,0.23,0.39,0.35
+,10,0,0,Question 1: Legal marijuana,No,,Ellsworth,Ellsworth,1377,196,2075,1840,0.25,0.38,0.34
+,10,0,0,Question 1: Legal marijuana,No,,Gouldsboro,Gouldsboro,369,81,515,541,0.25,0.34,0.36
+,10,0,0,Question 1: Legal marijuana,No,,Great Pond,Great Pond,9,0,16,14,0.23,0.41,0.36
+,10,0,0,Question 1: Legal marijuana,No,,Hancock,Hancock,407,62,676,582,0.24,0.39,0.34
+,10,0,0,Question 1: Legal marijuana,No,,Lamoine,Lamoine,374,63,535,458,0.26,0.37,0.32
+,10,0,0,Question 1: Legal marijuana,No,,Mariaville,Mariaville,76,18,113,148,0.21,0.32,0.42
+,10,0,0,Question 1: Legal marijuana,No,,Mount Desert,Mount Desert,637,66,494,615,0.35,0.27,0.34
+,10,0,0,Question 1: Legal marijuana,No,,Orland,Orland,446,72,415,648,0.28,0.26,0.41
+,10,0,0,Question 1: Legal marijuana,No,,Osborn,Osborn,9,1,33,8,0.18,0.65,0.16
+,10,0,0,Question 1: Legal marijuana,No,,Otis,Otis,131,29,218,193,0.23,0.38,0.34
+,10,0,0,Question 1: Legal marijuana,No,,Penobscot,Penobscot,286,52,297,367,0.29,0.3,0.37
+,10,0,0,Question 1: Legal marijuana,No,,Sedgwick,Sedgwick,342,57,238,336,0.35,0.24,0.35
+,10,0,0,Question 1: Legal marijuana,No,,Sorrento,Sorrento,86,8,94,77,0.32,0.35,0.29
+,10,0,0,Question 1: Legal marijuana,No,,Southwest Harbor,Southwest Harbor,468,69,383,590,0.31,0.25,0.39
+,10,0,0,Question 1: Legal marijuana,No,,Stonington,Stonington,285,37,169,410,0.32,0.19,0.46
+,10,0,0,Question 1: Legal marijuana,No,,Sullivan,Sullivan,208,56,258,349,0.24,0.3,0.4
+,10,0,0,Question 1: Legal marijuana,No,,Surry,Surry,378,64,433,368,0.3,0.35,0.3
+,10,0,0,Question 1: Legal marijuana,No,,Swan's Island,Swans Island,64,19,115,118,0.2,0.36,0.37
+,10,0,0,Question 1: Legal marijuana,No,,Tremont,Tremont,64,19,115,118,0.2,0.36,0.37
+,10,0,0,Question 1: Legal marijuana,No,,Trenton,Trenton,290,55,359,419,0.26,0.32,0.37
+,10,0,0,Question 1: Legal marijuana,No,,Verona Island,Verona Island,136,14,141,134,0.32,0.33,0.32
+,10,0,0,Question 1: Legal marijuana,No,,Waltham,Waltham,45,7,139,71,0.17,0.53,0.27
+,10,0,0,Question 1: Legal marijuana,No,,Winter Harbor,Winter Harbor,96,14,171,149,0.22,0.4,0.35
+,11,0,0,Question 2: School funding,Yes,,Amherst,Amherst,52,9,73,66,0.26,0.37,0.33
+,11,0,0,Question 2: School funding,Yes,,Aurora,Aurora,15,2,38,22,0.19,0.49,0.29
+,11,0,0,Question 2: School funding,Yes,,Bar Harbor,Bar Harbor,1654,172,859,1420,0.4,0.21,0.35
+,11,0,0,Question 2: School funding,Yes,,Blue Hill,Blue Hill,902,81,624,676,0.4,0.27,0.3
+,11,0,0,Question 2: School funding,Yes,,Brooklin,Brooklin,257,45,191,248,0.35,0.26,0.33
+,11,0,0,Question 2: School funding,Yes,,Brooksville,Brooksville,291,45,220,241,0.37,0.28,0.3
+,11,0,0,Question 2: School funding,Yes,,Bucksport,Bucksport,1047,71,1103,1531,0.28,0.29,0.41
+,11,0,0,Question 2: School funding,Yes,,Castine,Castine,307,48,316,375,0.29,0.3,0.36
+,11,0,0,Question 2: School funding,Yes,,Cranberry Isles,Cranberry Isles,70,5,42,77,0.36,0.22,0.4
+,11,0,0,Question 2: School funding,Yes,,Dedham,Dedham,324,41,450,506,0.25,0.34,0.38
+,11,0,0,Question 2: School funding,Yes,,Deer Isle,Deer Isle,574,62,416,644,0.34,0.25,0.38
+,11,0,0,Question 2: School funding,Yes,,Eastbrook,Eastbrook,73,10,124,112,0.23,0.39,0.35
+,11,0,0,Question 2: School funding,Yes,,Ellsworth,Ellsworth,1377,196,2075,1840,0.25,0.38,0.34
+,11,0,0,Question 2: School funding,Yes,,Fletchers Landing,Fletchers Landing,,,,,,,
+,11,0,0,Question 2: School funding,Yes,,Franklin,Franklin,249,49,375,340,0.25,0.37,0.34
+,11,0,0,Question 2: School funding,Yes,,Frenchboro,Frenchboro,12,4,9,17,0.29,0.21,0.4
+,11,0,0,Question 2: School funding,Yes,,Gouldsboro,Gouldsboro,369,81,515,541,0.25,0.34,0.36
+,11,0,0,Question 2: School funding,Yes,,Great Pond,Great Pond,9,0,16,14,0.23,0.41,0.36
+,11,0,0,Question 2: School funding,Yes,,Hancock,Hancock,407,62,676,582,0.24,0.39,0.34
+,11,0,0,Question 2: School funding,Yes,,Lamoine,Lamoine,374,63,535,458,0.26,0.37,0.32
+,11,0,0,Question 2: School funding,Yes,,Mariaville,Mariaville,76,18,113,148,0.21,0.32,0.42
+,11,0,0,Question 2: School funding,Yes,,Mount Desert,Mount Desert,637,66,494,615,0.35,0.27,0.34
+,11,0,0,Question 2: School funding,Yes,,Orland,Orland,446,72,415,648,0.28,0.26,0.41
+,11,0,0,Question 2: School funding,Yes,,Osborn,Osborn,9,1,33,8,0.18,0.65,0.16
+,11,0,0,Question 2: School funding,Yes,,Otis,Otis,131,29,218,193,0.23,0.38,0.34
+,11,0,0,Question 2: School funding,Yes,,Penobscot,Penobscot,286,52,297,367,0.29,0.3,0.37
+,11,0,0,Question 2: School funding,Yes,,Sedgwick,Sedgwick,342,57,238,336,0.35,0.24,0.35
+,11,0,0,Question 2: School funding,Yes,,Sorrento,Sorrento,86,8,94,77,0.32,0.35,0.29
+,11,0,0,Question 2: School funding,Yes,,Southwest Harbor,Southwest Harbor,468,69,383,590,0.31,0.25,0.39
+,11,0,0,Question 2: School funding,Yes,,Stonington,Stonington,285,37,169,410,0.32,0.19,0.46
+,11,0,0,Question 2: School funding,Yes,,Sullivan,Sullivan,208,56,258,349,0.24,0.3,0.4
+,11,0,0,Question 2: School funding,Yes,,Surry,Surry,378,64,433,368,0.3,0.35,0.3
+,11,0,0,Question 2: School funding,Yes,,Swan's Island,Swans Island,64,19,115,118,0.2,0.36,0.37
+,11,0,0,Question 2: School funding,Yes,,Tremont,Tremont,64,19,115,118,0.2,0.36,0.37
+,11,0,0,Question 2: School funding,Yes,,Trenton,Trenton,290,55,359,419,0.26,0.32,0.37
+,11,0,0,Question 2: School funding,Yes,,Verona Island,Verona Island,136,14,141,134,0.32,0.33,0.32
+,11,0,0,Question 2: School funding,Yes,,Waltham,Waltham,45,7,139,71,0.17,0.53,0.27
+,11,0,0,Question 2: School funding,Yes,,Winter Harbor,Winter Harbor,96,14,171,149,0.22,0.4,0.35
+,11,0,0,Question 2: School funding,No,,Amherst,Amherst,52,9,73,66,0.26,0.37,0.33
+,11,0,0,Question 2: School funding,No,,Aurora,Aurora,15,2,38,22,0.19,0.49,0.29
+,11,0,0,Question 2: School funding,No,,Bar Harbor,Bar Harbor,1654,172,859,1420,0.4,0.21,0.35
+,11,0,0,Question 2: School funding,No,,Blue Hill,Blue Hill,902,81,624,676,0.4,0.27,0.3
+,11,0,0,Question 2: School funding,No,,Brooklin,Brooklin,257,45,191,248,0.35,0.26,0.33
+,11,0,0,Question 2: School funding,No,,Brooksville,Brooksville,291,45,220,241,0.37,0.28,0.3
+,11,0,0,Question 2: School funding,No,,Bucksport,Bucksport,1047,71,1103,1531,0.28,0.29,0.41
+,11,0,0,Question 2: School funding,No,,Castine,Castine,307,48,316,375,0.29,0.3,0.36
+,11,0,0,Question 2: School funding,No,,Cranberry Isles,Cranberry Isles,70,5,42,77,0.36,0.22,0.4
+,11,0,0,Question 2: School funding,No,,Dedham,Dedham,324,41,450,506,0.25,0.34,0.38
+,11,0,0,Question 2: School funding,No,,Deer Isle,Deer Isle,574,62,416,644,0.34,0.25,0.38
+,11,0,0,Question 2: School funding,No,,Eastbrook,Eastbrook,73,10,124,112,0.23,0.39,0.35
+,11,0,0,Question 2: School funding,No,,Ellsworth,Ellsworth,1377,196,2075,1840,0.25,0.38,0.34
+,11,0,0,Question 2: School funding,No,,Gouldsboro,Gouldsboro,369,81,515,541,0.25,0.34,0.36
+,11,0,0,Question 2: School funding,No,,Great Pond,Great Pond,9,0,16,14,0.23,0.41,0.36
+,11,0,0,Question 2: School funding,No,,Hancock,Hancock,407,62,676,582,0.24,0.39,0.34
+,11,0,0,Question 2: School funding,No,,Lamoine,Lamoine,374,63,535,458,0.26,0.37,0.32
+,11,0,0,Question 2: School funding,No,,Mariaville,Mariaville,76,18,113,148,0.21,0.32,0.42
+,11,0,0,Question 2: School funding,No,,Mount Desert,Mount Desert,637,66,494,615,0.35,0.27,0.34
+,11,0,0,Question 2: School funding,No,,Orland,Orland,446,72,415,648,0.28,0.26,0.41
+,11,0,0,Question 2: School funding,No,,Osborn,Osborn,9,1,33,8,0.18,0.65,0.16
+,11,0,0,Question 2: School funding,No,,Otis,Otis,131,29,218,193,0.23,0.38,0.34
+,11,0,0,Question 2: School funding,No,,Penobscot,Penobscot,286,52,297,367,0.29,0.3,0.37
+,11,0,0,Question 2: School funding,No,,Sedgwick,Sedgwick,342,57,238,336,0.35,0.24,0.35
+,11,0,0,Question 2: School funding,No,,Sorrento,Sorrento,86,8,94,77,0.32,0.35,0.29
+,11,0,0,Question 2: School funding,No,,Southwest Harbor,Southwest Harbor,468,69,383,590,0.31,0.25,0.39
+,11,0,0,Question 2: School funding,No,,Stonington,Stonington,285,37,169,410,0.32,0.19,0.46
+,11,0,0,Question 2: School funding,No,,Sullivan,Sullivan,208,56,258,349,0.24,0.3,0.4
+,11,0,0,Question 2: School funding,No,,Surry,Surry,378,64,433,368,0.3,0.35,0.3
+,11,0,0,Question 2: School funding,No,,Swan's Island,Swans Island,64,19,115,118,0.2,0.36,0.37
+,11,0,0,Question 2: School funding,No,,Tremont,Tremont,64,19,115,118,0.2,0.36,0.37
+,11,0,0,Question 2: School funding,No,,Trenton,Trenton,290,55,359,419,0.26,0.32,0.37
+,11,0,0,Question 2: School funding,No,,Verona Island,Verona Island,136,14,141,134,0.32,0.33,0.32
+,11,0,0,Question 2: School funding,No,,Waltham,Waltham,45,7,139,71,0.17,0.53,0.27
+,11,0,0,Question 2: School funding,No,,Winter Harbor,Winter Harbor,96,14,171,149,0.22,0.4,0.35
+,12,0,0,Question 3: Gun sales checks,Yes,,Amherst,Amherst,52,9,73,66,0.26,0.37,0.33
+,12,0,0,Question 3: Gun sales checks,Yes,,Aurora,Aurora,15,2,38,22,0.19,0.49,0.29
+,12,0,0,Question 3: Gun sales checks,Yes,,Bar Harbor,Bar Harbor,1654,172,859,1420,0.4,0.21,0.35
+,12,0,0,Question 3: Gun sales checks,Yes,,Blue Hill,Blue Hill,902,81,624,676,0.4,0.27,0.3
+,12,0,0,Question 3: Gun sales checks,Yes,,Brooklin,Brooklin,257,45,191,248,0.35,0.26,0.33
+,12,0,0,Question 3: Gun sales checks,Yes,,Brooksville,Brooksville,291,45,220,241,0.37,0.28,0.3
+,12,0,0,Question 3: Gun sales checks,Yes,,Bucksport,Bucksport,1047,71,1103,1531,0.28,0.29,0.41
+,12,0,0,Question 3: Gun sales checks,Yes,,Castine,Castine,307,48,316,375,0.29,0.3,0.36
+,12,0,0,Question 3: Gun sales checks,Yes,,Cranberry Isles,Cranberry Isles,70,5,42,77,0.36,0.22,0.4
+,12,0,0,Question 3: Gun sales checks,Yes,,Dedham,Dedham,324,41,450,506,0.25,0.34,0.38
+,12,0,0,Question 3: Gun sales checks,Yes,,Deer Isle,Deer Isle,574,62,416,644,0.34,0.25,0.38
+,12,0,0,Question 3: Gun sales checks,Yes,,Eastbrook,Eastbrook,73,10,124,112,0.23,0.39,0.35
+,12,0,0,Question 3: Gun sales checks,Yes,,Ellsworth,Ellsworth,1377,196,2075,1840,0.25,0.38,0.34
+,12,0,0,Question 3: Gun sales checks,Yes,,Fletchers Landing,Fletchers Landing,,,,,,,
+,12,0,0,Question 3: Gun sales checks,Yes,,Franklin,Franklin,249,49,375,340,0.25,0.37,0.34
+,12,0,0,Question 3: Gun sales checks,Yes,,Frenchboro,Frenchboro,12,4,9,17,0.29,0.21,0.4
+,12,0,0,Question 3: Gun sales checks,Yes,,Gouldsboro,Gouldsboro,369,81,515,541,0.25,0.34,0.36
+,12,0,0,Question 3: Gun sales checks,Yes,,Great Pond,Great Pond,9,0,16,14,0.23,0.41,0.36
+,12,0,0,Question 3: Gun sales checks,Yes,,Hancock,Hancock,407,62,676,582,0.24,0.39,0.34
+,12,0,0,Question 3: Gun sales checks,Yes,,Lamoine,Lamoine,374,63,535,458,0.26,0.37,0.32
+,12,0,0,Question 3: Gun sales checks,Yes,,Mariaville,Mariaville,76,18,113,148,0.21,0.32,0.42
+,12,0,0,Question 3: Gun sales checks,Yes,,Mount Desert,Mount Desert,637,66,494,615,0.35,0.27,0.34
+,12,0,0,Question 3: Gun sales checks,Yes,,Orland,Orland,446,72,415,648,0.28,0.26,0.41
+,12,0,0,Question 3: Gun sales checks,Yes,,Osborn,Osborn,9,1,33,8,0.18,0.65,0.16
+,12,0,0,Question 3: Gun sales checks,Yes,,Otis,Otis,131,29,218,193,0.23,0.38,0.34
+,12,0,0,Question 3: Gun sales checks,Yes,,Penobscot,Penobscot,286,52,297,367,0.29,0.3,0.37
+,12,0,0,Question 3: Gun sales checks,Yes,,Sedgwick,Sedgwick,342,57,238,336,0.35,0.24,0.35
+,12,0,0,Question 3: Gun sales checks,Yes,,Sorrento,Sorrento,86,8,94,77,0.32,0.35,0.29
+,12,0,0,Question 3: Gun sales checks,Yes,,Southwest Harbor,Southwest Harbor,468,69,383,590,0.31,0.25,0.39
+,12,0,0,Question 3: Gun sales checks,Yes,,Stonington,Stonington,285,37,169,410,0.32,0.19,0.46
+,12,0,0,Question 3: Gun sales checks,Yes,,Sullivan,Sullivan,208,56,258,349,0.24,0.3,0.4
+,12,0,0,Question 3: Gun sales checks,Yes,,Surry,Surry,378,64,433,368,0.3,0.35,0.3
+,12,0,0,Question 3: Gun sales checks,Yes,,Swan's Island,Swans Island,64,19,115,118,0.2,0.36,0.37
+,12,0,0,Question 3: Gun sales checks,Yes,,Tremont,Tremont,64,19,115,118,0.2,0.36,0.37
+,12,0,0,Question 3: Gun sales checks,Yes,,Trenton,Trenton,290,55,359,419,0.26,0.32,0.37
+,12,0,0,Question 3: Gun sales checks,Yes,,Verona Island,Verona Island,136,14,141,134,0.32,0.33,0.32
+,12,0,0,Question 3: Gun sales checks,Yes,,Waltham,Waltham,45,7,139,71,0.17,0.53,0.27
+,12,0,0,Question 3: Gun sales checks,Yes,,Winter Harbor,Winter Harbor,96,14,171,149,0.22,0.4,0.35
+,12,0,0,Question 3: Gun sales checks,No,,Amherst,Amherst,52,9,73,66,0.26,0.37,0.33
+,12,0,0,Question 3: Gun sales checks,No,,Aurora,Aurora,15,2,38,22,0.19,0.49,0.29
+,12,0,0,Question 3: Gun sales checks,No,,Bar Harbor,Bar Harbor,1654,172,859,1420,0.4,0.21,0.35
+,12,0,0,Question 3: Gun sales checks,No,,Blue Hill,Blue Hill,902,81,624,676,0.4,0.27,0.3
+,12,0,0,Question 3: Gun sales checks,No,,Brooklin,Brooklin,257,45,191,248,0.35,0.26,0.33
+,12,0,0,Question 3: Gun sales checks,No,,Brooksville,Brooksville,291,45,220,241,0.37,0.28,0.3
+,12,0,0,Question 3: Gun sales checks,No,,Bucksport,Bucksport,1047,71,1103,1531,0.28,0.29,0.41
+,12,0,0,Question 3: Gun sales checks,No,,Castine,Castine,307,48,316,375,0.29,0.3,0.36
+,12,0,0,Question 3: Gun sales checks,No,,Cranberry Isles,Cranberry Isles,70,5,42,77,0.36,0.22,0.4
+,12,0,0,Question 3: Gun sales checks,No,,Dedham,Dedham,324,41,450,506,0.25,0.34,0.38
+,12,0,0,Question 3: Gun sales checks,No,,Deer Isle,Deer Isle,574,62,416,644,0.34,0.25,0.38
+,12,0,0,Question 3: Gun sales checks,No,,Eastbrook,Eastbrook,73,10,124,112,0.23,0.39,0.35
+,12,0,0,Question 3: Gun sales checks,No,,Ellsworth,Ellsworth,1377,196,2075,1840,0.25,0.38,0.34
+,12,0,0,Question 3: Gun sales checks,No,,Gouldsboro,Gouldsboro,369,81,515,541,0.25,0.34,0.36
+,12,0,0,Question 3: Gun sales checks,No,,Great Pond,Great Pond,9,0,16,14,0.23,0.41,0.36
+,12,0,0,Question 3: Gun sales checks,No,,Hancock,Hancock,407,62,676,582,0.24,0.39,0.34
+,12,0,0,Question 3: Gun sales checks,No,,Lamoine,Lamoine,374,63,535,458,0.26,0.37,0.32
+,12,0,0,Question 3: Gun sales checks,No,,Mariaville,Mariaville,76,18,113,148,0.21,0.32,0.42
+,12,0,0,Question 3: Gun sales checks,No,,Mount Desert,Mount Desert,637,66,494,615,0.35,0.27,0.34
+,12,0,0,Question 3: Gun sales checks,No,,Orland,Orland,446,72,415,648,0.28,0.26,0.41
+,12,0,0,Question 3: Gun sales checks,No,,Osborn,Osborn,9,1,33,8,0.18,0.65,0.16
+,12,0,0,Question 3: Gun sales checks,No,,Otis,Otis,131,29,218,193,0.23,0.38,0.34
+,12,0,0,Question 3: Gun sales checks,No,,Penobscot,Penobscot,286,52,297,367,0.29,0.3,0.37
+,12,0,0,Question 3: Gun sales checks,No,,Sedgwick,Sedgwick,342,57,238,336,0.35,0.24,0.35
+,12,0,0,Question 3: Gun sales checks,No,,Sorrento,Sorrento,86,8,94,77,0.32,0.35,0.29
+,12,0,0,Question 3: Gun sales checks,No,,Southwest Harbor,Southwest Harbor,468,69,383,590,0.31,0.25,0.39
+,12,0,0,Question 3: Gun sales checks,No,,Stonington,Stonington,285,37,169,410,0.32,0.19,0.46
+,12,0,0,Question 3: Gun sales checks,No,,Sullivan,Sullivan,208,56,258,349,0.24,0.3,0.4
+,12,0,0,Question 3: Gun sales checks,No,,Surry,Surry,378,64,433,368,0.3,0.35,0.3
+,12,0,0,Question 3: Gun sales checks,No,,Swan's Island,Swans Island,64,19,115,118,0.2,0.36,0.37
+,12,0,0,Question 3: Gun sales checks,No,,Tremont,Tremont,64,19,115,118,0.2,0.36,0.37
+,12,0,0,Question 3: Gun sales checks,No,,Trenton,Trenton,290,55,359,419,0.26,0.32,0.37
+,12,0,0,Question 3: Gun sales checks,No,,Verona Island,Verona Island,136,14,141,134,0.32,0.33,0.32
+,12,0,0,Question 3: Gun sales checks,No,,Waltham,Waltham,45,7,139,71,0.17,0.53,0.27
+,12,0,0,Question 3: Gun sales checks,No,,Winter Harbor,Winter Harbor,96,14,171,149,0.22,0.4,0.35
+,13,0,0,Question 4: Minimum wage,Yes,,Amherst,Amherst,52,9,73,66,0.26,,
+,13,0,0,Question 4: Minimum wage,Yes,,Aurora,Aurora,15,2,38,22,0.19,,
+,13,0,0,Question 4: Minimum wage,Yes,,Bar Harbor,Bar Harbor,1654,172,859,1420,0.4,,
+,13,0,0,Question 4: Minimum wage,Yes,,Blue Hill,Blue Hill,902,81,624,676,0.4,,
+,13,0,0,Question 4: Minimum wage,Yes,,Brooklin,Brooklin,257,45,191,248,0.35,,
+,13,0,0,Question 4: Minimum wage,Yes,,Brooksville,Brooksville,291,45,220,241,0.37,,
+,13,0,0,Question 4: Minimum wage,Yes,,Bucksport,Bucksport,1047,71,1103,1531,0.28,,
+,13,0,0,Question 4: Minimum wage,Yes,,Castine,Castine,307,48,316,375,0.29,,
+,13,0,0,Question 4: Minimum wage,Yes,,Cranberry Isles,Cranberry Isles,70,5,42,77,0.36,,
+,13,0,0,Question 4: Minimum wage,Yes,,Dedham,Dedham,324,41,450,506,0.25,,
+,13,0,0,Question 4: Minimum wage,Yes,,Deer Isle,Deer Isle,574,62,416,644,0.34,,
+,13,0,0,Question 4: Minimum wage,Yes,,Eastbrook,Eastbrook,73,10,124,112,0.23,,
+,13,0,0,Question 4: Minimum wage,Yes,,Ellsworth,Ellsworth,1377,196,2075,1840,0.25,,
+,13,0,0,Question 4: Minimum wage,Yes,,Fletchers Landing,Fletchers Landing,,,,,,,
+,13,0,0,Question 4: Minimum wage,Yes,,Franklin,Franklin,249,49,375,340,0.25,,
+,13,0,0,Question 4: Minimum wage,Yes,,Frenchboro,Frenchboro,12,4,9,17,0.29,,
+,13,0,0,Question 4: Minimum wage,Yes,,Gouldsboro,Gouldsboro,369,81,515,541,0.25,,
+,13,0,0,Question 4: Minimum wage,Yes,,Great Pond,Great Pond,9,0,16,14,0.23,,
+,13,0,0,Question 4: Minimum wage,Yes,,Hancock,Hancock,407,62,676,582,0.24,,
+,13,0,0,Question 4: Minimum wage,Yes,,Lamoine,Lamoine,374,63,535,458,0.26,,
+,13,0,0,Question 4: Minimum wage,Yes,,Mariaville,Mariaville,76,18,113,148,0.21,,
+,13,0,0,Question 4: Minimum wage,Yes,,Mount Desert,Mount Desert,637,66,494,615,0.35,,
+,13,0,0,Question 4: Minimum wage,Yes,,Orland,Orland,446,72,415,648,0.28,,
+,13,0,0,Question 4: Minimum wage,Yes,,Osborn,Osborn,9,1,33,8,0.18,,
+,13,0,0,Question 4: Minimum wage,Yes,,Otis,Otis,131,29,218,193,0.23,,
+,13,0,0,Question 4: Minimum wage,Yes,,Penobscot,Penobscot,286,52,297,367,0.29,,
+,13,0,0,Question 4: Minimum wage,Yes,,Sedgwick,Sedgwick,342,57,238,336,0.35,,
+,13,0,0,Question 4: Minimum wage,Yes,,Sorrento,Sorrento,86,8,94,77,0.32,,
+,13,0,0,Question 4: Minimum wage,Yes,,Southwest Harbor,Southwest Harbor,468,69,383,590,0.31,,
+,13,0,0,Question 4: Minimum wage,Yes,,Stonington,Stonington,285,37,169,410,0.32,,
+,13,0,0,Question 4: Minimum wage,Yes,,Sullivan,Sullivan,208,56,258,349,0.24,,
+,13,0,0,Question 4: Minimum wage,Yes,,Surry,Surry,378,64,433,368,0.3,,
+,13,0,0,Question 4: Minimum wage,Yes,,Swan's Island,Swans Island,64,19,115,118,0.2,,
+,13,0,0,Question 4: Minimum wage,Yes,,Tremont,Tremont,64,19,115,118,0.2,,
+,13,0,0,Question 4: Minimum wage,Yes,,Trenton,Trenton,290,55,359,419,0.26,,
+,13,0,0,Question 4: Minimum wage,Yes,,Verona Island,Verona Island,136,14,141,134,0.32,,
+,13,0,0,Question 4: Minimum wage,Yes,,Waltham,Waltham,45,7,139,71,0.17,,
+,13,0,0,Question 4: Minimum wage,Yes,,Winter Harbor,Winter Harbor,96,14,171,149,0.22,,
+,13,0,0,Question 4: Minimum wage,No,,Amherst,Amherst,52,9,73,66,0.26,,
+,13,0,0,Question 4: Minimum wage,No,,Aurora,Aurora,15,2,38,22,0.19,,
+,13,0,0,Question 4: Minimum wage,No,,Bar Harbor,Bar Harbor,1654,172,859,1420,0.4,,
+,13,0,0,Question 4: Minimum wage,No,,Blue Hill,Blue Hill,902,81,624,676,0.4,,
+,13,0,0,Question 4: Minimum wage,No,,Brooklin,Brooklin,257,45,191,248,0.35,,
+,13,0,0,Question 4: Minimum wage,No,,Brooksville,Brooksville,291,45,220,241,0.37,,
+,13,0,0,Question 4: Minimum wage,No,,Bucksport,Bucksport,1047,71,1103,1531,0.28,,
+,13,0,0,Question 4: Minimum wage,No,,Castine,Castine,307,48,316,375,0.29,,
+,13,0,0,Question 4: Minimum wage,No,,Cranberry Isles,Cranberry Isles,70,5,42,77,0.36,,
+,13,0,0,Question 4: Minimum wage,No,,Dedham,Dedham,324,41,450,506,0.25,,
+,13,0,0,Question 4: Minimum wage,No,,Deer Isle,Deer Isle,574,62,416,644,0.34,,
+,13,0,0,Question 4: Minimum wage,No,,Eastbrook,Eastbrook,73,10,124,112,0.23,,
+,13,0,0,Question 4: Minimum wage,No,,Ellsworth,Ellsworth,1377,196,2075,1840,0.25,,
+,13,0,0,Question 4: Minimum wage,No,,Gouldsboro,Gouldsboro,369,81,515,541,0.25,,
+,13,0,0,Question 4: Minimum wage,No,,Great Pond,Great Pond,9,0,16,14,0.23,,
+,13,0,0,Question 4: Minimum wage,No,,Hancock,Hancock,407,62,676,582,0.24,,
+,13,0,0,Question 4: Minimum wage,No,,Lamoine,Lamoine,374,63,535,458,0.26,,
+,13,0,0,Question 4: Minimum wage,No,,Mariaville,Mariaville,76,18,113,148,0.21,,
+,13,0,0,Question 4: Minimum wage,No,,Mount Desert,Mount Desert,637,66,494,615,0.35,,
+,13,0,0,Question 4: Minimum wage,No,,Orland,Orland,446,72,415,648,0.28,,
+,13,0,0,Question 4: Minimum wage,No,,Osborn,Osborn,9,1,33,8,0.18,,
+,13,0,0,Question 4: Minimum wage,No,,Otis,Otis,131,29,218,193,0.23,,
+,13,0,0,Question 4: Minimum wage,No,,Penobscot,Penobscot,286,52,297,367,0.29,,
+,13,0,0,Question 4: Minimum wage,No,,Sedgwick,Sedgwick,342,57,238,336,0.35,,
+,13,0,0,Question 4: Minimum wage,No,,Sorrento,Sorrento,86,8,94,77,0.32,,
+,13,0,0,Question 4: Minimum wage,No,,Southwest Harbor,Southwest Harbor,468,69,383,590,0.31,,
+,13,0,0,Question 4: Minimum wage,No,,Stonington,Stonington,285,37,169,410,0.32,,
+,13,0,0,Question 4: Minimum wage,No,,Sullivan,Sullivan,208,56,258,349,0.24,,
+,13,0,0,Question 4: Minimum wage,No,,Surry,Surry,378,64,433,368,0.3,,
+,13,0,0,Question 4: Minimum wage,No,,Swan's Island,Swans Island,64,19,115,118,0.2,,
+,13,0,0,Question 4: Minimum wage,No,,Tremont,Tremont,64,19,115,118,0.2,,
+,13,0,0,Question 4: Minimum wage,No,,Trenton,Trenton,290,55,359,419,0.26,,
+,13,0,0,Question 4: Minimum wage,No,,Verona Island,Verona Island,136,14,141,134,0.32,,
+,13,0,0,Question 4: Minimum wage,No,,Waltham,Waltham,45,7,139,71,0.17,,
+,13,0,0,Question 4: Minimum wage,No,,Winter Harbor,Winter Harbor,96,14,171,149,0.22,,
+,14,0,0,Question 5: Ranked-choice,Yes,,Amherst,Amherst,52,9,73,66,0.26,0.37,0.33
+,14,0,0,Question 5: Ranked-choice,Yes,,Aurora,Aurora,15,2,38,22,0.19,0.49,0.29
+,14,0,0,Question 5: Ranked-choice,Yes,,Bar Harbor,Bar Harbor,1654,172,859,1420,0.4,0.21,0.35
+,14,0,0,Question 5: Ranked-choice,Yes,,Blue Hill,Blue Hill,902,81,624,676,0.4,0.27,0.3
+,14,0,0,Question 5: Ranked-choice,Yes,,Brooklin,Brooklin,257,45,191,248,0.35,0.26,0.33
+,14,0,0,Question 5: Ranked-choice,Yes,,Brooksville,Brooksville,291,45,220,241,0.37,0.28,0.3
+,14,0,0,Question 5: Ranked-choice,Yes,,Bucksport,Bucksport,1047,71,1103,1531,0.28,0.29,0.41
+,14,0,0,Question 5: Ranked-choice,Yes,,Castine,Castine,307,48,316,375,0.29,0.3,0.36
+,14,0,0,Question 5: Ranked-choice,Yes,,Cranberry Isles,Cranberry Isles,70,5,42,77,0.36,0.22,0.4
+,14,0,0,Question 5: Ranked-choice,Yes,,Dedham,Dedham,324,41,450,506,0.25,0.34,0.38
+,14,0,0,Question 5: Ranked-choice,Yes,,Deer Isle,Deer Isle,574,62,416,644,0.34,0.25,0.38
+,14,0,0,Question 5: Ranked-choice,Yes,,Eastbrook,Eastbrook,73,10,124,112,0.23,0.39,0.35
+,14,0,0,Question 5: Ranked-choice,Yes,,Ellsworth,Ellsworth,1377,196,2075,1840,0.25,0.38,0.34
+,14,0,0,Question 5: Ranked-choice,Yes,,Fletchers Landing,Fletchers Landing,,,,,,,
+,14,0,0,Question 5: Ranked-choice,Yes,,Franklin,Franklin,249,49,375,340,0.25,0.37,0.34
+,14,0,0,Question 5: Ranked-choice,Yes,,Frenchboro,Frenchboro,12,4,9,17,0.29,0.21,0.4
+,14,0,0,Question 5: Ranked-choice,Yes,,Gouldsboro,Gouldsboro,369,81,515,541,0.25,0.34,0.36
+,14,0,0,Question 5: Ranked-choice,Yes,,Great Pond,Great Pond,9,0,16,14,0.23,0.41,0.36
+,14,0,0,Question 5: Ranked-choice,Yes,,Hancock,Hancock,407,62,676,582,0.24,0.39,0.34
+,14,0,0,Question 5: Ranked-choice,Yes,,Lamoine,Lamoine,374,63,535,458,0.26,0.37,0.32
+,14,0,0,Question 5: Ranked-choice,Yes,,Mariaville,Mariaville,76,18,113,148,0.21,0.32,0.42
+,14,0,0,Question 5: Ranked-choice,Yes,,Mount Desert,Mount Desert,637,66,494,615,0.35,0.27,0.34
+,14,0,0,Question 5: Ranked-choice,Yes,,Orland,Orland,446,72,415,648,0.28,0.26,0.41
+,14,0,0,Question 5: Ranked-choice,Yes,,Osborn,Osborn,9,1,33,8,0.18,0.65,0.16
+,14,0,0,Question 5: Ranked-choice,Yes,,Otis,Otis,131,29,218,193,0.23,0.38,0.34
+,14,0,0,Question 5: Ranked-choice,Yes,,Penobscot,Penobscot,286,52,297,367,0.29,0.3,0.37
+,14,0,0,Question 5: Ranked-choice,Yes,,Sedgwick,Sedgwick,342,57,238,336,0.35,0.24,0.35
+,14,0,0,Question 5: Ranked-choice,Yes,,Sorrento,Sorrento,86,8,94,77,0.32,0.35,0.29
+,14,0,0,Question 5: Ranked-choice,Yes,,Southwest Harbor,Southwest Harbor,468,69,383,590,0.31,0.25,0.39
+,14,0,0,Question 5: Ranked-choice,Yes,,Stonington,Stonington,285,37,169,410,0.32,0.19,0.46
+,14,0,0,Question 5: Ranked-choice,Yes,,Sullivan,Sullivan,208,56,258,349,0.24,0.3,0.4
+,14,0,0,Question 5: Ranked-choice,Yes,,Surry,Surry,378,64,433,368,0.3,0.35,0.3
+,14,0,0,Question 5: Ranked-choice,Yes,,Swan's Island,Swans Island,64,19,115,118,0.2,0.36,0.37
+,14,0,0,Question 5: Ranked-choice,Yes,,Tremont,Tremont,64,19,115,118,0.2,0.36,0.37
+,14,0,0,Question 5: Ranked-choice,Yes,,Trenton,Trenton,290,55,359,419,0.26,0.32,0.37
+,14,0,0,Question 5: Ranked-choice,Yes,,Verona Island,Verona Island,136,14,141,134,0.32,0.33,0.32
+,14,0,0,Question 5: Ranked-choice,Yes,,Waltham,Waltham,45,7,139,71,0.17,0.53,0.27
+,14,0,0,Question 5: Ranked-choice,Yes,,Winter Harbor,Winter Harbor,96,14,171,149,0.22,0.4,0.35
+,14,0,0,Question 5: Ranked-choice,No,,Amherst,Amherst,52,9,73,66,0.26,0.37,0.33
+,14,0,0,Question 5: Ranked-choice,No,,Aurora,Aurora,15,2,38,22,0.19,0.49,0.29
+,14,0,0,Question 5: Ranked-choice,No,,Bar Harbor,Bar Harbor,1654,172,859,1420,0.4,0.21,0.35
+,14,0,0,Question 5: Ranked-choice,No,,Blue Hill,Blue Hill,902,81,624,676,0.4,0.27,0.3
+,14,0,0,Question 5: Ranked-choice,No,,Brooklin,Brooklin,257,45,191,248,0.35,0.26,0.33
+,14,0,0,Question 5: Ranked-choice,No,,Brooksville,Brooksville,291,45,220,241,0.37,0.28,0.3
+,14,0,0,Question 5: Ranked-choice,No,,Bucksport,Bucksport,1047,71,1103,1531,0.28,0.29,0.41
+,14,0,0,Question 5: Ranked-choice,No,,Castine,Castine,307,48,316,375,0.29,0.3,0.36
+,14,0,0,Question 5: Ranked-choice,No,,Cranberry Isles,Cranberry Isles,70,5,42,77,0.36,0.22,0.4
+,14,0,0,Question 5: Ranked-choice,No,,Dedham,Dedham,324,41,450,506,0.25,0.34,0.38
+,14,0,0,Question 5: Ranked-choice,No,,Deer Isle,Deer Isle,574,62,416,644,0.34,0.25,0.38
+,14,0,0,Question 5: Ranked-choice,No,,Eastbrook,Eastbrook,73,10,124,112,0.23,0.39,0.35
+,14,0,0,Question 5: Ranked-choice,No,,Ellsworth,Ellsworth,1377,196,2075,1840,0.25,0.38,0.34
+,14,0,0,Question 5: Ranked-choice,No,,Gouldsboro,Gouldsboro,369,81,515,541,0.25,0.34,0.36
+,14,0,0,Question 5: Ranked-choice,No,,Great Pond,Great Pond,9,0,16,14,0.23,0.41,0.36
+,14,0,0,Question 5: Ranked-choice,No,,Hancock,Hancock,407,62,676,582,0.24,0.39,0.34
+,14,0,0,Question 5: Ranked-choice,No,,Lamoine,Lamoine,374,63,535,458,0.26,0.37,0.32
+,14,0,0,Question 5: Ranked-choice,No,,Mariaville,Mariaville,76,18,113,148,0.21,0.32,0.42
+,14,0,0,Question 5: Ranked-choice,No,,Mount Desert,Mount Desert,637,66,494,615,0.35,0.27,0.34
+,14,0,0,Question 5: Ranked-choice,No,,Orland,Orland,446,72,415,648,0.28,0.26,0.41
+,14,0,0,Question 5: Ranked-choice,No,,Osborn,Osborn,9,1,33,8,0.18,0.65,0.16
+,14,0,0,Question 5: Ranked-choice,No,,Otis,Otis,131,29,218,193,0.23,0.38,0.34
+,14,0,0,Question 5: Ranked-choice,No,,Penobscot,Penobscot,286,52,297,367,0.29,0.3,0.37
+,14,0,0,Question 5: Ranked-choice,No,,Sedgwick,Sedgwick,342,57,238,336,0.35,0.24,0.35
+,14,0,0,Question 5: Ranked-choice,No,,Sorrento,Sorrento,86,8,94,77,0.32,0.35,0.29
+,14,0,0,Question 5: Ranked-choice,No,,Southwest Harbor,Southwest Harbor,468,69,383,590,0.31,0.25,0.39
+,14,0,0,Question 5: Ranked-choice,No,,Stonington,Stonington,285,37,169,410,0.32,0.19,0.46
+,14,0,0,Question 5: Ranked-choice,No,,Sullivan,Sullivan,208,56,258,349,0.24,0.3,0.4
+,14,0,0,Question 5: Ranked-choice,No,,Surry,Surry,378,64,433,368,0.3,0.35,0.3
+,14,0,0,Question 5: Ranked-choice,No,,Swan's Island,Swans Island,64,19,115,118,0.2,0.36,0.37
+,14,0,0,Question 5: Ranked-choice,No,,Tremont,Tremont,64,19,115,118,0.2,0.36,0.37
+,14,0,0,Question 5: Ranked-choice,No,,Trenton,Trenton,290,55,359,419,0.26,0.32,0.37
+,14,0,0,Question 5: Ranked-choice,No,,Verona Island,Verona Island,136,14,141,134,0.32,0.33,0.32
+,14,0,0,Question 5: Ranked-choice,No,,Waltham,Waltham,45,7,139,71,0.17,0.53,0.27
+,14,0,0,Question 5: Ranked-choice,No,,Winter Harbor,Winter Harbor,96,14,171,149,0.22,0.4,0.35
+,15,0,0,Question 6: Transport bond,Yes,,Amherst,Amherst,52,9,73,66,0.26,0.37,0.33
+,15,0,0,Question 6: Transport bond,Yes,,Aurora,Aurora,15,2,38,22,0.19,0.49,0.29
+,15,0,0,Question 6: Transport bond,Yes,,Bar Harbor,Bar Harbor,1654,172,859,1420,0.4,0.21,0.35
+,15,0,0,Question 6: Transport bond,Yes,,Blue Hill,Blue Hill,902,81,624,676,0.4,0.27,0.3
+,15,0,0,Question 6: Transport bond,Yes,,Brooklin,Brooklin,257,45,191,248,0.35,0.26,0.33
+,15,0,0,Question 6: Transport bond,Yes,,Brooksville,Brooksville,291,45,220,241,0.37,0.28,0.3
+,15,0,0,Question 6: Transport bond,Yes,,Bucksport,Bucksport,1047,71,1103,1531,0.28,0.29,0.41
+,15,0,0,Question 6: Transport bond,Yes,,Castine,Castine,307,48,316,375,0.29,0.3,0.36
+,15,0,0,Question 6: Transport bond,Yes,,Cranberry Isles,Cranberry Isles,70,5,42,77,0.36,0.22,0.4
+,15,0,0,Question 6: Transport bond,Yes,,Dedham,Dedham,324,41,450,506,0.25,0.34,0.38
+,15,0,0,Question 6: Transport bond,Yes,,Deer Isle,Deer Isle,574,62,416,644,0.34,0.25,0.38
+,15,0,0,Question 6: Transport bond,Yes,,Eastbrook,Eastbrook,73,10,124,112,0.23,0.39,0.35
+,15,0,0,Question 6: Transport bond,Yes,,Ellsworth,Ellsworth,1377,196,2075,1840,0.25,0.38,0.34
+,15,0,0,Question 6: Transport bond,Yes,,Fletchers Landing,Fletchers Landing,,,,,,,
+,15,0,0,Question 6: Transport bond,Yes,,Franklin,Franklin,249,49,375,340,0.25,0.37,0.34
+,15,0,0,Question 6: Transport bond,Yes,,Frenchboro,Frenchboro,12,4,9,17,0.29,0.21,0.4
+,15,0,0,Question 6: Transport bond,Yes,,Gouldsboro,Gouldsboro,369,81,515,541,0.25,0.34,0.36
+,15,0,0,Question 6: Transport bond,Yes,,Great Pond,Great Pond,9,0,16,14,0.23,0.41,0.36
+,15,0,0,Question 6: Transport bond,Yes,,Hancock,Hancock,407,62,676,582,0.24,0.39,0.34
+,15,0,0,Question 6: Transport bond,Yes,,Lamoine,Lamoine,374,63,535,458,0.26,0.37,0.32
+,15,0,0,Question 6: Transport bond,Yes,,Mariaville,Mariaville,76,18,113,148,0.21,0.32,0.42
+,15,0,0,Question 6: Transport bond,Yes,,Mount Desert,Mount Desert,637,66,494,615,0.35,0.27,0.34
+,15,0,0,Question 6: Transport bond,Yes,,Orland,Orland,446,72,415,648,0.28,0.26,0.41
+,15,0,0,Question 6: Transport bond,Yes,,Osborn,Osborn,9,1,33,8,0.18,0.65,0.16
+,15,0,0,Question 6: Transport bond,Yes,,Otis,Otis,131,29,218,193,0.23,0.38,0.34
+,15,0,0,Question 6: Transport bond,Yes,,Penobscot,Penobscot,286,52,297,367,0.29,0.3,0.37
+,15,0,0,Question 6: Transport bond,Yes,,Sedgwick,Sedgwick,342,57,238,336,0.35,0.24,0.35
+,15,0,0,Question 6: Transport bond,Yes,,Sorrento,Sorrento,86,8,94,77,0.32,0.35,0.29
+,15,0,0,Question 6: Transport bond,Yes,,Southwest Harbor,Southwest Harbor,468,69,383,590,0.31,0.25,0.39
+,15,0,0,Question 6: Transport bond,Yes,,Stonington,Stonington,285,37,169,410,0.32,0.19,0.46
+,15,0,0,Question 6: Transport bond,Yes,,Sullivan,Sullivan,208,56,258,349,0.24,0.3,0.4
+,15,0,0,Question 6: Transport bond,Yes,,Surry,Surry,378,64,433,368,0.3,0.35,0.3
+,15,0,0,Question 6: Transport bond,Yes,,Swan's Island,Swans Island,64,19,115,118,0.2,0.36,0.37
+,15,0,0,Question 6: Transport bond,Yes,,Tremont,Tremont,64,19,115,118,0.2,0.36,0.37
+,15,0,0,Question 6: Transport bond,Yes,,Trenton,Trenton,290,55,359,419,0.26,0.32,0.37
+,15,0,0,Question 6: Transport bond,Yes,,Verona Island,Verona Island,136,14,141,134,0.32,0.33,0.32
+,15,0,0,Question 6: Transport bond,Yes,,Waltham,Waltham,45,7,139,71,0.17,0.53,0.27
+,15,0,0,Question 6: Transport bond,Yes,,Winter Harbor,Winter Harbor,96,14,171,149,0.22,0.4,0.35
+,15,0,0,Question 6: Transport bond,No,,Amherst,Amherst,52,9,73,66,0.26,0.37,0.33
+,15,0,0,Question 6: Transport bond,No,,Aurora,Aurora,15,2,38,22,0.19,0.49,0.29
+,15,0,0,Question 6: Transport bond,No,,Bar Harbor,Bar Harbor,1654,172,859,1420,0.4,0.21,0.35
+,15,0,0,Question 6: Transport bond,No,,Blue Hill,Blue Hill,902,81,624,676,0.4,0.27,0.3
+,15,0,0,Question 6: Transport bond,No,,Brooklin,Brooklin,257,45,191,248,0.35,0.26,0.33
+,15,0,0,Question 6: Transport bond,No,,Brooksville,Brooksville,291,45,220,241,0.37,0.28,0.3
+,15,0,0,Question 6: Transport bond,No,,Bucksport,Bucksport,1047,71,1103,1531,0.28,0.29,0.41
+,15,0,0,Question 6: Transport bond,No,,Castine,Castine,307,48,316,375,0.29,0.3,0.36
+,15,0,0,Question 6: Transport bond,No,,Cranberry Isles,Cranberry Isles,70,5,42,77,0.36,0.22,0.4
+,15,0,0,Question 6: Transport bond,No,,Dedham,Dedham,324,41,450,506,0.25,0.34,0.38
+,15,0,0,Question 6: Transport bond,No,,Deer Isle,Deer Isle,574,62,416,644,0.34,0.25,0.38
+,15,0,0,Question 6: Transport bond,No,,Eastbrook,Eastbrook,73,10,124,112,0.23,0.39,0.35
+,15,0,0,Question 6: Transport bond,No,,Ellsworth,Ellsworth,1377,196,2075,1840,0.25,0.38,0.34
+,15,0,0,Question 6: Transport bond,No,,Gouldsboro,Gouldsboro,369,81,515,541,0.25,0.34,0.36
+,15,0,0,Question 6: Transport bond,No,,Great Pond,Great Pond,9,0,16,14,0.23,0.41,0.36
+,15,0,0,Question 6: Transport bond,No,,Hancock,Hancock,407,62,676,582,0.24,0.39,0.34
+,15,0,0,Question 6: Transport bond,No,,Lamoine,Lamoine,374,63,535,458,0.26,0.37,0.32
+,15,0,0,Question 6: Transport bond,No,,Mariaville,Mariaville,76,18,113,148,0.21,0.32,0.42
+,15,0,0,Question 6: Transport bond,No,,Mount Desert,Mount Desert,637,66,494,615,0.35,0.27,0.34
+,15,0,0,Question 6: Transport bond,No,,Orland,Orland,446,72,415,648,0.28,0.26,0.41
+,15,0,0,Question 6: Transport bond,No,,Osborn,Osborn,9,1,33,8,0.18,0.65,0.16
+,15,0,0,Question 6: Transport bond,No,,Otis,Otis,131,29,218,193,0.23,0.38,0.34
+,15,0,0,Question 6: Transport bond,No,,Penobscot,Penobscot,286,52,297,367,0.29,0.3,0.37
+,15,0,0,Question 6: Transport bond,No,,Sedgwick,Sedgwick,342,57,238,336,0.35,0.24,0.35
+,15,0,0,Question 6: Transport bond,No,,Sorrento,Sorrento,86,8,94,77,0.32,0.35,0.29
+,15,0,0,Question 6: Transport bond,No,,Southwest Harbor,Southwest Harbor,468,69,383,590,0.31,0.25,0.39
+,15,0,0,Question 6: Transport bond,No,,Stonington,Stonington,285,37,169,410,0.32,0.19,0.46
+,15,0,0,Question 6: Transport bond,No,,Sullivan,Sullivan,208,56,258,349,0.24,0.3,0.4
+,15,0,0,Question 6: Transport bond,No,,Surry,Surry,378,64,433,368,0.3,0.35,0.3
+,15,0,0,Question 6: Transport bond,No,,Swan's Island,Swans Island,64,19,115,118,0.2,0.36,0.37
+,15,0,0,Question 6: Transport bond,No,,Tremont,Tremont,64,19,115,118,0.2,0.36,0.37
+,15,0,0,Question 6: Transport bond,No,,Trenton,Trenton,290,55,359,419,0.26,0.32,0.37
+,15,0,0,Question 6: Transport bond,No,,Verona Island,Verona Island,136,14,141,134,0.32,0.33,0.32
+,15,0,0,Question 6: Transport bond,No,,Waltham,Waltham,45,7,139,71,0.17,0.53,0.27
+,15,0,0,Question 6: Transport bond,No,,Winter Harbor,Winter Harbor,96,14,171,149,0.22,0.4,0.35
