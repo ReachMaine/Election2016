@@ -5,13 +5,13 @@ Template name: Election Test Towns
 $have_town = false;
 $updated = false;
 global $wpdb;
-$table = "elections2016"; 
+$table = "votes2016";
 
 if ( 'GET' == $_SERVER['REQUEST_METHOD'] && !empty( $_GET['action'] ) && $_GET['action'] == 'updatetown' ) {
 
     $have_town = true;
     $intown = $_GET['town_ddl'];
-} 
+}
 
 
 get_header(); ?>
@@ -30,11 +30,11 @@ get_header(); ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'content', 'page' ); ?>
 		<?php endwhile; // end of the loop. ?>
-			   
+
 			<form method="get" id="town_form" action="<?php the_permalink(); ?>">
 				<?php /*build the town select from DB. */
 				$townquery = 'SELECT  distinct `town` FROM `'. $table.'` WHERE 1';
-    			$townresult = $wpdb->get_results($townquery); 
+    			$townresult = $wpdb->get_results($townquery);
     			//echo "<pre>"; var_dump($townresult); echo "</pre>";
     			if ($townresult) {
     				$ddl_out = '<select name="town_ddl" class="amw" >';
@@ -47,7 +47,7 @@ get_header(); ?>
     						$ddl_out .= "selected";
     					}
     					$ddl_out .=  ' >'.$thistown.'</option>';
-    				} 
+    				}
     				echo $ddl_out;
     			} else {
     				echo "<p>no towns</p>";
@@ -57,12 +57,12 @@ get_header(); ?>
 
 				<input name="updatetown" type="submit" id="updatetown" class="submit button" value="GO" />
 			    <input name="action" type="hidden" id="action" value="updatetown" />
-			</form>  
+			</form>
 			<form method="post" id="clearing_form" action="<?php the_permalink(); ?>" class="eai-election-inputs-clear">
 				<input name="clearform" type="submit" id="clearform" class="submit button" value="Clear" />
 				<input name="action" type="hidden" id="action" value="clearform" />
-			</form>  
-			<?php /* */ 
+			</form>
+			<?php /* */
 				if ($intown) {
 					$shortcode_out = '[electionresultstown town = "'.$intown.'" primary=true]';
 					echo do_shortcode($shortcode_out);
@@ -72,7 +72,7 @@ get_header(); ?>
 			?>
 
 
-			
+
 
 
 	</div><!-- .page-inner -->

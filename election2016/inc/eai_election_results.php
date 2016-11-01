@@ -1,4 +1,4 @@
-<?php 
+<?php
 /* election results short codes */
 add_shortcode('electionresultstown', 'electionResults_Town');
 add_shortcode('electionresultsrace', 'electionResults_Race');
@@ -9,104 +9,110 @@ add_shortcode('electionresultsimple', 'electionResults_RaceSimple');
 function electionResults_Town ($atts) {
 /* shortcode to return all the results for a particular town */
     global $wpdb;
-    $table = "elections2016"; 
-	$a = shortcode_atts( array(
+    $table = "votes2016";
+    $votes_enabled = true;
+    $votes_preview = false;
+	  $a = shortcode_atts( array(
         'town' => 'something',
         'primary' => false,
     ), $atts );
     $town = $a['town'];
     $primary = $a['primary'];
-    /* initializations */
-    $htmlreturn = '<div class="eai-results-wrapper"><div class="eai-town"><h4>Elections results for '.$town.".</h4>";
-    $found_votes = false; 
-    // GET THE RACES for the given town
-    $racesquery = 'SELECT  distinct `race`, party, r_d, r_g, r_r, r_u  FROM `'.$table.'` WHERE town="'. $town.'" ORDER BY raceorder';
-    //*echo '<p>RacesQuery: '.$racesquery.'</p>'; // testing
-    $racesresults = $wpdb->get_results($racesquery); 
-    //echo "<pre>";     var_dump($racesresults);      echo "</pre>"; // testing
-    if ($racesresults) {
-        foreach ($racesresults as $race) {
-            if ($primary) {
-               
-                switch ($race->party) {
-                    case "R":
-                         $total_voters = $race->r_r;                    
-                        break;
-                    case "D":
-                        $total_voters = $race->r_d;  
-                        break;
- 
-                    case "G":
-                        $total_voters = $race->r_g;  
-                        break;
-                    case "U":
-                        $total_voters = $race->r_u;  
-                        break;
-                    default:
-                         $total_voters = 1; // prevent divid by zero
-                }   
-                //echo "<p>Primary for _".$indrace->party."_</p>";
-            } else {
-                 $total_voters = $race->r_d + $race->r_g + $race->r_r + $race->r_u;
-                //echo "<p>Election</p>";
-            }
-           
-            //echo '<p> Race:'.$race->race.' Reg. voters:'.$total_voters.'</p>'; // testing
-            $indracequery = 'SELECT DISTINCT candidate, party, votes, town, reported FROM '.$table.' WHERE town = "'.$town.'" AND race="'.$race->race.'"';
-            //echo '<p>'.$indracequery.'</p>'; // testing
-            $indraceresults = $wpdb->get_results($indracequery); 
 
-            if ($indraceresults) {
-                //$htmlreturn .= '<h4>'.$race->race.'</h4>';
-                $htmlreturn .= '<table class="eai-results eai-results-town"><tr class="eai-results-headerrow"><th class="eai-results-header">'.$race->race.'</th><th class="eai-result-votes">Votes</th></tr>';
-                $count_voted = 0;
-                $num_candidates = 0;
-                foreach ($indraceresults as $indrace) {
-                    if ($indrace->reported) {
-                        $found_votes = true;                       
-                        $count_voted += $indrace->votes;
-                    } 
-                    $num_candidates++;
-                    // count number of candidates;
-                }
-                foreach ($indraceresults as $indrace) {
-                    if ($indrace->party) {
-                        $party_string = ' (<span class="party-'.$indrace->party.'">'.$indrace->party.'</span>) ';
-                    } else {
-                        $party_string = '';
+    if ($votes_enabled) {
+
+        /* initializations */
+        $htmlreturn = '<div class="eai-results-wrapper"><div class="eai-town"><h4>Elections results for '.$town.".</h4>";
+        $found_votes = false;
+        // GET THE RACES for the given town
+        $racesquery = 'SELECT  distinct `race`, party, r_d, r_g, r_r, r_u  FROM `'.$table.'` WHERE town="'. $town.'" ORDER BY raceorder';
+        //*echo '<p>RacesQuery: '.$racesquery.'</p>'; // testing
+        $racesresults = $wpdb->get_results($racesquery);
+        //echo "<pre>";     var_dump($racesresults);      echo "</pre>"; // testing
+        if ($racesresults) {
+            foreach ($racesresults as $race) {
+                if ($primary) {
+
+                    switch ($race->party) {
+                        case "R":
+                             $total_voters = $race->r_r;
+                            break;
+                        case "D":
+                            $total_voters = $race->r_d;
+                            break;
+
+                        case "G":
+                            $total_voters = $race->r_g;
+                            break;
+                        case "U":
+                            $total_voters = $race->r_u;
+                            break;
+                        default:
+                             $total_voters = 1; // prevent divid by zero
                     }
-                    if ($indrace->reported) {
-                        //$found_votes = true;
-                        if (($count_voted > 0) && ($num_candidates > 1)) {
-                            $htmlreturn .= '<tr><td>'.$indrace->candidate.$party_string.'</td><td class="eai-result-votes">'.number_format_i18n($indrace->votes).' ( '.round(($indrace->votes/$count_voted)*100).'% )</td></tr>';                            
-                        } else {
-                            $htmlreturn .= '<tr><td>'.$indrace->candidate.$party_string.'</td><td class="eai-result-votes">'.number_format_i18n($indrace->votes).'</td></tr>';                            
+                    //echo "<p>Primary for _".$indrace->party."_</p>";
+                } else {
+                     $total_voters = $race->r_d + $race->r_g + $race->r_r + $race->r_u;
+                    //echo "<p>Election</p>";
+                }
+
+                //echo '<p> Race:'.$race->race.' Reg. voters:'.$total_voters.'</p>'; // testing
+                $indracequery = 'SELECT DISTINCT candidate, party, votes, town, reported FROM '.$table.' WHERE town = "'.$town.'" AND race="'.$race->race.'"';
+                //echo '<p>'.$indracequery.'</p>'; // testing
+                $indraceresults = $wpdb->get_results($indracequery);
+
+                if ($indraceresults) {
+                    //$htmlreturn .= '<h4>'.$race->race.'</h4>';
+                    $htmlreturn .= '<table class="eai-results eai-results-town"><tr class="eai-results-headerrow"><th class="eai-results-header">'.$race->race.'</th><th class="eai-result-votes">Votes</th></tr>';
+                    $count_voted = 0;
+                    $num_candidates = 0;
+                    foreach ($indraceresults as $indrace) {
+                        if ($indrace->reported) {
+                            $found_votes = true;
+                            $count_voted += $indrace->votes;
                         }
-                        
-                        //$count_voted += $indrace->votes;
-                    } else {
-                        $htmlreturn .= "{reported = ".$indrace->reported."}";
-                        $htmlreturn .= '<tr><td>'.$indrace->candidate.$party_string.'</td><td>not yet available</td></tr>';
+                        $num_candidates++;
+                        // count number of candidates;
                     }
+                    foreach ($indraceresults as $indrace) {
+                        if ($indrace->party) {
+                            $party_string = ' (<span class="party-'.$indrace->party.'">'.$indrace->party.'</span>) ';
+                        } else {
+                            $party_string = '';
+                        }
+                        if ($indrace->reported) {
+                            //$found_votes = true;
+                            if (($count_voted > 0) && ($num_candidates > 1)) {
+                                $htmlreturn .= '<tr><td>'.$indrace->candidate.$party_string.'</td><td class="eai-result-votes">'.number_format_i18n($indrace->votes).' ( '.round(($indrace->votes/$count_voted)*100).'% )</td></tr>';
+                            } else {
+                                $htmlreturn .= '<tr><td>'.$indrace->candidate.$party_string.'</td><td class="eai-result-votes">'.number_format_i18n($indrace->votes).'</td></tr>';
+                            }
+
+                            //$count_voted += $indrace->votes;
+                        } else {
+                            $htmlreturn .= "{reported = ".$indrace->reported."}";
+                            $htmlreturn .= '<tr><td>'.$indrace->candidate.$party_string.'</td><td>not yet available</td></tr>';
+                        }
+                    }
+                    $htmlreturn .= '</table>';
+                    //$htmlreturn .= "totalvoters:  $total_voters";
+                    if ( ($count_voted > 0) && ($total_voters>0) ) {
+                        $htmlreturn .= '<p> Voter participation: '.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters).' : '.round(($count_voted/$total_voters)*100).'%</p>';
+                        $htmlreturn .= '<h6 class="eai-results-unofficial">All results are unofficial.</h6>';
+                    }
+
                 }
-                $htmlreturn .= '</table>';
-                //$htmlreturn .= "totalvoters:  $total_voters";
-                if ( ($count_voted > 0) && ($total_voters>0) ) {
-                    $htmlreturn .= '<p> Voter participation: '.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters).' : '.round(($count_voted/$total_voters)*100).'%</p>';
-                    $htmlreturn .= '<h6 class="eai-results-unofficial">All results are unofficial.</h6>';
-                }
-               
             }
+        } else {
+            $htmlreturn .="<p>No results</p>";
         }
-    } else {
-        $htmlreturn .="<p>No results</p>";
-    }
-    $htmlreturn .="</div></div>"; // end of shortcode 
-    if (!$found_votes) {
-        $htmlreturn = '<img src="http://www.reachdowneast.com/elections2016/wp-content/themes/election2016/images/election_announcement_bar_tuesday.png">';
-    } else {
-       // $htmlreturn .= "<p>found votes..</p>";
-    }
+        $htmlreturn .="</div></div>"; // end of shortcode
+        if (!$found_votes) {
+            $htmlreturn = '<img src="http://www.reachdowneast.com/elections2016/wp-content/themes/election2016/images/election_announcement_bar_tuesday.png">';
+        } else {
+           // $htmlreturn .= "<p>found votes..</p>";
+        }
+  } // not enabled.
     return $htmlreturn;
 } /* end of electionresultstown */
 /********** END OF RESULTS BY TOWN *****************/
@@ -115,23 +121,29 @@ function electionResults_Town ($atts) {
 function electionResults_Race ($atts) {
     /* short code function to display election results by Race.  Ex:  Governor's race */
     global $wpdb;
-    $table = "elections2016"; 
-	$a = shortcode_atts( array(
+    $table = "votes2016";
+	   $a = shortcode_atts( array(
         'race' => '',
-        'unvoted' => false,  // by default, dont show the unvoted 
+        'unvoted' => false,  // by default, dont show the unvoted
         'primary' => false,
         'title' => "yes",
     ), $atts );
+    $votes_enabled = true;
+    $votes_preview = false;
+    $htmlreturn = "";
+    $jsreturn = "";
+    if ($votes_enabled) {
+
 
     // initializations
     $primary = $a['primary'];
     $race = $a['race'];
     if ($a['title'] == "yes") {
-       $show_title = true; 
+       $show_title = true;
     } else {
         $show_title = false;
     }
-    
+
 
     if ($a['unvoted'] ) {
         $show_unvoted = true;
@@ -154,10 +166,10 @@ function electionResults_Race ($atts) {
     $arry_names = array();
     $arry_votes = array();
     $arry_gdata = array();
-    /* get the candidates in the race */ 
+    /* get the candidates in the race */
     $candquery = 'SELECT  distinct `candidate`, party, raceorder FROM `'. $table.'` WHERE race="'. $race.'"';
-    $candresult = $wpdb->get_results($candquery); 
-    //echo "<pre>"; var_dump($candresult);echo "</pre>"; 
+    $candresult = $wpdb->get_results($candquery);
+    //echo "<pre>"; var_dump($candresult);echo "</pre>";
 
     if ($candresult) {
 
@@ -170,7 +182,7 @@ function electionResults_Race ($atts) {
             $ctabname = (string)$c;
             $ctabname = 'c'.$ctabname;
             $candidate_name = $cand->candidate;
-            $sums[$candidate_name] = 0; 
+            $sums[$candidate_name] = 0;
             //echo "ctabname = ". $ctabname;
             //echo "<p>".$candidate_name."</p>";
             $racequery .= ', (select votes FROM `'.$table.'` '. $ctabname.' WHERE '.$ctabname.'.race="'.$race.'" AND '.$ctabname.'.candidate = "'.$candidate_name .'" and '.$ctabname.'.precinct = base.precinct) `'.$candidate_name.'` ';
@@ -179,7 +191,7 @@ function electionResults_Race ($atts) {
         $racequery .= ' FROM `'.$table.'` base ';
         $racequery .= ' WHERE base.race="'.$race.'"';
         $racequery .= ' ORDER BY reported DESC, base.precinct';
-      
+
         //echo "-- Race Query -- <br>"; echo $racequery;  echo "</br></hr>";;// for testing
 
         $raceresults = $wpdb->get_results($racequery);
@@ -206,30 +218,30 @@ function electionResults_Race ($atts) {
                 $count_unreported_g += $raceresult->r_g;
                 $count_unreported_u += $raceresult->r_u;
             }
-           
+
             if ($primary) { // only count in party for primary
                  switch ($raceresult->party) {
                     case "R":
-                         $registeredvoters = $raceresult->r_r;                    
+                         $registeredvoters = $raceresult->r_r;
                         break;
                     case "D":
-                        $registeredvoters = $raceresult->r_d;  
+                        $registeredvoters = $raceresult->r_d;
                         break;
- 
+
                     case "G":
-                        $registeredvoters = $raceresult->r_g;  
+                        $registeredvoters = $raceresult->r_g;
                         break;
                     case "U":
-                        $registeredvoters = $raceresult->r_u;  
+                        $registeredvoters = $raceresult->r_u;
                         break;
                     default:
-                        $registeredvoters = 0;  
-                }   
+                        $registeredvoters = 0;
+                }
 
             } else {
                  $registeredvoters = $raceresult->r_d + $raceresult->r_r + $raceresult->r_g + $raceresult->r_u;
             }
-            $total_voters += $registeredvoters;        
+            $total_voters += $registeredvoters;
             $count_precincts++;
         }
         // more calcs once all counted.
@@ -241,7 +253,7 @@ function electionResults_Race ($atts) {
                 $pct_unreported_g = round(($count_unreported_g / $count_unreported)*100, 1);
                 $pct_unreported_u = round(($count_unreported_u / $count_unreported)*100, 1);
             } else {
-                $all_reported = true;                
+                $all_reported = true;
             }
             // build the data for the pie chart(s)
             $str_voterdata = "[['Unreported', 'Voters']";
@@ -254,7 +266,7 @@ function electionResults_Race ($atts) {
             $str_piedata = "[['Candidate', 'Votes']";
             $str_colors = "";
             for ($i=0; $i< $num_candidates; $i++) {
-               // if ($i > 0 ) { $str_piedata .= ","; } 
+               // if ($i > 0 ) { $str_piedata .= ","; }
                 $candidate_name = $candresult[$i]->candidate;
 
                 $str_piedata .= ",['".$candresult[$i]->candidate."', ".$sums[$candidate_name]."]";
@@ -269,7 +281,7 @@ function electionResults_Race ($atts) {
                 switch ($candresult[$i]->party) {
                     case 'R':
                         $str_colors .= ",'#D33'";
-                        break; 
+                        break;
                     case 'D':
                         $str_colors .= ",'#1E73BE'"; // a nice blue
                         break;
@@ -282,9 +294,9 @@ function electionResults_Race ($atts) {
                     case 'I':
                         $str_colors .= ",'grey'";
                         break;
-                   
+
                 }
-             
+
             }
             if ($str_colors <> "") {
                 $str_colors = ',colors :['.substr($str_colors,1).']';
@@ -293,9 +305,9 @@ function electionResults_Race ($atts) {
         }
 
         /* ********** build the display **************/
-        
+
         $htmlreturn = '<div class="eai-resultsrace-wrapper">';
-        
+
         //$htmlreturn .= '<h4 class="eia-race-title" >'.$race.'</h4>';
         $htmlreturn .= "<!--open wrapper-->";
 //$found_votes = false;
@@ -310,15 +322,15 @@ function electionResults_Race ($atts) {
                 $htmlreturn .= '<div class="eai-race-vote-pie"><h5>Votes</h5>';
                 $htmlreturn .= '<div id="racedisplay'.$raceorder.'" class ="eai-race-grx"></div>';
                 $htmlreturn .= '</div>';
-            } 
-            // in racesum: was 2nd- display some of the totals & counts 
+            }
+            // in racesum: was 2nd- display some of the totals & counts
            /*  $htmlreturn .= '<div class="vote-count">';
             $htmlreturn .= "<h3>Vote Count</h3>";
             $htmlreturn .= '<ul class="eai-results-sum">';
             for ($i=0; $i< $num_candidates; $i++) {
                 $candidate_name = $candresult[$i]->candidate;
                 $arry_names[] = $candidate_name;
-                
+
                 if ($candresult[$i]->party) {
                         //$party_string = ' ('.$candresult[$i]->party.') ';
                         $party_string = ' (<span class="party-'.$candresult[$i]->party.'">'.$candresult[$i]->party.'</span>) ';
@@ -327,15 +339,15 @@ function electionResults_Race ($atts) {
                 }
                 $htmlreturn .= "<li>". $candidate_name.$party_string;
                 if ($found_votes) {
-                    $htmlreturn .= ' : '.number_format_i18n($sums[$candidate_name]).' - '.round(($sums[$candidate_name]/$count_voted)*100) .'%'; 
+                    $htmlreturn .= ' : '.number_format_i18n($sums[$candidate_name]).' - '.round(($sums[$candidate_name]/$count_voted)*100) .'%';
                     $arry_votes[] = $sums[$candidate_name];
                 }
                 $htmlreturn .= "</li>";
             }
             $htmlreturn .= '</ul>';
             $htmlreturn .= '</div>';
-            */ 
-            // in racesum: 2nd  - display precincts reporting 
+            */
+            // in racesum: 2nd  - display precincts reporting
             if ($found_votes) {
                 $htmlreturn .= '<div class="eai-precincts-reporting" >';
                 $htmlreturn .= '<h3 class="eai-precincts-precent">'.round(($count_precinct_reporting/$count_precincts)*100).'%</h3><h3 class="eai-precincts-title">Towns</br>reporting</h3>';
@@ -356,7 +368,7 @@ function electionResults_Race ($atts) {
             }
 
 
-            // in racesum: 4th - piechart of remaining voters affiliates 
+            // in racesum: 4th - piechart of remaining voters affiliates
             if ($found_votes && $show_unvoted) {
                 $htmlreturn .= '<div class="eai-unvoted"><h5>Profile of unreported precincts</h3>';
                 $htmlreturn .= '<div id="eai-unvoted-affl" class="eai-voter-grx"></div>';
@@ -366,7 +378,7 @@ function electionResults_Race ($atts) {
             $htmlreturn .=" <!-- end  of race sum -->";
             if ($found_votes)    {
 
-                // now the table of all the results 
+                // now the table of all the results
                 $htmlreturn .= '<table class="eai-results-race-details">';
                 // put totals at top of table as well as bottom
                 $htmlreturn .= '<tr class="eai-results-totalrow"><td>Totals</td>';
@@ -383,11 +395,11 @@ function electionResults_Race ($atts) {
                             $party_string = ' (<span class="party-'.$cand->party.'">'.$cand->party.'</span>) ';
                         } else {
                             $party_string = '';
-                    } 
+                    }
                    $htmlreturn .= '<th class="eai-result-votes">'.$cand->candidate.$party_string.'</th>';
                 }
                 $htmlreturn .= "</tr>";
-                
+
                 //
                 foreach ($raceresults as $raceresult) {
                     $htmlreturn .= "<tr>";
@@ -407,8 +419,8 @@ function electionResults_Race ($atts) {
                     $htmlreturn .= "</tr>";
                 }
 
-                // put the sums at the bottom of the table 
-           
+                // put the sums at the bottom of the table
+
                 $htmlreturn .= '<tr class="eai-results-totalrow"><td>Totals</td>';
                 for ($i=0; $i< $num_candidates; $i++) {
                     $candidate_name = $candresult[$i]->candidate;
@@ -421,7 +433,7 @@ function electionResults_Race ($atts) {
                             $party_string = ' (<span class="party-'.$cand->party.'">'.$cand->party.'</span>) ';
                         } else {
                             $party_string = '';
-                    } 
+                    }
                    $htmlreturn .= '<th class="eai-result-votes">'.htmlspecialchars_decode($cand->candidate).$party_string.'</th>';
                 }
                 $htmlreturn .= "</tr>";
@@ -438,27 +450,27 @@ function electionResults_Race ($atts) {
                 //$raceorder = "";
                 $chart_areaoption =  ",chartArea:{'width': '90%','height': '90%'}";
                 $chart_options = "{title:'".$race."'".$str_colors.$chart_areaoption."}"; // ,chartArea:{'width':'50%', height:'50%'}
-                $voter_options = "{title:'Profile of unreturned precincts',".$str_votercolors.$chart_areaoption."}";          
+                $voter_options = "{title:'Profile of unreturned precincts',".$str_votercolors.$chart_areaoption."}";
                 $jsreturn = "<script>";
                 $jsreturn .= "google.setOnLoadCallback(drawChart);";
                 $jsreturn .= "function drawChart(){";
                 $jsreturn .= 'var data = google.visualization.arrayToDataTable('.$str_piedata.');';
-                $jsreturn .= "var chart = new google.visualization.PieChart(document.getElementById('racedisplay".$raceorder."'));"; 
+                $jsreturn .= "var chart = new google.visualization.PieChart(document.getElementById('racedisplay".$raceorder."'));";
                 $jsreturn .= "var options = ".$chart_options.";";
                 $jsreturn .= "chart.draw(data,options);";
                 if (!$all_reported && $show_unvoted) {
                     $jsreturn .= "var vdata = google.visualization.arrayToDataTable(".$str_voterdata.");";
-                    $jsreturn .= "var vchart = new google.visualization.PieChart(document.getElementById('eai-unvoted-affl'));"; 
+                    $jsreturn .= "var vchart = new google.visualization.PieChart(document.getElementById('eai-unvoted-affl'));";
                     $jsreturn .= "var voptions = ".$voter_options.";";
                     $jsreturn .= "vchart.draw(vdata,voptions);";
                 }
-                
+
                 $jsreturn .="} </script>";
             } else {
                 // no votes yet.
                 // $htmlreturn .= '<p class="eai-checkback">Polls close at 8 p.m. Check back then for results as they come in.</p>';
                 $htmlreturn .= '<img src="http://www.reachdowneast.com/elections2016/wp-content/themes/election2016/images/election_announcement_bar_tuesday.png">';
-            }             
+            }
         } else {
             $htmlreturn .= "<p>No results.</p>";
             //var_dump($raceresults);
@@ -470,6 +482,7 @@ function electionResults_Race ($atts) {
     }
     $htmlreturn .="</div>"; // end of wrapper & ident div
     $htmlreturn .= "<!-- end of wrapper -->";
+  } // end enabled.
     return $htmlreturn.$jsreturn;
 }
 /********** END OF RESULTS BY RACE *****************/
@@ -477,18 +490,18 @@ function electionResults_Race ($atts) {
 function electionResults_RaceSimple ($atts) {
     /* short code function to display Summary of election results by Race.  Ex:  Governor's race */
     global $wpdb;
-    $table = "elections2016"; 
+    $table = "votes2016";
     $a = shortcode_atts( array(
         'race' => '',
         'link' => '',
-        'unvoted' => false,  // by default, dont show the unvoted 
+        'unvoted' => false,  // by default, dont show the unvoted
         'primary' => false,
         'title' => "yes",
     ), $atts );
 
     $primary = $a['primary'];
     if ($a['title'] == "yes") {
-       $show_title = true; 
+       $show_title = true;
     } else {
         $show_title = false;
     }
@@ -517,10 +530,11 @@ function electionResults_RaceSimple ($atts) {
     $pct_unreported_u = 0;
     $jsreturn = "";
 
-   /* get the candidates in the race */ 
+   /* get the candidates in the race */
     $candquery = 'SELECT  distinct `candidate`, party, raceorder FROM `'. $table.'` WHERE race="'. $race.'"';
-    $candresult = $wpdb->get_results($candquery); 
-    //echo "<pre>"; var_dump($candresult);echo "</pre>"; 
+    //echo "<p>Canidate Query: ".$candquery."</p>";
+    $candresult = $wpdb->get_results($candquery);
+    //echo "<pre>"; var_dump($candresult);echo "</pre>";
 
     if ($candresult) {
 
@@ -533,7 +547,7 @@ function electionResults_RaceSimple ($atts) {
             $ctabname = (string)$c;
             $ctabname = 'c'.$ctabname;
             $candidate_name = $cand->candidate;
-            $sums[$candidate_name] = 0; 
+            $sums[$candidate_name] = 0;
             //echo "ctabname = ". $ctabname;
             //echo "<p>".$candidate_name."</p>";
             $racequery .= ', (select votes FROM `'.$table.'` '. $ctabname.' WHERE '.$ctabname.'.race="'.$race.'" AND '.$ctabname.'.candidate = "'.$candidate_name .'" and '.$ctabname.'.precinct = base.precinct) `'.$candidate_name.'` ';
@@ -542,8 +556,8 @@ function electionResults_RaceSimple ($atts) {
         $racequery .= ' FROM `'.$table.'` base ';
         $racequery .= ' WHERE base.race="'.$race.'"';
         $racequery .= ' ORDER BY reported DESC, base.precinct';
-      
-        //echo "-- Race Query -- <br>"; echo $racequery;  echo "</br></hr>";;// for testing
+
+        //echo "<p>-- Race Query -- <br>"; echo $racequery;  echo "</br></hr></p>";;// for testing
 
         $raceresults = $wpdb->get_results($racequery);
         //echo "<pre>"; var_dump($raceresults); echo "</pre>";  // for testing
@@ -569,30 +583,30 @@ function electionResults_RaceSimple ($atts) {
                 $count_unreported_g += $raceresult->r_g;
                 $count_unreported_u += $raceresult->r_u;
             }
-           
+
             if ($primary) { // only count in party for primary
                  switch ($raceresult->party) {
                     case "R":
-                         $registeredvoters = $raceresult->r_r;                    
+                         $registeredvoters = $raceresult->r_r;
                         break;
                     case "D":
-                        $registeredvoters = $raceresult->r_d;  
+                        $registeredvoters = $raceresult->r_d;
                         break;
- 
+
                     case "G":
-                        $registeredvoters = $raceresult->r_g;  
+                        $registeredvoters = $raceresult->r_g;
                         break;
                     case "U":
-                        $registeredvoters = $raceresult->r_u;  
+                        $registeredvoters = $raceresult->r_u;
                         break;
                     default:
-                        $registeredvoters = 0;  
-                }   
+                        $registeredvoters = 0;
+                }
 
             } else {
                  $registeredvoters = $raceresult->r_d + $raceresult->r_r + $raceresult->r_g + $raceresult->r_u;
             }
-            $total_voters += $registeredvoters;        
+            $total_voters += $registeredvoters;
             $count_precincts++;
         }
         // more calcs once all counted.
@@ -607,7 +621,7 @@ function electionResults_RaceSimple ($atts) {
             $str_piedata = "[['Candidate', 'Votes']";
             $str_colors = "";
             for ($i=0; $i< $num_candidates; $i++) {
-               // if ($i > 0 ) { $str_piedata .= ","; } 
+               // if ($i > 0 ) { $str_piedata .= ","; }
                 $candidate_name = $candresult[$i]->candidate;
 
                 $str_piedata .= ",['". $candresult[$i]->candidate."', ".$sums[$candidate_name]."]";
@@ -622,7 +636,7 @@ function electionResults_RaceSimple ($atts) {
                 switch ($candresult[$i]->party) {
                     case 'R':
                         $str_colors .= ",'#D33'";
-                        break; 
+                        break;
                     case 'D':
                         $str_colors .= ",'#1E73BE'"; // a nice blue
                         break;
@@ -635,9 +649,9 @@ function electionResults_RaceSimple ($atts) {
                     case 'I':
                         $str_colors .= ",'grey'";
                         break;
-                   
+
                 }
-             
+
             }
             if ($str_colors <> "") {
                 $str_colors = ',colors :['.substr($str_colors,1).']';
@@ -648,8 +662,8 @@ function electionResults_RaceSimple ($atts) {
         /* ********** start building html ************ */
 
         $htmlreturn = '<div class="eai-resultsimple-wrapper">';
-    
-      
+
+
         $htmlreturn .= '<div class="eai-racesimple"><h4>';
         $title = $race;
         if ($link) {
@@ -658,10 +672,10 @@ function electionResults_RaceSimple ($atts) {
               $htmlreturn .= $title;
         }
         $htmlreturn .= '</h4>';
-       
+
         /* display the results */
         if ($raceresults) {
-            // first some of the totals & counts 
+            // first some of the totals & counts
             $htmlreturn .= '<ul class="eai-results-sum">';
             for ($i=0; $i< $num_candidates; $i++) {
                 $candidate_name = $candresult[$i]->candidate;
@@ -677,12 +691,12 @@ function electionResults_RaceSimple ($atts) {
                 if (($count_voted > 0) && ($all_towns_reported)) {
                     $htmlreturn .= ' - '.round(($sums[$candidate_name]/$count_voted)*100).'%';
                 }
-                $htmlreturn .='</li>';  
+                $htmlreturn .='</li>';
             }
             $htmlreturn .= '</ul>';
             if ($found_votes) {
                 if (!$all_towns_reported) {
-                    $htmlreturn .= "<p>".$count_precinct_reporting.' of '.$count_precincts.' Towns reported.</p>'; 
+                    $htmlreturn .= "<p>".$count_precinct_reporting.' of '.$count_precincts.' Towns reported.</p>';
                 }
                 //$htmlreturn .= "<p>".$count_precinct_reporting.' of '.$count_precincts.' Precincts reporting.'; // : '.round(($count_precinct_reporting/$count_precincts)*100).'%</p>';
                 //$htmlreturn .= '<p>'.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters).' voters. Participation: '.round(($count_voted/$total_voters)*100).'%</p>';
@@ -703,7 +717,7 @@ function electionResults_RaceSimple ($atts) {
             } else {
                  $htmlreturn .= '<p class="eai-checkback">Polls close at 8 p.m. Check back then for results as they come in.</p>';
             }
-           
+
         } else {
             $htmlreturn .= "<p>No results</p>";
         }

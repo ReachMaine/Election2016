@@ -5,13 +5,13 @@ Template name: Election Test Race
 $have_race = false;
 $updated = false;
 global $wpdb;
-$table = "elections2016"; 
+$table = "votes2016";
 
 if ( 'GET' == $_SERVER['REQUEST_METHOD'] && !empty( $_GET['action'] ) && $_GET['action'] == 'updaterace' ) {
 
     $have_race = true;
     $inrace = $_GET['race_ddl'];
-} 
+}
 
 
 get_header(); ?>
@@ -30,11 +30,11 @@ get_header(); ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'content', 'page' ); ?>
 		<?php endwhile; // end of the loop. ?>
-			   
+
 			<form method="get" id="race_form" action="<?php the_permalink(); ?>">
 				<?php /*build the race select from DB. */
-				$racequery = 'SELECT  distinct `race` FROM `'. $table.'` WHERE 1';
-    			$raceresult = $wpdb->get_results($racequery); 
+				$racequery = 'SELECT  distinct `race` FROM `'. $table.'` WHERE 1 ORDER BY raceorder';
+    			$raceresult = $wpdb->get_results($racequery);
     			//echo "<pre>"; var_dump($raceresult); echo "</pre>";
     			if ($raceresult) {
     				$ddl_out = '<select name="race_ddl" class="amw" >';
@@ -47,7 +47,7 @@ get_header(); ?>
     						$ddl_out .= "selected";
     					}
     					$ddl_out .=  ' >'.$thisrace.'</option>';
-    				} 
+    				}
     				echo $ddl_out;
     			} else {
     				echo "<p>no race</p>";
@@ -57,12 +57,12 @@ get_header(); ?>
 
 				<input name="updaterace" type="submit" id="updaterace" class="submit button" value="GO" />
 			    <input name="action" type="hidden" id="action" value="updaterace" />
-			</form>  
+			</form>
 			<form method="post" id="clearing_form" action="<?php the_permalink(); ?>" class="eai-election-inputs-clear">
 				<input name="clearform" type="submit" id="clearform" class="submit button" value="Clear" />
 				<input name="action" type="hidden" id="action" value="clearform" />
-			</form>  
-			<?php /* */ 
+			</form>
+			<?php /* */
 				if ($have_race) {
 					$shortcode_out = '[electionresultsrace race = "'.$inrace.'" primary=true]';
 					echo do_shortcode($shortcode_out);
@@ -72,7 +72,7 @@ get_header(); ?>
 			?>
 
 
-			
+
 
 
 	</div><!-- .page-inner -->
