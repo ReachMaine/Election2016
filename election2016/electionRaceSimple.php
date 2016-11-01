@@ -1,6 +1,6 @@
 <?php
 /*
-Template name: Election Test Race
+Template name: Election Test Race Simple
 */
 $have_race = false;
 $updated = false;
@@ -64,7 +64,7 @@ get_header(); ?>
 			</form>
 			<?php /* */
 				if ($have_race) {
-					$shortcode_out = '[electionresultsrace race = "'.$inrace.'" ]';
+					$shortcode_out = '[electionresultsimple race = "'.$inrace.'"]';
 					echo do_shortcode($shortcode_out);
 				} else {
 					echo "<p>No Race selected yet.</p>";

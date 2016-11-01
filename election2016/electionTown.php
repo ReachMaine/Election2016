@@ -64,7 +64,7 @@ get_header(); ?>
 			</form>
 			<?php /* */
 				if ($intown) {
-					$shortcode_out = '[electionresultstown town = "'.$intown.'" primary=true]';
+					$shortcode_out = '[electionresultstown town = "'.$intown.'" ]';
 					echo do_shortcode($shortcode_out);
 				} else {
 					echo "<p>No intown<p>";
