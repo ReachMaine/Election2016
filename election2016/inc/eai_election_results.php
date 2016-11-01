@@ -25,7 +25,7 @@ function electionResults_Town ($atts) {
         $htmlreturn = '<div class="eai-results-wrapper"><div class="eai-town"><h4>Elections results for '.$town.".</h4>";
         $found_votes = false;
         // GET THE RACES for the given town
-        $racesquery = 'SELECT  distinct `race`, party, r_d, r_g, r_r, r_u  FROM `'.$table.'` WHERE town="'. $town.'" ORDER BY raceorder';
+        $racesquery = 'SELECT  distinct `race`, r_d, r_g, r_r, r_u  FROM `'.$table.'` WHERE town="'. $town.'" ORDER BY raceorder';
         //*echo '<p>RacesQuery: '.$racesquery.'</p>'; // testing
         $racesresults = $wpdb->get_results($racesquery);
         //echo "<pre>";     var_dump($racesresults);      echo "</pre>"; // testing
@@ -90,7 +90,7 @@ function electionResults_Town ($atts) {
 
                             //$count_voted += $indrace->votes;
                         } else {
-                            $htmlreturn .= "{reported = ".$indrace->reported."}";
+                            //$htmlreturn .= "{reported = ".$indrace->reported."}";
                             $htmlreturn .= '<tr><td>'.$indrace->candidate.$party_string.'</td><td>not yet available</td></tr>';
                         }
                     }
@@ -120,20 +120,20 @@ function electionResults_Town ($atts) {
 /********** RESULTS BY RACE ************************/
 function electionResults_Race ($atts) {
     /* short code function to display election results by Race.  Ex:  Governor's race */
-    global $wpdb;
-    $table = "votes2016";
-	   $a = shortcode_atts( array(
-        'race' => '',
-        'unvoted' => false,  // by default, dont show the unvoted
-        'primary' => false,
-        'title' => "yes",
-    ), $atts );
-    $votes_enabled = true;
-    $votes_preview = false;
-    $htmlreturn = "";
-    $jsreturn = "";
-    if ($votes_enabled) {
-
+  global $wpdb;
+  $table = "votes2016";
+   $a = shortcode_atts( array(
+      'race' => '',
+      'unvoted' => false,  // by default, dont show the unvoted
+      'primary' => false,
+      'title' => "yes",
+      'charttype' => "pie",
+  ), $atts );
+  $votes_enabled = true;
+  $votes_preview = false;
+  $htmlreturn = "";
+  $jsreturn = "";
+  if ($votes_enabled) {
 
     // initializations
     $primary = $a['primary'];
@@ -143,7 +143,7 @@ function electionResults_Race ($atts) {
     } else {
         $show_title = false;
     }
-
+    $charttype = $a["charttype"];
 
     if ($a['unvoted'] ) {
         $show_unvoted = true;
@@ -255,7 +255,8 @@ function electionResults_Race ($atts) {
             } else {
                 $all_reported = true;
             }
-            // build the data for the pie chart(s)
+
+            // build the data for the chart(s)
             $str_voterdata = "[['Unreported', 'Voters']";
             $str_voterdata .= ",['Republican',".$count_unreported_r."]";
             $str_voterdata .= ",['Democrat',".$count_unreported_d."]";
@@ -268,7 +269,10 @@ function electionResults_Race ($atts) {
             for ($i=0; $i< $num_candidates; $i++) {
                // if ($i > 0 ) { $str_piedata .= ","; }
                 $candidate_name = $candresult[$i]->candidate;
-                $candidtate_name_title = $candresult[$i]->candidate."(".$candresult[$i]->party.")";
+                $candidtate_name_title = $candresult[$i]->candidate;
+                if ($candresult[$i]->party) {
+                  $candidtate_name_title .= "(".$candresult[$i]->party.")";
+                }
                 $str_piedata .= ",['".$candidtate_name_title."', ".$sums[$candidate_name]."]";
                 switch ($candidate_name) {
                  case 'Yes':
@@ -309,8 +313,9 @@ function electionResults_Race ($atts) {
                 $str_colors = ',colors :['.substr($str_colors,1).']';
             }
             $str_piedata .= "]";
-        }
-$htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
+        } // found votes
+$htmlreturn .= "IN SHORTCODE with type: ".$charttype;
+
         /* ********** build the display **************/
 
         $htmlreturn .= '<div class="eai-resultsrace-wrapper">';
@@ -326,8 +331,11 @@ $htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
             // in racesum: 1st the piechart
             if ($found_votes) {
 
-                $htmlreturn .= '<div class="eai-race-vote-pie"><h5>Votes</h5>';
-                $htmlreturn .= '<div id="racedisplay'.$raceorder.'" class ="eai-race-grx"></div>';
+                $htmlreturn .= '<div class="eai-race-vote-pie">';
+                if ($num_candidates > 1) {
+                  $htmlreturn.= '<h5>Votes</h5>';
+                  $htmlreturn .= '<div id="racedisplay'.$raceorder.'" class ="eai-race-grx"></div>';
+                }
                 $htmlreturn .= '</div>';
             }
             // in racesum: was 2nd- display some of the totals & counts
@@ -455,24 +463,46 @@ $htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
 
                 /* now for the javascript to build the graphics */
                 //$raceorder = "";
-                $chart_areaoption =  ",chartArea:{'width': '90%','height': '90%'}";
-                $chart_options = "{title:'".$race."'".$str_colors.$chart_areaoption."}"; // ,chartArea:{'width':'50%', height:'50%'}
-                $voter_options = "{title:'Profile of unreturned precincts',".$str_votercolors.$chart_areaoption."}";
-                $jsreturn = "<script>";
-                $jsreturn .= "google.setOnLoadCallback(drawChart);";
-                $jsreturn .= "function drawChart(){";
-                $jsreturn .= 'var data = google.visualization.arrayToDataTable('.$str_piedata.');';
-                $jsreturn .= "var chart = new google.visualization.PieChart(document.getElementById('racedisplay".$raceorder."'));";
-                $jsreturn .= "var options = ".$chart_options.";";
-                $jsreturn .= "chart.draw(data,options);";
-                if (!$all_reported && $show_unvoted) {
-                    $jsreturn .= "var vdata = google.visualization.arrayToDataTable(".$str_voterdata.");";
-                    $jsreturn .= "var vchart = new google.visualization.PieChart(document.getElementById('eai-unvoted-affl'));";
-                    $jsreturn .= "var voptions = ".$voter_options.";";
-                    $jsreturn .= "vchart.draw(vdata,voptions);";
-                }
 
-                $jsreturn .="} </script>";
+                if ($charttype && ($charttype != "none"))  {
+                  if (  $num_candidates > 1) {
+                    $chart_areaoption =  ",chartArea:{'width': '90%','height': '90%'}";
+                    //$chart_options = "{title:'".$race."'".$str_colors.$chart_areaoption."}"; // ,chartArea:{'width':'50%', height:'50%'}
+                    $voter_options = "{title:'Profile of unreturned precincts',".$str_votercolors.$chart_areaoption."}";
+                    $jsreturn = "<script>";
+                    //$jsreturn = "google.charts.load('current', {'packages':['corechart','bar']});";
+                    $jsreturn .= "google.setOnLoadCallback(drawChart);";
+                    $jsreturn .= "function drawChart(){";
+                    $jsreturn .= 'var data = google.visualization.arrayToDataTable('.$str_piedata.');';
+                    switch ($charttype) {
+                        case "pie" :
+                          $chart_options = "{title:'".$race."'".$str_colors.$chart_areaoption."}"; // ,chartArea:{'width':'50%', height:'50%'}
+                          $jsreturn .= "var chart = new google.visualization.PieChart(document.getElementById('racedisplay".$raceorder."'));";
+                          break;
+                        case "bar":
+                          $chart_options = "{title:'".$race."'";
+                        //  $chart_options .= $str_colors.$chart_areaoption;
+                          $chart_options .= $chart_areaoption;
+                          $chart_options .= ", vAxis:{ title:'Candidate' }";
+                          $chart_options .= "}";
+
+                          $jsreturn .= "var chart = new google.visualization.BarChart(document.getElementById('racedisplay".$raceorder."'));";
+                          break;
+                    }
+    $htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
+    $htmlreturn .= "<pre>Chart options:".$chart_options."</pre>";
+                    $jsreturn .= "var options = ".$chart_options.";";
+                    $jsreturn .= "chart.draw(data,options);";
+                  } // more than one Candidate
+                  if (!$all_reported && $show_unvoted) {
+                      $jsreturn .= "var vdata = google.visualization.arrayToDataTable(".$str_voterdata.");";
+                      $jsreturn .= "var vchart = new google.visualization.PieChart(document.getElementById('eai-unvoted-affl'));";
+                      $jsreturn .= "var voptions = ".$voter_options.";";
+                      $jsreturn .= "vchart.draw(vdata,voptions);";
+                  }
+
+                  $jsreturn .="} </script>";
+                }
             } else {
                 // no votes yet.
                 // $htmlreturn .= '<p class="eai-checkback">Polls close at 8 p.m. Check back then for results as they come in.</p>';

@@ -1,3 +1,4 @@
+@import url("../flatsome/css/foundation.css");
 /*
 Theme Name: Elections 2014
 Theme URI: http://flatsome.uxthemes.com/
@@ -7,7 +8,6 @@ Author URI: http: //www.reachmaine.com/
 Template: flatsome
 Version: 1.8
 */
-@import url("../flatsome/css/foundation.css");
 /* Colors ---------------------------------------------- */
 /* Typography ------------------------------------------ */
 /* Custom Functions ------------------------------------ */
@@ -38,12 +38,17 @@ Version: 1.8
 /* End Media Queries ----------------------------------- */
 /* ===================================================== */
 .party-R {
-  color: #D33;
+  color: #dd3333;
   font-weight: bold;
   width: initial; }
 
 .party-D {
-  color: #1E73BE;
+  color: #1e73be;
+  font-weight: bold;
+  width: initial; }
+
+.party-G {
+  color: #1db60e;
   font-weight: bold;
   width: initial; }
 

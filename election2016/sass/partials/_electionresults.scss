@@ -1,6 +1,7 @@
 // stying for the electionresults widgets....
-$republican-red : #D33; 
+$republican-red : #D33;
 $democrat-blue : #1E73BE;
+$green-green: #1db60e;
 .party-R {
 	color: $republican-red;
 	font-weight: bold;
@@ -8,6 +9,11 @@ $democrat-blue : #1E73BE;
 }
 .party-D {
 	color: $democrat-blue;
+	font-weight: bold;
+	width: initial;
+}
+.party-G {
+	color: $green-green;
 	font-weight: bold;
 	width: initial;
 }
@@ -59,7 +65,7 @@ table.eai-results {
 		float: left;
 	}
 }
-// detail race results 
+// detail race results
 .eai-resultsrace-wrapper {
 	.eai-racesum {
 		//min-height: 300px;
@@ -70,7 +76,7 @@ table.eai-results {
 			.eai-race-grx {
 				width: 300px;
 				//height: 200px;
-				//height: 250px; 
+				//height: 250px;
 
 			}
 		}
@@ -115,7 +121,7 @@ table.eai-results {
 			}
 
 		}
-		
+
 	}
 	.eai-results-race-details {
 		border-top: 1px solid grey;
