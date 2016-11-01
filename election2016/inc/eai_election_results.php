@@ -267,9 +267,8 @@ function electionResults_Race ($atts) {
             for ($i=0; $i< $num_candidates; $i++) {
                // if ($i > 0 ) { $str_piedata .= ","; }
                 $candidate_name = $candresult[$i]->candidate;
-                //$candidate_name .= "(".$candresult[$i]->party.")";
-
-                $str_piedata .= ",['".$candresult[$i]->candidate."', ".$sums[$candidate_name]."]";
+                $candidtate_name_title = $candresult[$i]->candidate."(".$candresult[$i]->party.")";
+                $str_piedata .= ",['".$candidtate_name_title."', ".$sums[$candidate_name]."]";
                 switch ($candidate_name) {
                  case 'Yes':
                         $str_colors .= ",'#4B874F'"; // a nice green
