@@ -150,6 +150,7 @@ function electionResults_Race ($atts) {
     } else {
         $show_unvoted = false;
     }
+    $unofficial_text = '<h6 class="eai-results-unofficial">All results are unofficial.</h6>';
     $count_precinct_reporting = 0;
     $count_precincts = 0;
     $count_voted = 0;
@@ -383,7 +384,7 @@ $htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
             $htmlreturn .= '</div>'; // end of race-ssum
             $htmlreturn .=" <!-- end  of race sum -->";
             if ($found_votes)    {
-
+                $htmlreturn .= $unofficial_text;
                 // now the table of all the results
                 $htmlreturn .= '<table class="eai-results-race-details">';
                 // put totals at top of table as well as bottom
@@ -450,7 +451,7 @@ $htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
                 $htmlreturn .= ' u:'.number_format_i18n($count_unreported_u).', ';
                 $htmlreturn .= ' g:'.number_format_i18n($count_unreported_g);
                 $htmlreturn .= '</p>'; */
-                $htmlreturn .= '<h6 class="eai-results-unofficial">All results are unofficial.</h6>';
+                $htmlreturn .= $unofficial_text;
 
                 /* now for the javascript to build the graphics */
                 //$raceorder = "";
@@ -519,7 +520,7 @@ function electionResults_RaceSimple ($atts) {
     // initializations
     $race = $a['race'];
     $link = $a['link'];
-
+    $unofficial_text = '<h6 class="eai-results-unofficial">All results are unofficial.</h6>';
     $count_precinct_reporting = 0;
     $count_precincts = 0;
     $count_voted = 0;
@@ -717,7 +718,7 @@ function electionResults_RaceSimple ($atts) {
                  if ($link) {
                     $htmlreturn .= '<span> <a href="'.$link.'"> More details >>> </a></span>';
                 }
-                $htmlreturn .= '<h6 class="eai-results-unofficial">All results are unofficial.</h6>';
+                $htmlreturn .= $unofficial_text;
 
 
             } else {
