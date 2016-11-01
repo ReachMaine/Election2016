@@ -264,7 +264,13 @@ function electionResults_Race ($atts) {
             $str_voterdata .= ",['Independent',".$count_unreported_u."]";
             $str_voterdata .= "]";
             $str_votercolors = "colors:['#D33', '#1E73BE', '#4B874F', 'grey']";
-            $str_piedata = "[['Candidate', 'Votes']";
+            $str_piedata = "[['Candidate', 'Votes'";
+            switch($charttype) {
+              case "bar":
+                $str_piedata .= ",{role: 'style'}";
+              break;
+            }
+            $str_piedata .= "]"; // end of column headings.
             $str_colors = "";
             for ($i=0; $i< $num_candidates; $i++) {
                // if ($i > 0 ) { $str_piedata .= ","; }
@@ -273,46 +279,59 @@ function electionResults_Race ($atts) {
                 if ($candresult[$i]->party) {
                   $candidtate_name_title .= "(".$candresult[$i]->party.")";
                 }
-                $str_piedata .= ",['".$candidtate_name_title."', ".$sums[$candidate_name]."]";
+                $str_piedata .= ",['".$candidtate_name_title."', ".$sums[$candidate_name];
+
                 switch ($candidate_name) {
                  case 'Yes':
                         $str_colors .= ",'#4B874F'"; // a nice green
+                        $cand_color = '#4B874F';
                         break;
                     case 'No':
                         $str_colors .= ",'grey'";
+                        $cand_color = 'grey';
                         break;
                 }
                 switch ($candresult[$i]->party) {
                     case 'R':
                         $str_colors .= ",'#D33'";
+                        $cand_color = "#D33";
                         break;
                     case 'D':
                         $str_colors .= ",'#1E73BE'"; // a nice blue
+                        $cand_color = '#1E73BE';
                         break;
                     case 'G':
                         $str_colors .= ",'green'";
+                        $cand_color = 'green';
                         break;
                     case 'U':
                         $str_colors .= ",'purple'";
+                        $cand_color = 'purple';
                         break;
                     case 'Y':
                          $str_colors .= ",'#4B874F'"; // a nice green
+                         $cand_color .= "#4B874F";
                          break;
                     case 'N':
                          $str_colors .= ",'grey'";
+                         $cand_color = 'grey';
                          break;
                     case 'I':
                     case 'L':
                         $str_colors .= ",'grey'";
+                        $cand_color = 'grey';
                         break;
-
                 }
-
-            }
+                switch ($charttype) {
+                  case "bar":
+                    $str_piedata .= ",'color: ".$cand_color.";'";
+                }
+                $str_piedata .= "]"; // end of candidate row
+            } // end for
             if ($str_colors <> "") {
                 $str_colors = ',colors :['.substr($str_colors,1).']';
             }
-            $str_piedata .= "]";
+            $str_piedata .= "]"; // end of piedata
         } // found votes
 $htmlreturn .= "IN SHORTCODE with type: ".$charttype;
 
@@ -480,10 +499,11 @@ $htmlreturn .= "IN SHORTCODE with type: ".$charttype;
                           $jsreturn .= "var chart = new google.visualization.PieChart(document.getElementById('racedisplay".$raceorder."'));";
                           break;
                         case "bar":
+                          $jsreturn .= "data.sort([{column: 1, desc: true  }]);";
                           $chart_options = "{title:'".$race."'";
                         //  $chart_options .= $str_colors.$chart_areaoption;
                           $chart_options .= $chart_areaoption;
-                          $chart_options .= ", vAxis:{ title:'Candidate' }";
+                          //$chart_options .= ", vAxis:{ title:'Candidate' }";
                           $chart_options .= "}";
 
                           $jsreturn .= "var chart = new google.visualization.BarChart(document.getElementById('racedisplay".$raceorder."'));";
