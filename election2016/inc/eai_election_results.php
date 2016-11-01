@@ -167,13 +167,13 @@ function electionResults_Race ($atts) {
     $arry_votes = array();
     $arry_gdata = array();
     /* get the candidates in the race */
-    $candquery = 'SELECT  distinct `candidate`, party, raceorder FROM `'. $table.'` WHERE race="'. $race.'"';
+    $candquery = 'SELECT  distinct `candidate`,party, raceorder FROM `'. $table.'` WHERE race="'. $race.'"';
     $candresult = $wpdb->get_results($candquery);
     //echo "<pre>"; var_dump($candresult);echo "</pre>";
 
     if ($candresult) {
 
-        $racequery = 'SELECT distinct base.precinct, reported, party, r_d, r_g, r_r, r_u ';
+        $racequery = 'SELECT distinct base.precinct, reported, r_d, r_g, r_r, r_u '; // cant have party in here (unless primary)
         $c=0;
         $sums = array();
         foreach ($candresult as $cand) {
@@ -227,7 +227,6 @@ function electionResults_Race ($atts) {
                     case "D":
                         $registeredvoters = $raceresult->r_d;
                         break;
-
                     case "G":
                         $registeredvoters = $raceresult->r_g;
                         break;
@@ -268,6 +267,7 @@ function electionResults_Race ($atts) {
             for ($i=0; $i< $num_candidates; $i++) {
                // if ($i > 0 ) { $str_piedata .= ","; }
                 $candidate_name = $candresult[$i]->candidate;
+                //$candidate_name .= "(".$candresult[$i]->party.")";
 
                 $str_piedata .= ",['".$candresult[$i]->candidate."', ".$sums[$candidate_name]."]";
                 switch ($candidate_name) {
@@ -291,7 +291,14 @@ function electionResults_Race ($atts) {
                     case 'U':
                         $str_colors .= ",'purple'";
                         break;
+                    case 'Y':
+                         $str_colors .= ",'#4B874F'"; // a nice green
+                         break;
+                    case 'N':
+                         $str_colors .= ",'grey'";
+                         break;
                     case 'I':
+                    case 'L':
                         $str_colors .= ",'grey'";
                         break;
 
@@ -303,10 +310,10 @@ function electionResults_Race ($atts) {
             }
             $str_piedata .= "]";
         }
-
+$htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
         /* ********** build the display **************/
 
-        $htmlreturn = '<div class="eai-resultsrace-wrapper">';
+        $htmlreturn .= '<div class="eai-resultsrace-wrapper">';
 
         //$htmlreturn .= '<h4 class="eia-race-title" >'.$race.'</h4>';
         $htmlreturn .= "<!--open wrapper-->";
