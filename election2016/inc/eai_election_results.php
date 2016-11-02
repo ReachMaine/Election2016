@@ -97,7 +97,16 @@ function electionResults_Town ($atts) {
                     $htmlreturn .= '</table>';
                     //$htmlreturn .= "totalvoters:  $total_voters";
                     if ( ($count_voted > 0) && ($total_voters>0) ) {
-                        $htmlreturn .= '<p> Voter participation: '.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters).' : '.round(($count_voted/$total_voters)*100).'%</p>';
+
+                        $htmlreturn .= '<p> Voter participation: '.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters);
+                        $voter_participation = round(($count_voted/$total_voters)*100);
+                        if ($voter_participation > 100) {
+                          $voter_participation = 100;
+                        }
+                        if ($voter_participation > 0 ) {
+                          $htmlreturn .= ' : '.$voter_participation.'%';
+                        }
+                        $htmlreturn .= '</p>';
                         $htmlreturn .= '<h6 class="eai-results-unofficial">All results are unofficial.</h6>';
                     }
 
@@ -333,7 +342,7 @@ function electionResults_Race ($atts) {
             }
             $str_piedata .= "]"; // end of piedata
         } // found votes
-$htmlreturn .= "IN SHORTCODE with type: ".$charttype;
+//$htmlreturn .= "IN SHORTCODE with type: ".$charttype;
 
         /* ********** build the display **************/
 
@@ -382,10 +391,17 @@ $htmlreturn .= "IN SHORTCODE with type: ".$charttype;
             $htmlreturn .= '</div>';
             */
             // in racesum: 2nd  - display precincts reporting
-            if ($found_votes) {
+            if ($found_votes ) {
+
                 $htmlreturn .= '<div class="eai-precincts-reporting" >';
-                $htmlreturn .= '<h3 class="eai-precincts-precent">'.round(($count_precinct_reporting/$count_precincts)*100).'%</h3><h3 class="eai-precincts-title">Towns</br>reporting</h3>';
-                $htmlreturn .= '<p class="eai-precincts-subtitle">'.$count_precinct_reporting.' of '.$count_precincts.'</p>';
+                if ($count_precinct_reporting < $count_precincts ) {
+                  $htmlreturn .= '<h3 class="eai-precincts-precent">'.round(($count_precinct_reporting/$count_precincts)*100).'%</h3><h3 class="eai-precincts-title">Towns</br>reporting</h3>';
+                  $htmlreturn .= '<p class="eai-precincts-subtitle">'.$count_precinct_reporting.' of '.$count_precincts.'</p>';
+                } else {
+                  // all precints have reported.
+                  //$htmlreturn .= '<p class="eai-precincts-subtitle">All towns reported</p>';
+                }
+
                 //$htmlreturn .= '<p>'.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters).' voters. Participation: '.round(($count_voted/$total_voters)*100).'%</p>';
                 $htmlreturn .="</div>";
             }
@@ -485,7 +501,15 @@ $htmlreturn .= "IN SHORTCODE with type: ".$charttype;
 
                 if ($charttype && ($charttype != "none"))  {
                   if (  $num_candidates > 1) {
-                    $chart_areaoption =  ",chartArea:{'width': '90%','height': '90%'}";
+                    switch ($charttype) {
+                      case 'bar':
+                          $chart_areaoption =  ",chartArea:{'width': '50%','height': '90%'}";
+                          break;
+                      case 'pie':
+                          $chart_areaoption =  ",chartArea:{'width': '90%','height': '90%'}";
+                          break;
+                    }
+
                     //$chart_options = "{title:'".$race."'".$str_colors.$chart_areaoption."}"; // ,chartArea:{'width':'50%', height:'50%'}
                     $voter_options = "{title:'Profile of unreturned precincts',".$str_votercolors.$chart_areaoption."}";
                     $jsreturn = "<script>";
@@ -504,6 +528,7 @@ $htmlreturn .= "IN SHORTCODE with type: ".$charttype;
                         //  $chart_options .= $str_colors.$chart_areaoption;
                           $chart_options .= $chart_areaoption;
                           //$chart_options .= ", vAxis:{ title:'Candidate' }";
+                          $chart_options .= ", legend: 'none'";
                           $chart_options .= "}";
 
                           $jsreturn .= "var chart = new google.visualization.BarChart(document.getElementById('racedisplay".$raceorder."'));";
