@@ -137,8 +137,9 @@ function electionResults_Race ($atts) {
       'primary' => false,
       'title' => "yes",
       'charttype' => "pie",
+      'partial' => "no",
   ), $atts );
-  $votes_enabled = true;
+  $votes_enabled = true; // turn on/off everything
   $votes_preview = false;
   $htmlreturn = "";
   $jsreturn = "";
@@ -159,7 +160,16 @@ function electionResults_Race ($atts) {
     } else {
         $show_unvoted = false;
     }
-    $unofficial_text = '<h6 class="eai-results-unofficial">All results are unofficial.</h6>';
+    if ($a['partial'] != "no") {
+      $show_partial_text = true;
+    } else {
+      $show_partial_text = false;
+    }
+    $unofficial_text = '<h6 class="eai-results-unofficial">All results are unofficial';
+    if ($show_partial_text) {
+        $unofficial_text .= " and show votes cast in Hancock County ONLY";
+    }
+    $unofficial_text .= '.</h6>';
     $count_precinct_reporting = 0;
     $count_precincts = 0;
     $count_voted = 0;
@@ -407,14 +417,18 @@ function electionResults_Race ($atts) {
             }
              // in racesum: 3nd  - display voter participation
             if ($found_votes & $all_towns_reported ) {
-                $htmlreturn .= '<div class="eai-voter-partcip" >';
-                $htmlreturn .= '<h3 class="eai-voter-precent">'.round(($count_voted/$total_voters)*100).'%</h3><h3 class="eai-voter-title">Voter</br>Participation</h3>';
-                //$htmlreturn .= "<p>".$count_precinct_reporting.' of '.$count_precincts.' Precincts reporting:</p>';
-                //$htmlreturn .= '<p>'.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters).' voters. Participation: '.round(($count_voted/$total_voters)*100).'%</p>';
-                /* $count_voted = 0;
-                $total_voters = 0; */
-                //$htmlreturn .= "(counted = ".$count_voted." / total_voters = ".$total_voters.")";
-                $htmlreturn .="</div>";
+                $voter_participation = round(($count_voted/$total_voters)*100);
+                if ($voter_participation = 0) {
+                  $htmlreturn .= '<div class="eai-voter-partcip" >';
+                  $htmlreturn .= '<h3 class="eai-voter-precent">'.$htmlreturn.'%</h3><h3 class="eai-voter-title">Voter</br>Participation</h3>';
+                  //$htmlreturn .= "<p>".$count_precinct_reporting.' of '.$count_precincts.' Precincts reporting:</p>';
+                  //$htmlreturn .= '<p>'.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters).' voters. Participation: '.round(($count_voted/$total_voters)*100).'%</p>';
+                  /* $count_voted = 0;
+                  $total_voters = 0; */
+                  //$htmlreturn .= "(counted = ".$count_voted." / total_voters = ".$total_voters.")";
+                  $htmlreturn .="</div>";
+                }
+
             }
 
 
@@ -534,20 +548,13 @@ function electionResults_Race ($atts) {
                           $jsreturn .= "var chart = new google.visualization.BarChart(document.getElementById('racedisplay".$raceorder."'));";
                           break;
                     }
-    $htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
-    $htmlreturn .= "<pre>Chart options:".$chart_options."</pre>";
+    //$htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
+    //$htmlreturn .= "<pre>Chart options:".$chart_options."</pre>";
                     $jsreturn .= "var options = ".$chart_options.";";
                     $jsreturn .= "chart.draw(data,options);";
+                    $jsreturn .="} </script>";
                   } // more than one Candidate
-                  if (!$all_reported && $show_unvoted) {
-                      $jsreturn .= "var vdata = google.visualization.arrayToDataTable(".$str_voterdata.");";
-                      $jsreturn .= "var vchart = new google.visualization.PieChart(document.getElementById('eai-unvoted-affl'));";
-                      $jsreturn .= "var voptions = ".$voter_options.";";
-                      $jsreturn .= "vchart.draw(vdata,voptions);";
-                  }
-
-                  $jsreturn .="} </script>";
-                }
+                } // end chartype
             } else {
                 // no votes yet.
                 // $htmlreturn .= '<p class="eai-checkback">Polls close at 8 p.m. Check back then for results as they come in.</p>';
@@ -563,8 +570,9 @@ function electionResults_Race ($atts) {
         $htmlreturn .= "<p>No Candidates for ".$race."</p>";
     }
     $htmlreturn .="</div>"; // end of wrapper & ident div
-    $htmlreturn .= "<!-- end of wrapper -->";
+    $htmlreturn .= "<!-- end of wrapper race -->";
   } // end enabled.
+  else {$htmlreturn = "<!-- nada -->";$jsreturn = ""; }
     return $htmlreturn.$jsreturn;
 }
 /********** END OF RESULTS BY RACE *****************/
@@ -579,6 +587,7 @@ function electionResults_RaceSimple ($atts) {
         'unvoted' => false,  // by default, dont show the unvoted
         'primary' => false,
         'title' => "yes",
+        'partial' => "no", // partial result of race (i.e. state races, dont have ALL results)
     ), $atts );
 
     $primary = $a['primary'];
@@ -592,10 +601,19 @@ function electionResults_RaceSimple ($atts) {
     } else {
         $show_unvoted = false;
     }
+    if ($a['partial'] != "no") {
+      $show_partial_text = true;
+    } else {
+      $show_partial_text = false;
+    }
     // initializations
+    $unofficial_text = '<h6 class="eai-results-unofficial">All results are unofficial';
+    if ($show_partial_text) {
+        $unofficial_text .= " and show votes cast in Hancock County ONLY";
+    }
+    $unofficial_text .= '.</h6>';
     $race = $a['race'];
     $link = $a['link'];
-    $unofficial_text = '<h6 class="eai-results-unofficial">All results are unofficial.</h6>';
     $count_precinct_reporting = 0;
     $count_precincts = 0;
     $count_voted = 0;
