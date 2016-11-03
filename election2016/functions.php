@@ -4,20 +4,20 @@
 	add_image_size( 'cwk-slider', 1420, 447, true ); // Slider
 
 	require_once(get_stylesheet_directory().'/inc/eai_election_results.php');
-
+	require_once(get_stylesheet_directory().'/inc/eai_election_result_racebars.php');
 	 register_sidebar(array(
 			'name' => 'Top Banner Ad',
 			'id' => 'topbanner',
 			'description' => 'Widget for a top banner ad.',
 			'before_widget' => '<div class="topad"><div id="%1$s" class=" %2$s ad-container">',
 			'after_widget'  => '</div></div>'
-			
-	)); 
-	
+
+	));
+
 	add_action('after_setup_theme', ea_setup);
 	/**  ea_setup
 	*  init stuff that we have to init after the main theme is setup.
-	* 
+	*
 	*/
 	function ea_setup() {
 	 /* do stuff ehre. */
