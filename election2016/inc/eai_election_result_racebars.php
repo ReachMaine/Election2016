@@ -250,7 +250,7 @@ function electionResults_Race2($atts) {
 
                 $htmlreturn .= '<div class="eai-race-vote-pie">';
                 if ($num_candidates > 1) {
-                  $htmlreturn.= '<h5>Votes</h5>';
+                  $htmlreturn.= '<h5>Hancock County Vote Summary</h5>';
                   $htmlreturn .= '<div id="racedisplay'.$raceorder.'" class ="eai-race-grx"></div>';
                 }
                 $htmlreturn .= '</div>';
@@ -298,6 +298,16 @@ function electionResults_Race2($atts) {
             $htmlreturn .=" <!-- end  of race sum -->";
             if ($found_votes)    {
                 $htmlreturn .= $unofficial_text;
+                // spot for chart2
+                if ($num_candidates > 1) {
+                  $htmlreturn .= '<div class="eai-race-vote-pie2">';
+                  $htmlreturn.= '<h5>Results by Town</h5>';
+                  $htmlreturn .= '<div id="racedisplay2-'.$raceorder.'" class ="eai-race-grx2"></div>';
+                  $htmlreturn .= '</div>';
+                }
+
+
+
                 // now the table of all the results
                 $htmlreturn .= '<table class="eai-results-race-details">';
                 // put totals at top of table as well as bottom
@@ -334,7 +344,7 @@ function electionResults_Race2($atts) {
                         if ($raceresult->reported) {
                             $race_amount = $raceresult->$candidate_name; // name of column is candidates name.
                             $race_amount_str = number_format_i18n($race_amount);
-                            $str_piepiece .= ",".$race_amount_str;
+                            $str_piepiece .= ",".$race_amount;
                         } else {
                             $race_amount_str = 'Not yet reported.';
                             $town_reported_here = false;
@@ -415,23 +425,22 @@ function electionResults_Race2($atts) {
                           $jsreturn .= "var chart = new google.visualization.BarChart(document.getElementById('racedisplay".$raceorder."'));";
                           break;
                     }
+                    $chart2_options =  "{title:'".$race."'";
+                    $chart2_options .= $str_colors;
+                    $chart2_options .= $chart_areaoption;
+                    $chart2_options .= ',height: '.$count_precincts*12;
+                    $chart2_options .= "}";
+
     $htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
     $htmlreturn .= "<pre>Chart options:".$chart_options."</pre>";
                     $jsreturn .= "var options = ".$chart_options.";";
                     $jsreturn .= "chart.draw(data,options);";
-                    // chart2
-
-                    $htmlreturn .= '<div class="eai-race-vote-pie2">';
-                    if ($num_candidates > 1) {
-                      $htmlreturn.= '<h5>Votes</h5>';
-                      $htmlreturn .= '<div id="racedisplay2-'.$raceorder.'" class ="eai-race-grx2"></div>';
-                    }
-                    $htmlreturn .= '</div>';
-
                     $jsreturn .= 'var data2 = google.visualization.arrayToDataTable('.$str_piedata2.');';
+                    $jsreturn .= "var options2 = ".$chart2_options.";";
                     $jsreturn .= "var chart2 = new google.visualization.BarChart(document.getElementById('racedisplay2-".$raceorder."'));";
-                    $jsreturn .= "chart2.draw(data2,options);";
+                    $jsreturn .= "chart2.draw(data2,options2);";
     $htmlreturn .= "<p>Piedata2</p><pre>".$str_piedata2."</pre>";
+    $htmlreturn .= "<pre>Chart options:".$chart2_options."</pre>";
 
                     $jsreturn .="} </script>";
                   } // more than one Candidate

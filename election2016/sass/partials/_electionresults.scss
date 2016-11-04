@@ -128,12 +128,14 @@ table.eai-results {
 		clear: both;
 	}
 }
+.eai-resultsimplepie-wrapper,
 .eai-resultsimple-wrapper {
 	width: 30%;
 	float: left;
 	padding: 5px;
 	margin: 5px;
 	border: 1px solid grey;
+	height: 165;
 	.eai-results-sum {
 		margin-bottom: 5px;
 	}
@@ -145,7 +147,17 @@ table.eai-results {
 		width: initial!important;
 
 	}
-}
+	.eai-racesimplepie {
+		.eai-precincts-reporting {
+			p {
+				text-align: center;
+			}
+		}
+	}
+	.eai-results-unofficial {
+		text-align: center;
+	}
+} // end simple wrapper
 .eai-checkback:before {
 //content: url( http://www.reachdowneast.com/elections-2014/wp-content/themes/ea-local1/images/election_graphic.jpg);
 }

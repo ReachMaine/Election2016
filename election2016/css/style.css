@@ -129,19 +129,30 @@ table.eai-results {
   border-top: 1px solid grey;
   clear: both; }
 
+.eai-resultsimplepie-wrapper,
 .eai-resultsimple-wrapper {
   width: 30%;
   float: left;
   padding: 5px;
   margin: 5px;
-  border: 1px solid grey; }
+  border: 1px solid grey;
+  height: 165; }
+  .eai-resultsimplepie-wrapper .eai-results-sum,
   .eai-resultsimple-wrapper .eai-results-sum {
     margin-bottom: 5px; }
+  .eai-resultsimplepie-wrapper p,
   .eai-resultsimple-wrapper p {
     margin-bottom: 0px; }
+  .eai-resultsimplepie-wrapper .eai-racesimple .eai-results-sum span,
   .eai-resultsimple-wrapper .eai-racesimple .eai-results-sum span {
     width: auto !important;
     width: initial !important; }
+  .eai-resultsimplepie-wrapper .eai-racesimplepie .eai-precincts-reporting p,
+  .eai-resultsimple-wrapper .eai-racesimplepie .eai-precincts-reporting p {
+    text-align: center; }
+  .eai-resultsimplepie-wrapper .eai-results-unofficial,
+  .eai-resultsimple-wrapper .eai-results-unofficial {
+    text-align: center; }
 
 .eai-checkback {
   color: #D33; }

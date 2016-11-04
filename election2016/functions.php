@@ -5,6 +5,7 @@
 
 	require_once(get_stylesheet_directory().'/inc/eai_election_results.php');
 	require_once(get_stylesheet_directory().'/inc/eai_election_result_racebars.php');
+	require_once(get_stylesheet_directory().'/inc/eai_election_results_simplepie.php');
 	 register_sidebar(array(
 			'name' => 'Top Banner Ad',
 			'id' => 'topbanner',

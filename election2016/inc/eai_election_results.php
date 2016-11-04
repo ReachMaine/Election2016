@@ -546,8 +546,8 @@ function electionResults_Race ($atts) {
                           $jsreturn .= "var chart = new google.visualization.BarChart(document.getElementById('racedisplay".$raceorder."'));";
                           break;
                     }
-    //$htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
-    //$htmlreturn .= "<pre>Chart options:".$chart_options."</pre>";
+    $htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
+    $htmlreturn .= "<pre>Chart options:".$chart_options."</pre>";
                     $jsreturn .= "var options = ".$chart_options.";";
                     $jsreturn .= "chart.draw(data,options);";
                     $jsreturn .="} </script>";
