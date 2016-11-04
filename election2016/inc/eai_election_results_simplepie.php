@@ -174,7 +174,7 @@ $link = $a['link'];
                if ($candresult[$i]->party) {
                  $candidtate_name_title .= "(".$candresult[$i]->party.")";
                }
-               $str_piedata .= ",['".$candidtate_name_title."', ".$sums[$candidate_name];
+               $str_piedata .= ",['".str_replace("&#039;","",$candidtate_name_title)."', ".$sums[$candidate_name];
 
                switch ($candidate_name) {
                 case 'Yes':
@@ -240,13 +240,13 @@ $link = $a['link'];
        if ($raceresults) {
            $htmlreturn .= '<div class="eai-racesimplepie">';
            if ($show_title) {
-               $htmlreturn .= '<h2 style="text-align: center;">';
+               $htmlreturn .= '<h4 style="text-align: center;">';
                if ($link) {
                  $htmlreturn .= '<a href="'.$link.'">'.$race.'</a>';
                } else {
                  $htmlreturn .= $race;
                }
-               $htmlreturn .= "</h2>";
+               $htmlreturn .= "</h4>";
            }
            // in racesum: 1st the piechart
            if ($found_votes) {
@@ -406,7 +406,7 @@ $link = $a['link'];
                          $chart_areaoption =  ",chartArea:{'width': '50%','height': '90%'}";
                          break;
                      case 'pie':
-                         $chart_areaoption =  "chartArea:{'width': '90%','height': '50%'}";
+                         $chart_areaoption =  "chartArea:{'width': '90%','height': '80%'}";
                          break;
                    }
 
@@ -421,6 +421,7 @@ $link = $a['link'];
                        case "pie" :
                           $chart_options = "{";
                           $chart_options .= $str_colors.",".$chart_areaoption.",legend: {position:'top'}";
+                          $chart_options .= ",'height':150";
                           $chart_options .= "}";
                           $jsreturn .= "var chart = new google.visualization.PieChart(document.getElementById('racedisplay".$raceorder."'));";
                          break;
@@ -429,6 +430,7 @@ $link = $a['link'];
                          $chart_options = "{title:'".$race."'";
                        //  $chart_options .= $str_colors.$chart_areaoption;
                          $chart_options .= $chart_areaoption;
+                         $chart_options .= ",'height':150";
                          //$chart_options .= ", vAxis:{ title:'Candidate' }";
                          $chart_options .= ", legend: 'none'";
                          $chart_options .= "}";
