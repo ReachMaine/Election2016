@@ -1,6 +1,6 @@
 <?php
 /*
-Template name: Election Test Race Bar2
+Template name: Election Test Simple Pie
 */
 $have_race = false;
 $updated = false;
@@ -65,7 +65,7 @@ get_header(); ?>
 			<?php /* */
 				if ($have_race) {
           echo "<p>Sending in bar<hr></p>";
-          $shortcode_out = '[electionresultsrace2 race = "'.$inrace.'" charttype="bar" ]';
+          $shortcode_out = '[electionresultspie race = "'.$inrace.'" charttype="bar" ]';
           echo do_shortcode($shortcode_out);
 				} else {
 					echo "<p>No Race selected yet.</p>";

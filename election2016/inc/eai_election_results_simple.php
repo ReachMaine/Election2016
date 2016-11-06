@@ -13,7 +13,7 @@ function electionResults_RaceSimple ($atts) {
         'unvoted' => false,  // by default, dont show the unvoted
         'primary' => false,
         'title' => "yes",
-        'partial' => "yes", // partial result of race (i.e. state races, dont have ALL results)
+        'partial' => "no", // partial result of race (i.e. state races, dont have ALL results)
     ), $atts );
 
     $primary = $a['primary'];
@@ -27,7 +27,7 @@ function electionResults_RaceSimple ($atts) {
     } else {
         $show_unvoted = false;
     }
-    if ($a['partial'] == "yes") {
+    if ($a['partial'] != "no") {
       $show_partial_text = true;
     } else {
       $show_partial_text = false;
@@ -37,7 +37,7 @@ function electionResults_RaceSimple ($atts) {
     if ($show_partial_text) {
         $unofficial_text .= " Voting from Hancock County ONLY.";
     }
-    $unofficial_text .= '.</h6>';
+    $unofficial_text .= '</h6>';
     $race = $a['race'];
     $link = $a['link'];
     $count_precinct_reporting = 0;
@@ -187,8 +187,8 @@ function electionResults_RaceSimple ($atts) {
           }
 
           /* ********** start building html ************ */
-
-          $htmlreturn = '<div class="eai-resultsimple-wrapper">';
+          $htmlreturn = "<!-- simple shortcode -->";
+          $htmlreturn .= '<div class="eai-resultsimple-wrapper">';
 
 
           $htmlreturn .= '<div class="eai-racesimple"><h4>';

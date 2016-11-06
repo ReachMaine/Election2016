@@ -18,7 +18,7 @@ function electionResults_RaceSimplePie ($atts) {
  ), $atts );
 $link = $a['link'];
  $votes_preview = false;
- $htmlreturn = "";
+ $htmlreturn = "<!-- Simple Pie shortcode -->";
  $jsreturn = "";
  if ($eai_elections_enable_results) {
    // initializations
@@ -43,9 +43,9 @@ $link = $a['link'];
    }
    $unofficial_text = '<h6 class="eai-results-unofficial">';
    if ($show_partial_text) {
-       $unofficial_text .= "Voting from Hancock County ONLY";
+       $unofficial_text .= "Voting from Hancock County ONLY.";
    }
-   $unofficial_text .= '.</h6>';
+   $unofficial_text .= '</h6>';
    $count_precinct_reporting = 0;
    $count_precincts = 0;
    $count_voted = 0;
@@ -254,7 +254,7 @@ $link = $a['link'];
                $htmlreturn .= '<div class="eai-race-vote-pie">';
                if ($num_candidates > 1) {
                  //$htmlreturn.= '<h5>Votes</h5>';
-                 $htmlreturn .= '<div id="racedisplay'.$raceorder.'" class ="eai-race-grx"></div>';
+                 $htmlreturn .= '<div id="racedisplay-pie'.$raceorder.'" class ="eai-race-grx"></div>';
                }
                $htmlreturn .= '</div>';
            }
@@ -321,7 +321,7 @@ $link = $a['link'];
            // in racesum: 4th - piechart of remaining voters affiliates
            if ($found_votes && $show_unvoted) {
                $htmlreturn .= '<div class="eai-unvoted"><h5>Profile of unreported precincts</h3>';
-               $htmlreturn .= '<div id="eai-unvoted-affl" class="eai-voter-grx"></div>';
+               $htmlreturn .= '<div id="eai-unvoted-affl" class="eai-voter-grx-pie"></div>';
                $htmlreturn .= '</div>';
            }
            $htmlreturn .= '</div>'; // end of race-ssum
@@ -423,7 +423,7 @@ $link = $a['link'];
                           $chart_options .= $str_colors.",".$chart_areaoption.",legend: {position:'top'}";
                           $chart_options .= ",'height':150";
                           $chart_options .= "}";
-                          $jsreturn .= "var chart = new google.visualization.PieChart(document.getElementById('racedisplay".$raceorder."'));";
+                          $jsreturn .= "var chart = new google.visualization.PieChart(document.getElementById('racedisplay-pie".$raceorder."'));";
                          break;
                        case "bar":
                          $jsreturn .= "data.sort([{column: 1, desc: true  }]);";
@@ -435,7 +435,7 @@ $link = $a['link'];
                          $chart_options .= ", legend: 'none'";
                          $chart_options .= "}";
 
-                         $jsreturn .= "var chart = new google.visualization.BarChart(document.getElementById('racedisplay".$raceorder."'));";
+                         $jsreturn .= "var chart = new google.visualization.BarChart(document.getElementById('racedisplay-pie".$raceorder."'));";
                          break;
                    }
    //$htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";

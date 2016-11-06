@@ -1,6 +1,6 @@
 <?php
 /* election results short codes */
-
+add_shortcode('electionresultsrace', 'electionResults_Race2');
 add_shortcode('electionresultsrace2', 'electionResults_Race2');
 /********** RESULTS BY RACE ************************/
 function electionResults_Race2($atts) {
@@ -18,7 +18,7 @@ function electionResults_Race2($atts) {
   ), $atts );
 
   $votes_preview = false;
-  $htmlreturn = "";
+  $htmlreturn = "<!-- Race Shortcode -->";
   $jsreturn = "";
   if ($eai_elections_enable_results) {
     // initializations
@@ -40,11 +40,13 @@ function electionResults_Race2($atts) {
     } else {
       $show_partial_text = false;
     }
-    $unofficial_text = '<h6 class="eai-results-unofficial">All results are unofficial';
+
     if ($show_partial_text) {
-        $unofficial_text .= " and show votes cast in Hancock County ONLY";
+      $unofficial_text = '<h6 class="eai-results-unofficial">';
+      $unofficial_text .= " Votes cast in Hancock County ONLY";
+      $unofficial_text .= '.</h6>';
     }
-    $unofficial_text .= '.</h6>';
+
     $count_precinct_reporting = 0;
     $count_precincts = 0;
     $count_voted = 0;
@@ -52,6 +54,7 @@ function electionResults_Race2($atts) {
     $found_votes = false;
     $all_reported = false;
     $all_towns_reported = true;
+    $towns_not_reported = array();
     $jsreturn = "";
     $count_unreported = 0;
     $count_unreported_d = 0;
@@ -333,31 +336,33 @@ function electionResults_Race2($atts) {
                 //
 
                 foreach ($raceresults as $raceresult) {
-                    $htmlreturn .= "<tr>";
-                    $htmlreturn .= "<td>".$raceresult->precinct.'</td>';
-                    $str_piepiece  = ",['".$raceresult->precinct."'";
-                    $town_reported_here = true;
-                    for ($i=0; $i< $num_candidates; $i++) {
+                    if ($raceresult->reported) {
+                      $htmlreturn .= "<tr>";
+                      $htmlreturn .= "<td>".$raceresult->precinct.'</td>';
+                      $str_piepiece  = ",['".$raceresult->precinct."'";
+                      $town_reported_here = true;
+                      for ($i=0; $i< $num_candidates; $i++) {
+                          $candidate_name = $candresult[$i]->candidate;
+                          if ($raceresult->reported) {
+                              $race_amount = $raceresult->$candidate_name; // name of column is candidates name.
+                              $race_amount_str = number_format_i18n($race_amount);
+                              $str_piepiece .= ",".$race_amount;
+                          } else {
+                              $race_amount_str = 'Not yet reported.';
+                              $town_reported_here = false;
+                          }
 
-
-                        $candidate_name = $candresult[$i]->candidate;
-                        if ($raceresult->reported) {
-                            $race_amount = $raceresult->$candidate_name; // name of column is candidates name.
-                            $race_amount_str = number_format_i18n($race_amount);
-                            $str_piepiece .= ",".$race_amount;
-                        } else {
-                            $race_amount_str = 'Not yet reported.';
-                            $town_reported_here = false;
-                        }
-
-                        //$sums[$candidate_name ] = $sums[$candidate_name] + $race_amount;
-                        $htmlreturn .= '<td class="eai-result-votes">'.$race_amount_str."</td>";
+                          //$sums[$candidate_name ] = $sums[$candidate_name] + $race_amount;
+                          $htmlreturn .= '<td class="eai-result-votes">'.$race_amount_str."</td>";
+                      }
+                      if ($town_reported_here) {
+                        $str_piedata2 .= $str_piepiece."]";
+                      }
+                      $htmlreturn .= "</tr>";
+                    }  else { // not reported.
+                      $towns_not_reported[] = $raceresult->precinct;
                     }
-                    if ($town_reported_here) {
-                      $str_piedata2 .= $str_piepiece."]";
-                    }
-                    $htmlreturn .= "</tr>";
-                }
+                } // end for
                   $str_piedata2 .= "]"; // end of pie2 data chart.
 
                 // put the sums at the bottom of the table
@@ -379,6 +384,9 @@ function electionResults_Race2($atts) {
                 }
                 $htmlreturn .= "</tr>";
                 $htmlreturn .="</table>";
+                if (!empty($towns_not_reported)) {
+                  $htmlreturn .= "<p>Not yet reported:<br> ". implode(", ",$towns_not_reported).".</p>";
+                }
                 /* $htmlreturn .= '<p>Total unreported:'.number_format_i18n($count_unreported);
                 $htmlreturn .= ' d:'.number_format_i18n($count_unreported_d).', ';
                 $htmlreturn .= ' r:'.number_format_i18n($count_unreported_r).', ';
@@ -431,16 +439,16 @@ function electionResults_Race2($atts) {
                     $chart2_options .= ',height: '.$count_precincts*12;
                     $chart2_options .= "}";
 
-    $htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
-    $htmlreturn .= "<pre>Chart options:".$chart_options."</pre>";
+    //$htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
+    //$htmlreturn .= "<pre>Chart options:".$chart_options."</pre>";
                     $jsreturn .= "var options = ".$chart_options.";";
                     $jsreturn .= "chart.draw(data,options);";
                     $jsreturn .= 'var data2 = google.visualization.arrayToDataTable('.$str_piedata2.');';
                     $jsreturn .= "var options2 = ".$chart2_options.";";
                     $jsreturn .= "var chart2 = new google.visualization.BarChart(document.getElementById('racedisplay2-".$raceorder."'));";
                     $jsreturn .= "chart2.draw(data2,options2);";
-    $htmlreturn .= "<p>Piedata2</p><pre>".$str_piedata2."</pre>";
-    $htmlreturn .= "<pre>Chart options:".$chart2_options."</pre>";
+    //$htmlreturn .= "<p>Piedata2</p><pre>".$str_piedata2."</pre>";
+    //$htmlreturn .= "<pre>Chart options:".$chart2_options."</pre>";
 
                     $jsreturn .="} </script>";
                   } // more than one Candidate
