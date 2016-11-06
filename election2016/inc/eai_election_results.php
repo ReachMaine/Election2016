@@ -105,7 +105,7 @@ function electionResults_Town ($atts) {
                           $htmlreturn .= ' : '.$voter_participation.'%';
                         }
                         $htmlreturn .= '</p>';
-                        $htmlreturn .= '<h6 class="eai-results-unofficial">All results are unofficial.</h6>';
+                        $htmlreturn .= '<h6 class="eai-results-unofficial">Voting from Hancock County ONLY.</h6>';
                     }
 
                 }
@@ -136,7 +136,7 @@ function electionResults_Race ($atts) {
       'primary' => false,
       'title' => "yes",
       'charttype' => "pie",
-      'partial' => "no",
+      'partial' => "yes",
   ), $atts );
 
   $votes_preview = false;
@@ -158,14 +158,14 @@ function electionResults_Race ($atts) {
     } else {
         $show_unvoted = false;
     }
-    if ($a['partial'] != "no") {
+    if ($a['partial'] == "yes") {
       $show_partial_text = true;
     } else {
       $show_partial_text = false;
     }
-    $unofficial_text = '<h6 class="eai-results-unofficial">All results are unofficial';
+    $unofficial_text = '<h6 class="eai-results-unofficial">';
     if ($show_partial_text) {
-        $unofficial_text .= " and show votes cast in Hancock County ONLY";
+        $unofficial_text .= " Voting from Hancock County ONLY";
     }
     $unofficial_text .= '.</h6>';
     $count_precinct_reporting = 0;
@@ -586,7 +586,7 @@ function electionResults_RaceSimple ($atts) {
         'unvoted' => false,  // by default, dont show the unvoted
         'primary' => false,
         'title' => "yes",
-        'partial' => "no", // partial result of race (i.e. state races, dont have ALL results)
+        'partial' => "yes", // partial result of race (i.e. state races, dont have ALL results)
     ), $atts );
 
     $primary = $a['primary'];
@@ -600,15 +600,15 @@ function electionResults_RaceSimple ($atts) {
     } else {
         $show_unvoted = false;
     }
-    if ($a['partial'] != "no") {
+    if ($a['partial'] == "yes") {
       $show_partial_text = true;
     } else {
       $show_partial_text = false;
     }
     // initializations
-    $unofficial_text = '<h6 class="eai-results-unofficial">All results are unofficial';
+    $unofficial_text = '<h6 class="eai-results-unofficial">';
     if ($show_partial_text) {
-        $unofficial_text .= " and show votes cast in Hancock County ONLY";
+        $unofficial_text .= " Voting from Hancock County ONLY.";
     }
     $unofficial_text .= '.</h6>';
     $race = $a['race'];
