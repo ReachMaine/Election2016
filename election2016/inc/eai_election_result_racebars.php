@@ -7,7 +7,7 @@ function electionResults_Race2($atts) {
     /* short code function to display election results by Race.  Ex:  Governor's race */
   global $wpdb;
   $table = "votes2016";
-  $eai_elections_enable_results = true; // turn on/off everything
+  global $eai_elections_enable_results; // turn on/off everything
    $a = shortcode_atts( array(
       'race' => '',
       'unvoted' => false,  // by default, dont show the unvoted

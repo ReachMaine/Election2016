@@ -6,7 +6,7 @@ function electionResults_Town ($atts) {
 /* shortcode to return all the results for a particular town */
     global $wpdb;
     $table = "votes2016";
-    $eai_elections_enable_results = true;
+    global $eai_elections_enable_results;
     $votes_preview = false;
 	  $a = shortcode_atts( array(
         'town' => 'something',

@@ -1,6 +1,6 @@
 <?php
 /* election results short codes */
-
+  $eai_elections_enable_results = false;
 /* shortcode [electionresultsrace ] */
 require_once(get_stylesheet_directory().'/inc/eai_election_result_racebars.php');
 

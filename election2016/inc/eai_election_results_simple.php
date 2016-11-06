@@ -1,4 +1,5 @@
 <?php
+
 add_shortcode('electionresultsimple', 'electionResults_RaceSimple');
 
 
@@ -6,7 +7,7 @@ function electionResults_RaceSimple ($atts) {
     /* short code function to display Summary of election results by Race.  Ex:  Governor's race */
     global $wpdb;
     $table = "votes2016";
-    $eai_elections_enable_results = true;
+    global $eai_elections_enable_results;
     $a = shortcode_atts( array(
         'race' => '',
         'link' => '',
