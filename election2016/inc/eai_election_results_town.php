@@ -55,23 +55,24 @@ function electionResults_Town ($atts) {
                 }
 
                 //echo '<p> Race:'.$race->race.' Reg. voters:'.$total_voters.'</p>'; // testing
-                $indracequery = 'SELECT DISTINCT candidate, party, votes, town, reported FROM '.$table.' WHERE town = "'.$town.'" AND race="'.$race->race.'"';
+                $indracequery = 'SELECT DISTINCT candidate, votes, town, reported FROM '.$table.' WHERE town = "'.$town.'" AND race="'.$race->race.'"';
                 //echo '<p>'.$indracequery.'</p>'; // testing
                 $indraceresults = $wpdb->get_results($indracequery);
-
+                // echo "<pre>";     var_dump($indraceresults);      echo "</pre>";
                 if ($indraceresults) {
                     //$htmlreturn .= '<h4>'.$race->race.'</h4>';
                     $htmlreturn .= '<table class="eai-results eai-results-town"><tr class="eai-results-headerrow"><th class="eai-results-header">'.$race->race.'</th><th class="eai-result-votes">Votes</th></tr>';
                     $count_voted = 0;
                     $num_candidates = 0;
                     foreach ($indraceresults as $indrace) {
-                        if ($indrace->reported) {
+                        if ($indrace->reported == 1) {
                             $found_votes = true;
                             $count_voted += $indrace->votes;
                         }
                         $num_candidates++;
                         // count number of candidates;
                     }
+                    //echo "<p>found votes is: ".$found_votes."</p>";
                     foreach ($indraceresults as $indrace) {
                         if ($indrace->party) {
                             $party_string = ' (<span class="party-'.$indrace->party.'">'.$indrace->party.'</span>) ';
