@@ -435,7 +435,7 @@ function electionResults_Race2($atts) {
                     }
                     $chart2_options =  "{title:'".$race."'";
                     $chart2_options .= $str_colors;
-                    $chart2_options .= $chart_areaoption;
+                    $chart2_options .= ",chartArea:{'width': '60%','height': '90%'}";
                     $chart2_options .= ',height: '.$count_precincts*12;
                     $chart2_options .= "}";
 
