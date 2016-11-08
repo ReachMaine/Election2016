@@ -1,19 +1,19 @@
-<?php 
+<?php
 function electionResults_RaceSimple ($atts) {
     /* short code function to display Summary of election results by Race.  Ex:  Governor's race */
     global $wpdb;
-    $table = "elections2016"; 
+    $table = "elections2016";
     $a = shortcode_atts( array(
         'race' => '',
         'link' => '',
-        'unvoted' => false,  // by default, dont show the unvoted 
+        'unvoted' => false,  // by default, dont show the unvoted
         'primary' => false,
         'title' => "yes",
     ), $atts );
 
     $primary = $a['primary'];
     if ($a['title'] == "yes") {
-       $show_title = true; 
+       $show_title = true;
     } else {
         $show_title = false;
     }
@@ -42,10 +42,10 @@ function electionResults_RaceSimple ($atts) {
     $pct_unreported_u = 0;
     $jsreturn = "";
 
-   /* get the candidates in the race */ 
+   /* get the candidates in the race */
     $candquery = 'SELECT  distinct `candidate`, party, raceorder FROM `'. $table.'` WHERE race="'. $race.'"';
-    $candresult = $wpdb->get_results($candquery); 
-    //echo "<pre>"; var_dump($candresult);echo "</pre>"; 
+    $candresult = $wpdb->get_results($candquery);
+    //echo "<pre>"; var_dump($candresult);echo "</pre>";
 
     if ($candresult) {
 
@@ -58,7 +58,7 @@ function electionResults_RaceSimple ($atts) {
             $ctabname = (string)$c;
             $ctabname = 'c'.$ctabname;
             $candidate_name = $cand->candidate;
-            $sums[$candidate_name] = 0; 
+            $sums[$candidate_name] = 0;
             //echo "ctabname = ". $ctabname;
             //echo "<p>".$candidate_name."</p>";
             $racequery .= ', (select votes FROM `'.$table.'` '. $ctabname.' WHERE '.$ctabname.'.race="'.$race.'" AND '.$ctabname.'.candidate = "'.$candidate_name .'" and '.$ctabname.'.precinct = base.precinct) `'.$candidate_name.'` ';
@@ -67,7 +67,7 @@ function electionResults_RaceSimple ($atts) {
         $racequery .= ' FROM `'.$table.'` base ';
         $racequery .= ' WHERE base.race="'.$race.'"';
         $racequery .= ' ORDER BY reported DESC, base.precinct';
-      
+
         //echo "-- Race Query -- <br>"; echo $racequery;  echo "</br></hr>";;// for testing
 
         $raceresults = $wpdb->get_results($racequery);
@@ -94,30 +94,30 @@ function electionResults_RaceSimple ($atts) {
                 $count_unreported_g += $raceresult->r_g;
                 $count_unreported_u += $raceresult->r_u;
             }
-           
+
             if ($primary) { // only count in party for primary
                  switch ($raceresult->party) {
                     case "R":
-                         $registeredvoters = $raceresult->r_r;                    
+                         $registeredvoters = $raceresult->r_r;
                         break;
                     case "D":
-                        $registeredvoters = $raceresult->r_d;  
+                        $registeredvoters = $raceresult->r_d;
                         break;
- 
+
                     case "G":
-                        $registeredvoters = $raceresult->r_g;  
+                        $registeredvoters = $raceresult->r_g;
                         break;
                     case "U":
-                        $registeredvoters = $raceresult->r_u;  
+                        $registeredvoters = $raceresult->r_u;
                         break;
                     default:
-                        $registeredvoters = 0;  
-                }   
+                        $registeredvoters = 0;
+                }
 
             } else {
                  $registeredvoters = $raceresult->r_d + $raceresult->r_r + $raceresult->r_g + $raceresult->r_u;
             }
-            $total_voters += $registeredvoters;        
+            $total_voters += $registeredvoters;
             $count_precincts++;
         }
         // more calcs once all counted.
@@ -132,7 +132,7 @@ function electionResults_RaceSimple ($atts) {
             $str_piedata = "[['Candidate', 'Votes']";
             $str_colors = "";
             for ($i=0; $i< $num_candidates; $i++) {
-               // if ($i > 0 ) { $str_piedata .= ","; } 
+               // if ($i > 0 ) { $str_piedata .= ","; }
                 $candidate_name = $candresult[$i]->candidate;
 
                 $str_piedata .= ",['". $candresult[$i]->candidate."', ".$sums[$candidate_name]."]";
@@ -147,7 +147,7 @@ function electionResults_RaceSimple ($atts) {
                 switch ($candresult[$i]->party) {
                     case 'R':
                         $str_colors .= ",'#D33'";
-                        break; 
+                        break;
                     case 'D':
                         $str_colors .= ",'#1E73BE'"; // a nice blue
                         break;
@@ -160,9 +160,9 @@ function electionResults_RaceSimple ($atts) {
                     case 'I':
                         $str_colors .= ",'grey'";
                         break;
-                   
+
                 }
-             
+
             }
             if ($str_colors <> "") {
                 $str_colors = ',colors :['.substr($str_colors,1).']';
@@ -173,8 +173,8 @@ function electionResults_RaceSimple ($atts) {
         /* ********** start building html ************ */
 
         $htmlreturn = '<div class="eai-resultsimple-wrapper">';
-    
-      
+
+
         $htmlreturn .= '<div class="eai-racesimple"><h4>';
         $title = $race;
         if ($link) {
@@ -183,10 +183,10 @@ function electionResults_RaceSimple ($atts) {
               $htmlreturn .= $title;
         }
         $htmlreturn .= '</h4>';
-       
+
         /* display the results */
         if ($raceresults) {
-            // first some of the totals & counts 
+            // first some of the totals & counts
             $htmlreturn .= '<ul class="eai-results-sum">';
             for ($i=0; $i< $num_candidates; $i++) {
                 $candidate_name = $candresult[$i]->candidate;
@@ -202,7 +202,7 @@ function electionResults_RaceSimple ($atts) {
                 if ($count_voted > 0) {
                     $htmlreturn .= ' - '.round(($sums[$candidate_name]/$count_voted)*100).'%';
                 }
-                $htmlreturn .='</li>';  
+                $htmlreturn .='</li>';
             }
             $htmlreturn .= '</ul>';
             if ($found_votes) {
@@ -225,7 +225,7 @@ function electionResults_RaceSimple ($atts) {
             } else {
                  $htmlreturn .= '<p class="eai-checkback">Polls close at 8 p.m. Check back then for results as they come in.</p>';
             }
-           
+
         } else {
             $htmlreturn .= "<p>No results</p>";
         }

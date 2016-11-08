@@ -97,15 +97,15 @@ function electionResults_Town ($atts) {
                     //$htmlreturn .= "totalvoters:  $total_voters";
                     if ( ($count_voted > 0) && ($total_voters>0)  && false) {
 
-                        $htmlreturn .= '<p> Voter participation: '.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters);
+                        //$htmlreturn .= '<p> Voter participation: '.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters);
                         $voter_participation = round(($count_voted/$total_voters)*100);
                         if ($voter_participation > 100) {
                           $voter_participation = 100;
                         }
                         if ($voter_participation > 0 ) {
-                          $htmlreturn .= ' : '.$voter_participation.'%';
+                          //$htmlreturn .= ' : '.$voter_participation.'%';
                         }
-                        $htmlreturn .= '</p>';
+                        //$htmlreturn .= '</p>';
 
                     }
                 }

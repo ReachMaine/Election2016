@@ -305,14 +305,14 @@ $link = $a['link'];
            if ($found_votes & $all_towns_reported ) {
                $voter_participation = round(($count_voted/$total_voters)*100);
                if ($voter_participation = 0) {
-                 $htmlreturn .= '<div class="eai-voter-partcip" >';
-                 $htmlreturn .= '<h3 class="eai-voter-precent">'.$htmlreturn.'%</h3><h3 class="eai-voter-title">Voter</br>Participation</h3>';
+                 //$htmlreturn .= '<div class="eai-voter-partcip" >';
+                 //$htmlreturn .= '<h3 class="eai-voter-precent">'.$htmlreturn.'%</h3><h3 class="eai-voter-title">Voter</br>Participation</h3>';
                  //$htmlreturn .= "<p>".$count_precinct_reporting.' of '.$count_precincts.' Precincts reporting:</p>';
                  //$htmlreturn .= '<p>'.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters).' voters. Participation: '.round(($count_voted/$total_voters)*100).'%</p>';
                  /* $count_voted = 0;
                  $total_voters = 0; */
                  //$htmlreturn .= "(counted = ".$count_voted." / total_voters = ".$total_voters.")";
-                 $htmlreturn .="</div>";
+                 //$htmlreturn .="</div>";
                }
 
            }

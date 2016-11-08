@@ -64,6 +64,7 @@ function electionResults_Race2($atts) {
     $arry_names = array();
     $arry_votes = array();
     $arry_gdata = array();
+    $show_pie2 = true;
     /* get the candidates in the race */
     $candquery = 'SELECT  distinct `candidate`,party, raceorder FROM `'. $table.'` WHERE race="'. $race.'"';
     $candresult = $wpdb->get_results($candquery);
@@ -278,14 +279,14 @@ function electionResults_Race2($atts) {
             if ($found_votes & $all_towns_reported ) {
                 $voter_participation = round(($count_voted/$total_voters)*100);
                 if ($voter_participation = 0) {
-                  $htmlreturn .= '<div class="eai-voter-partcip" >';
-                  $htmlreturn .= '<h3 class="eai-voter-precent">'.$htmlreturn.'%</h3><h3 class="eai-voter-title">Voter</br>Participation</h3>';
+                  //$htmlreturn .= '<div class="eai-voter-partcip" >';
+                  //$htmlreturn .= '<h3 class="eai-voter-precent">'.$htmlreturn.'%</h3><h3 class="eai-voter-title">Voter</br>Participation</h3>';
                   //$htmlreturn .= "<p>".$count_precinct_reporting.' of '.$count_precincts.' Precincts reporting:</p>';
                   //$htmlreturn .= '<p>'.number_format_i18n($count_voted).' of '.number_format_i18n($total_voters).' voters. Participation: '.round(($count_voted/$total_voters)*100).'%</p>';
                   /* $count_voted = 0;
                   $total_voters = 0; */
                   //$htmlreturn .= "(counted = ".$count_voted." / total_voters = ".$total_voters.")";
-                  $htmlreturn .="</div>";
+                  //$htmlreturn .="</div>";
                 }
 
             }
@@ -302,11 +303,16 @@ function electionResults_Race2($atts) {
             if ($found_votes)    {
                 $htmlreturn .= $unofficial_text;
                 // spot for chart2
-                if ($num_candidates > 1) {
-                  $htmlreturn .= '<div class="eai-race-vote-pie2">';
+                //$htmlreturn .= "<p>count of precincts = ".$count_precincts."</p>";
+                if (($num_candidates > 1) && ($count_precincts > 1)) {
+
+                  $htmlreturn .= '<div class="eai-race-vote-pie2" style="margin-bottom: 20px;">';
                   $htmlreturn.= '<h5>Results by Town</h5>';
                   $htmlreturn .= '<div id="racedisplay2-'.$raceorder.'" class ="eai-race-grx2"></div>';
                   $htmlreturn .= '</div>';
+
+                } else {
+                    $show_pie2 = false;
                 }
 
 
@@ -443,13 +449,14 @@ function electionResults_Race2($atts) {
     //$htmlreturn .= "<pre>Chart options:".$chart_options."</pre>";
                     $jsreturn .= "var options = ".$chart_options.";";
                     $jsreturn .= "chart.draw(data,options);";
-                    $jsreturn .= 'var data2 = google.visualization.arrayToDataTable('.$str_piedata2.');';
-                    $jsreturn .= "var options2 = ".$chart2_options.";";
-                    $jsreturn .= "var chart2 = new google.visualization.BarChart(document.getElementById('racedisplay2-".$raceorder."'));";
-                    $jsreturn .= "chart2.draw(data2,options2);";
-    //$htmlreturn .= "<p>Piedata2</p><pre>".$str_piedata2."</pre>";
-    //$htmlreturn .= "<pre>Chart options:".$chart2_options."</pre>";
-
+                    if ($show_pie2) {
+                        $jsreturn .= 'var data2 = google.visualization.arrayToDataTable('.$str_piedata2.');';
+                        $jsreturn .= "var options2 = ".$chart2_options.";";
+                        $jsreturn .= "var chart2 = new google.visualization.BarChart(document.getElementById('racedisplay2-".$raceorder."'));";
+                        $jsreturn .= "chart2.draw(data2,options2);";
+                            //$htmlreturn .= "<p>Piedata2</p><pre>".$str_piedata2."</pre>";
+                            //$htmlreturn .= "<pre>Chart options:".$chart2_options."</pre>";
+                    }
                     $jsreturn .="} </script>";
                   } // more than one Candidate
                 } // end chartype
