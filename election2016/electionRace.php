@@ -67,11 +67,11 @@ get_header(); ?>
           echo "<p>sending in nothing should be pie <hr></p>";
 
 
-          $shortcode_out = '[electionresultsimple race = "'.$inrace.'" ]';
-          echo do_shortcode($shortcode_out);
+          //$shortcode_out = '[electionresultsimple race = "'.$inrace.'" ]';
+          //echo do_shortcode($shortcode_out);
 
-          $shortcode_out = '[electionresultspie race = "'.$inrace.'" ]';
-          echo do_shortcode($shortcode_out);
+          //$shortcode_out = '[electionresultspie race = "'.$inrace.'" ]';
+          //echo do_shortcode($shortcode_out);
 
           echo "<hr>";
           $shortcode_out = '[electionresultsrace race = "'.$inrace.'" ]';

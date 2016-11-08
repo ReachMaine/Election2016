@@ -128,9 +128,15 @@ table.eai-results {
 		clear: both;
 	}
 }
+@media only screen and (min-width: 768px) {
+	.eai-resultsimplepie-wrapper,
+	.eai-resultsimple-wrapper {
+		width: 30%;
+	}
+}
 .eai-resultsimplepie-wrapper,
 .eai-resultsimple-wrapper {
-	width: 30%;
+	//width: 30%;
 	float: left;
 	padding: 5px;
 	margin: 5px;
