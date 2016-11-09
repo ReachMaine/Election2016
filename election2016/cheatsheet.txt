@@ -1,0 +1,24 @@
+electionresultsrace
+	 'race' => '',
+      'title' => "yes",
+      'charttype' => "pie",
+      'partial' => "no",
+
+electionresultsimple
+    'race' => '',
+    'link' => '',
+    'unvoted' => false,  // by default, dont show the unvoted
+    'primary' => false,
+    'title' => "yes",
+    'partial' => "no"
+
+electionresultspie
+ 	 'race' => '',
+     'title' => "yes",
+     'charttype' => "pie",
+     'partial' => "no",
+     'link' => '',
+
+
+electionresultstown
+	'town' => 'something',
