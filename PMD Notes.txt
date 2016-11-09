@@ -1,0 +1,24 @@
+Notes
+- order candidates as well as races on input form (same as ballots coming)
+- make sure reported is a boolean & test as boolean.
+- how to show town counsel where top 3 of 4 win. (bar might work)
+- simplepie:  check for only one race OR only one candidate to not show.
+
+Chart Notes
+ - height of bars2
+ - bar chart proportions.
+ - simplepie width s.t. we can put inside stories. (min-width?)
+ - space after pie & before pie2
+
+
+Geeky stuff.
+ - make plug s.t. one code base
+ 	with defaults for unofficial text & partial text.
+ 	loading google charts init out of header 
+ 	css for it contained in one place.
+ - make race one function with inputs
+	that builds the piedata, but different outputs.
+ - 
+
+ Feedback 
+ 	Jack: would like one page to see all results, somewhere. 

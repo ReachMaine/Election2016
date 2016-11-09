@@ -412,7 +412,7 @@ $link = $a['link'];
 
                    //$chart_options = "{title:'".$race."'".$str_colors.$chart_areaoption."}"; // ,chartArea:{'width':'50%', height:'50%'}
                    $voter_options = "{title:'Profile of unreturned precincts',".$str_votercolors.$chart_areaoption."}";
-                   $jsreturn = "<script>";
+                   $jsreturn = '<script data-cfasync="false" type="text/javascript">';
                    //$jsreturn = "google.charts.load('current', {'packages':['corechart','bar']});";
                    $jsreturn .= "google.setOnLoadCallback(drawChart);";
                    $jsreturn .= "function drawChart(){";
