@@ -4,6 +4,9 @@ Notes
 - how to show town counsel where top 3 of 4 win. (bar might work)
 - simplepie:  check for only one race OR only one candidate to not show.
 - only show title if results (and still check title param)
+- Town pages.
+    - Put ballot preview & Polling Info in a div s.t. we could hide it easier to hide all at once.
+    - Town display is BORING!!! need something here.
 
 Chart Notes
  - height of bars2

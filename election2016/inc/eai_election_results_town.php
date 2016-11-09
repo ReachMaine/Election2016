@@ -60,7 +60,7 @@ function electionResults_Town ($atts) {
                 $indraceresults = $wpdb->get_results($indracequery);
                 //echo "<pre>";     var_dump($indraceresults);      echo "</pre>";
                 if ($indraceresults) {
-                    $htmlreturn .= '<h4>'.$race->race.'</h4>';
+                    //$htmlreturn .= '<h4>'.$race->race.'</h4>';
                     $htmlreturn .= '<table class="eai-results eai-results-town"><tr class="eai-results-headerrow"><th class="eai-results-header">'.$race->race.'</th><th class="eai-result-votes">Votes</th></tr>';
                     $count_voted = 0;
                     $num_candidates = 0;

@@ -442,11 +442,11 @@ function electionResults_Race2($atts) {
                     $chart2_options =  "{title:'".$race."'";
                     $chart2_options .= $str_colors;
                     $chart2_options .= ",chartArea:{'width': '60%','height': '90%'}";
-                    $chart2_options .= ',height: '.$count_precincts*12;
+                    $chart2_options .= ',height: '.$count_precincts*$num_candidates*12;
                     $chart2_options .= "}";
 
-    //$htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
-    //$htmlreturn .= "<pre>Chart options:".$chart_options."</pre>";
+                          //$htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
+                          //$htmlreturn .= "<pre>Chart options:".$chart_options."</pre>";
                     $jsreturn .= "var options = ".$chart_options.";";
                     $jsreturn .= "chart.draw(data,options);";
                     if ($show_pie2) {
