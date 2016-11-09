@@ -403,7 +403,7 @@ $link = $a['link'];
                  if (  $num_candidates > 1) {
                    switch ($charttype) {
                      case 'bar':
-                         $chart_areaoption =  ",chartArea:{'width': '50%','height': '90%'}";
+                         $chart_areaoption =  ",chartArea:{'width': '40%','height': '90%'}";
                          break;
                      case 'pie':
                          $chart_areaoption =  "chartArea:{'width': '90%','height': '80%'}";
@@ -420,7 +420,10 @@ $link = $a['link'];
                    switch ($charttype) {
                        case "pie" :
                           $chart_options = "{";
-                          $chart_options .= $str_colors.",".$chart_areaoption.",legend: {position:'top'}";
+                            if ($str_colors) {
+                              $chart_options .= $str_colors.",";
+                            }
+                          $chart_options .= $chart_areaoption.",legend: {position:'top'}";
                           $chart_options .= ",'height':150";
                           $chart_options .= "}";
                           $jsreturn .= "var chart = new google.visualization.PieChart(document.getElementById('racedisplay-pie".$raceorder."'));";
@@ -438,8 +441,8 @@ $link = $a['link'];
                          $jsreturn .= "var chart = new google.visualization.BarChart(document.getElementById('racedisplay-pie".$raceorder."'));";
                          break;
                    }
-   //$htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
-   //$htmlreturn .= "<pre>Chart options:".$chart_options."</pre>";
+  $htmlreturn .= "<p>PieData</p><pre>".$str_piedata."</pre>";
+  $htmlreturn .= "<pre>Chart options:".$chart_options."</pre>";
                    $jsreturn .= "var options = ".$chart_options.";";
                    $jsreturn .= "chart.draw(data,options);";
                    $jsreturn .="} </script>";
